@@ -1,0 +1,338 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   Aston design tokens
+   Values extracted 1:1 from the original Framer project's colour styles.
+   Change these to re-theme the whole template.
+   ========================================================================== */
+
+@theme {
+  /* ---- Breakpoints: the three the Framer project actually uses ---------- */
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 810px;
+  --breakpoint-desktop: 1320px;
+
+  /* ---- Surfaces -------------------------------------------------------- */
+  --color-page: #f4f7fa; /* body background — RECOVA brand */
+  --color-surface: #ffffff;
+  --color-surface-muted: #f2f4f6;
+  --color-surface-subtle: #eff1f4;
+  --color-surface-alt: #edeff3;
+  --color-surface-tint: #e8f1ff; /* RECOVA blue-soft */
+  --color-surface-dark: #06345d; /* RECOVA navy — nav pill */
+
+  /* ---- Ink ------------------------------------------------------------- */
+  --color-ink-900: #1d2939; /* RECOVA ink */
+  --color-ink-800: #1d2939;
+  --color-ink-700: #2a3a4d;
+  --color-ink-600: #3a4a5d;
+  --color-ink-500: #475467; /* RECOVA ink-2 */
+  --color-ink-400: #55637a;
+  --color-ink-300: #66748a;
+  --color-ink-250: #7a8799;
+  --color-ink-200: #8a97a8;
+  --color-ink-100: #a3aebd;
+  --color-ink-50: #c6ced9;
+
+  /* ---- Accent ---------------------------------------------------------- */
+  --color-accent: #065cf5; /* RECOVA blue */
+  --color-accent-600: #2a74f7;
+  --color-accent-400: #4c8ff9;
+  --color-accent-300: #7fb2ff;
+  --color-accent-100: #cce0ff;
+
+  /* Changelog timeline: the entry dots and the marker that rides the rail. */
+  --color-marker: #16a34a; /* RECOVA green */
+
+  /* ---- Borders --------------------------------------------------------- */
+  --color-line: #e1e4eb;
+  --color-line-soft: #e6e9ee;
+  --color-line-strong: #dadee6;
+  --color-line-cool: #c1c8d6;
+
+  /* ---- Radii ----------------------------------------------------------- */
+  --radius-card: 16px;
+  --radius-panel: 20px;
+  --radius-section: 40px;
+  --radius-pill: 100px;
+
+  /* ---- Type ------------------------------------------------------------ */
+  --font-display: var(--font-clash-grotesk), "Clash Grotesk", sans-serif;
+  --font-sans: var(--font-instrument-sans), "Instrument Sans", sans-serif;
+  --font-numeric: var(--font-manrope), Manrope, sans-serif;
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --ease-framer: cubic-bezier(0.12, 0.23, 0.5, 1);
+}
+
+/* Shadows lifted verbatim from the Framer project. */
+:root {
+  --shadow-widget: 3.20868px 16.0434px 24.0651px 0 rgba(0, 0, 51, 0.03),
+    1.50971px 7.54853px 11.3228px 0 rgba(0, 0, 51, 0.03),
+    0 0 0 4px rgba(255, 255, 255, 0.6);
+  --shadow-widget-alt: 0 3.62205px 2.17323px -1.44882px rgba(0, 0, 0, 0.02),
+    0 2.17323px 1.44882px -1.44882px rgba(0, 0, 0, 0.06),
+    2.73989px 13.6995px 20.5492px 0 rgba(0, 0, 51, 0.03),
+    0 0 0 4px rgba(255, 255, 255, 0.6);
+  --shadow-badge: 0 10px 41px 0 rgba(0, 0, 0, 0.04),
+    0 2px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow-ring: 0 0 0 4px #ffffff;
+  --shadow-ring-6: 0 0 0 6px #ffffff, 0 17px 24px 0 rgba(178, 178, 178, 0.08);
+}
+
+/* =============================================================================
+   Fonts — Clash Grotesk is self-hosted (Fontshare licence, see README).
+   Instrument Sans and Manrope come from next/font/google in src/lib/fonts.ts.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/ClashGrotesk-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/ClashGrotesk-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/ClashGrotesk-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-page);
+    color: var(--color-ink-800);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  /* Framer renders every heading at a fixed size; no browser defaults. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* =============================================================================
+   Keyframes
+   ========================================================================== */
+
+@keyframes marquee-x {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-y {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+/* =============================================================================
+   Utilities
+   ========================================================================== */
+
+/* The <main> wrapper. Widths, padding and section rhythm are the exact
+   values the Framer project uses at each of its three breakpoints. */
+@utility page-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 94%;
+  max-width: 1380px;
+  /* Framer centres this wrapper inside a flex column; <body> is a block box
+     here, so the auto margins are what keep every section on the page axis. */
+  margin-inline: auto;
+  padding: 200px 0 0;
+  gap: 200px;
+  /* `clip`, not `hidden`: both contain the sections that bleed past the page
+     axis, but `hidden` would make this a scroll container and break the
+     position:sticky elements inside it (the changelog rail marker). */
+  overflow: clip;
+  position: relative;
+
+  @media (min-width: 810px) and (max-width: 1319px) {
+    width: 100%;
+    max-width: 800px;
+    padding: 150px 30px 0;
+    gap: 150px;
+  }
+
+  @media (max-width: 809px) {
+    width: 100%;
+    max-width: 450px;
+    padding: 80px 16px 0;
+    gap: 80px;
+  }
+}
+
+/* Default section shell: 1200px wide, centred, shrinking with the viewport. */
+@utility section-shell {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+@utility text-balance-heading {
+  text-wrap: balance;
+}
+
+/* Framer draws every border as a ::after overlay, so it never takes space.
+   Use this instead of Tailwind's `border` on anything ported from the design:
+   a real border shrinks the content box, and on nested cards that error
+   compounds until text wraps differently from the original.
+   Override the colour with [--hairline:var(--color-line-soft)]. */
+@utility hairline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: var(--hairline-width, 1px) solid var(--hairline, var(--color-line));
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+/* Ordered lists in rich text. The source lays these out as a table so the
+   numbers form their own column and wrapped lines align with the text rather
+   than hanging under the marker. */
+@utility rich-list {
+  display: table;
+  counter-reset: list-item;
+
+  & > li {
+    display: table-row;
+    list-style: none;
+    /* `table-row` loses the automatic list-item increment that `list-item`
+       display gives, so it has to be declared. */
+    counter-increment: list-item;
+  }
+
+  & > li::before {
+    content: counter(list-item) ".";
+    display: table-cell;
+    padding-right: 8.56px;
+    white-space: nowrap;
+  }
+}
+
+/* Horizontal marquee track: children are duplicated once, so -50% loops.
+   The duration is written literally (not via a theme token) so the
+   --marquee-duration variable each ticker sets stays live at runtime. */
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-x var(--marquee-duration, 40s) linear infinite;
+}
+
+@utility marquee-track-y {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  will-change: transform;
+  animation: marquee-y var(--marquee-duration, 40s) linear infinite;
+}
+
+@utility marquee-reverse {
+  animation-direction: reverse;
+}
+
+/* Edge fade used by every marquee in the project. */
+@utility marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 25%,
+    #000 75%,
+    transparent 100%
+  );
+}
+
+@utility marquee-mask-y {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 25%,
+    #000 75%,
+    transparent 100%
+  );
+}
+
+/* =============================================================================
+   Reduced motion — pause every looping animation and neutralise entrances.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .marquee-track,
+  .marquee-track-y {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="265" height="175" viewBox="0 0 265 175" fill="none">
+  <rect x="1" y="1" width="263" height="173" rx="16" fill="#fff"/>
+  <rect x="1" y="1" width="263" height="173" rx="16" stroke="#E8F1FF" stroke-width="1"/>
+  <!-- metric header -->
+  <rect x="14" y="13" width="76" height="20" rx="5" fill="#E8F1FF"/>
+  <rect x="14" y="19" width="48" height="8" rx="4" fill="#065CF5" opacity="0.5"/>
+  <!-- big number -->
+  <text x="14" y="70" font-family="Arial" font-size="34" font-weight="800" fill="#1D2939">+18,6%</text>
+  <rect x="14" y="80" width="110" height="8" rx="4" fill="#475467" opacity="0.5"/>
+  <!-- bar chart -->
+  <rect x="14" y="100" width="20" height="30" rx="4" fill="#E8F1FF"/>
+  <rect x="40" y="90" width="20" height="40" rx="4" fill="#E8F1FF"/>
+  <rect x="66" y="80" width="20" height="50" rx="4" fill="#E8F1FF"/>
+  <rect x="92" y="70" width="20" height="60" rx="4" fill="#065CF5"/>
+  <rect x="118" y="62" width="20" height="68" rx="4" fill="#065CF5"/>
+  <rect x="144" y="55" width="20" height="75" rx="4" fill="#065CF5"/>
+  <rect x="170" y="48" width="20" height="82" rx="4" fill="#16A34A"/>
+  <rect x="196" y="42" width="20" height="88" rx="4" fill="#16A34A"/>
+  <!-- trend line -->
+  <rect x="14" y="140" width="202" height="2" rx="1" fill="#E8F1FF"/>
+  <rect x="14" y="150" width="120" height="8" rx="4" fill="#16A34A"/>
+  <text x="14" y="166" font-family="Arial" font-size="10" font-weight="600" fill="#16A34A">▲ +3,2 pts este mês</text>
+</svg>

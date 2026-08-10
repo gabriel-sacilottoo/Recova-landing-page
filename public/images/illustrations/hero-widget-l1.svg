@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="267" height="176" viewBox="0 0 267 176" fill="none">
+  <rect x="1" y="1" width="265" height="174" rx="16" fill="#fff"/>
+  <rect x="1" y="1" width="265" height="174" rx="16" stroke="#E8F1FF" stroke-width="1"/>
+  <!-- header -->
+  <rect x="14" y="13" width="77" height="20" rx="5" fill="#E8F1FF"/>
+  <rect x="14" y="19" width="50" height="8" rx="4" fill="#065CF5" opacity="0.5"/>
+  <rect x="200" y="15" width="52" height="16" rx="8" fill="#16A34A"/>
+  <text x="226" y="27" font-family="Arial" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">AO VIVO</text>
+  <!-- product card -->
+  <rect x="14" y="48" width="239" height="52" rx="10" fill="#F4F7FA"/>
+  <rect x="22" y="56" width="36" height="36" rx="8" fill="#E8F1FF"/>
+  <rect x="22" y="70" width="20" height="8" rx="4" fill="#065CF5" opacity="0.4"/>
+  <rect x="66" y="58" width="90" height="9" rx="4.5" fill="#1D2939" opacity="0.75"/>
+  <rect x="66" y="72" width="60" height="8" rx="4" fill="#475467" opacity="0.5"/>
+  <rect x="66" y="85" width="40" height="8" rx="4" fill="#16A34A"/>
+  <rect x="200" y="62" width="45" height="22" rx="6" fill="#065CF5"/>
+  <text x="222" y="77" font-family="Arial" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Resgatar</text>
+  <!-- second product -->
+  <rect x="14" y="108" width="239" height="52" rx="10" fill="#F4F7FA"/>
+  <rect x="22" y="116" width="36" height="36" rx="8" fill="#E8F1FF"/>
+  <rect x="22" y="130" width="20" height="8" rx="4" fill="#065CF5" opacity="0.4"/>
+  <rect x="66" y="118" width="80" height="9" rx="4.5" fill="#1D2939" opacity="0.75"/>
+  <rect x="66" y="132" width="55" height="8" rx="4" fill="#475467" opacity="0.5"/>
+  <rect x="66" y="145" width="40" height="8" rx="4" fill="#16A34A"/>
+  <rect x="200" y="122" width="45" height="22" rx="6" fill="#065CF5"/>
+  <text x="222" y="137" font-family="Arial" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Resgatar</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="476" height="224" viewBox="0 0 476 224" fill="none">
+  <rect width="476" height="224" fill="#141126"/>
+  <!-- measurable result: dashboard card with attribution -->
+  <rect x="40" y="30" width="396" height="170" rx="16" fill="#2A2450"/>
+  <rect x="40" y="30" width="396" height="40" rx="16" fill="#1E1A38"/>
+  <text x="60" y="56" font-family="Arial" font-size="16" font-weight="700" fill="#fff">Atribuição real</text>
+  <circle cx="400" cy="50" r="8" fill="#16A34A"/>
+  <!-- metric -->
+  <text x="60" y="110" font-family="Arial" font-size="40" font-weight="800" fill="#fff">+R$ 549,90</text>
+  <text x="60" y="135" font-family="Arial" font-size="15" font-weight="500" fill="#8B87B8">Venda atribuída à RECOVA</text>
+  <!-- attribution row -->
+  <rect x="60" y="150" width="356" height="34" rx="8" fill="#1E1A38"/>
+  <text x="80" y="172" font-family="Arial" font-size="14" font-weight="600" fill="#8B87B8">Exposição → Interação → Clique → Compra</text>
+  <text x="60" y="200" font-family="Arial" font-size="14" font-weight="700" fill="#16A34A">✓ 100% mensurável</text>
+</svg>

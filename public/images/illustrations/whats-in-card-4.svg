@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="476" height="224" viewBox="0 0 476 224" fill="none">
+  <rect width="476" height="224" fill="#141126"/>
+  <!-- layer on top of native search -->
+  <rect x="60" y="40" width="356" height="60" rx="12" fill="#2A2450"/>
+  <text x="90" y="78" font-family="Arial" font-size="18" font-weight="700" fill="#8B87B8">Busca nativa</text>
+  <!-- RECOVA layer -->
+  <rect x="60" y="110" width="356" height="60" rx="12" fill="#065CF5"/>
+  <text x="90" y="148" font-family="Arial" font-size="18" font-weight="700" fill="#fff">Camada RECOVA</text>
+  <!-- arrow down -->
+  <path d="M238 100 v10" stroke="#16A34A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M238 110 l-10 -8 h20 z" fill="#16A34A"/>
+  <!-- result -->
+  <rect x="60" y="180" width="356" height="30" rx="8" fill="#2A2450"/>
+  <text x="90" y="200" font-family="Arial" font-size="15" font-weight="700" fill="#16A34A">✓ Venda recuperada sem trocar a busca</text>
+</svg>

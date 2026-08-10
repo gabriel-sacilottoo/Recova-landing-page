@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="684" height="224" viewBox="0 0 684 224" fill="none">
+  <rect width="684" height="224" fill="#141126"/>
+  <!-- recovered sales: rising bar chart with checkmark -->
+  <rect x="60" y="150" width="60" height="40" rx="8" fill="#2A2450"/>
+  <rect x="140" y="120" width="60" height="70" rx="8" fill="#2A2450"/>
+  <rect x="220" y="90" width="60" height="100" rx="8" fill="#2A2450"/>
+  <rect x="300" y="60" width="60" height="130" rx="8" fill="#065CF5"/>
+  <rect x="380" y="40" width="60" height="150" rx="8" fill="#065CF5"/>
+  <rect x="460" y="20" width="60" height="170" rx="8" fill="#16A34A"/>
+  <!-- trend arrow -->
+  <path d="M520 190 L560 150" stroke="#16A34A" stroke-width="4" stroke-linecap="round"/>
+  <path d="M548 150 h12 v12" stroke="#16A34A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- checkmark badge -->
+  <circle cx="90" cy="60" r="34" fill="#16A34A"/>
+  <path d="M74 60 l11 11 20-22" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- label -->
+  <text x="60" y="210" font-family="Arial" font-size="16" font-weight="700" fill="#fff">+R$ 48,2k recuperados</text>
+</svg>

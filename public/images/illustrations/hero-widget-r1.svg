@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="174" height="82" viewBox="0 0 174 82" fill="none">
+  <rect x="1" y="1" width="172" height="80" rx="9" fill="#fff"/>
+  <rect x="1" y="1" width="172" height="80" rx="9" stroke="#E8F1FF" stroke-width="1"/>
+  <!-- success toast -->
+  <rect x="10" y="10" width="154" height="30" rx="8" fill="#F4F7FA"/>
+  <circle cx="24" cy="25" r="8" fill="#16A34A"/>
+  <path d="M20.5 25l2.5 2.5 4.5-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="38" y="20" width="80" height="7" rx="3.5" fill="#1D2939" opacity="0.7"/>
+  <rect x="38" y="30" width="55" height="6" rx="3" fill="#475467" opacity="0.5"/>
+  <!-- recovered value -->
+  <rect x="10" y="48" width="154" height="24" rx="8" fill="#E8F1FF"/>
+  <text x="20" y="64" font-family="Arial" font-size="11" font-weight="700" fill="#065CF5">+R$ 549,90</text>
+  <text x="100" y="64" font-family="Arial" font-size="10" font-weight="600" fill="#475467">atribuída à RECOVA</text>
+</svg>

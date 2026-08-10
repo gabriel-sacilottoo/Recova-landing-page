@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="476" height="224" viewBox="0 0 476 224" fill="none">
+  <rect width="476" height="224" fill="#141126"/>
+  <!-- search bar -->
+  <rect x="40" y="30" width="396" height="44" rx="12" fill="#2A2450"/>
+  <circle cx="70" cy="52" r="10" stroke="#8B87B8" stroke-width="3" fill="none"/>
+  <line x1="78" y1="60" x2="88" y2="70" stroke="#8B87B8" stroke-width="3" stroke-linecap="round"/>
+  <text x="100" y="58" font-family="Arial" font-size="18" font-weight="600" fill="#8B87B8">tênis de corrida</text>
+  <!-- zero results -->
+  <rect x="40" y="90" width="396" height="36" rx="10" fill="#3A1F2E"/>
+  <text x="60" y="114" font-family="Arial" font-size="16" font-weight="700" fill="#FF6B6B">0 resultados</text>
+  <!-- alternatives -->
+  <rect x="40" y="140" width="120" height="60" rx="10" fill="#2A2450"/>
+  <rect x="56" y="156" width="88" height="20" rx="6" fill="#065CF5"/>
+  <rect x="56" y="182" width="70" height="8" rx="4" fill="#8B87B8"/>
+  <rect x="178" y="140" width="120" height="60" rx="10" fill="#2A2450"/>
+  <rect x="194" y="156" width="88" height="20" rx="6" fill="#065CF5"/>
+  <rect x="194" y="182" width="70" height="8" rx="4" fill="#8B87B8"/>
+  <rect x="316" y="140" width="120" height="60" rx="10" fill="#065CF5"/>
+  <rect x="332" y="156" width="88" height="20" rx="6" fill="#fff" opacity="0.25"/>
+  <rect x="332" y="182" width="70" height="8" rx="4" fill="#fff" opacity="0.5"/>
+  <text x="376" y="120" font-family="Arial" font-size="14" font-weight="700" fill="#16A34A">3+ alternativas</text>
+</svg>
