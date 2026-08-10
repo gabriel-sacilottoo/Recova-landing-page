@@ -1,0 +1,13 @@
+Exit code: 0
+Wall time: 0.8 seconds
+Output:
+node_modules
+.next
+out
+.env*.local
+*.tsbuildinfo
+.DS_Store
+
+# Vercel
+.vercel
+
