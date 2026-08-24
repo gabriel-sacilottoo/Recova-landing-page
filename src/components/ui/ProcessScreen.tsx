@@ -13,34 +13,34 @@ interface ProcessScreenProps {
 
 const content: Record<number, { title: string; rows: { label: string; value: string; ok?: boolean }[]; footer: string }> = {
   1: {
-    title: "Conectar loja",
+    title: "Connect store",
     rows: [
-      { label: "Plataforma", value: "Shopify" },
-      { label: "Loja", value: "minhaloja.com.br" },
-      { label: "Busca nativa", value: "Detectada" },
-      { label: "Camada RECOVA", value: "Ativa" },
+      { label: "Platform", value: "Shopify" },
+      { label: "Store", value: "mystore.com" },
+      { label: "Native search", value: "Detected" },
+      { label: "RECOVA layer", value: "Active" },
     ],
-    footer: "✓ Conectado em 2 min",
+    footer: "✓ Connected in 2 min",
   },
   2: {
-    title: "Piloto ativo",
+    title: "Pilot active",
     rows: [
-      { label: "Buscas monitoradas", value: "12.480" },
-      { label: "Falhas detectadas", value: "1.842" },
-      { label: "Conversas iniciadas", value: "1.120" },
-      { label: "Vendas recuperadas", value: "214" },
+      { label: "Searches monitored", value: "12,480" },
+      { label: "Failures detected", value: "1,842" },
+      { label: "Conversations started", value: "1,120" },
+      { label: "Sales recovered", value: "214" },
     ],
-    footer: "✓ 18,6% de recuperação",
+    footer: "✓ 18.6% recovery rate",
   },
   3: {
-    title: "Escala & métricas",
+    title: "Scale & metrics",
     rows: [
-      { label: "Receita resgatada", value: "R$ 48,2k" },
-      { label: "Taxa de conversão", value: "+12%" },
-      { label: "Eventos atribuídos", value: "100%" },
-      { label: "Atribuição", value: "100% real" },
+      { label: "Revenue recovered", value: "$48.2k" },
+      { label: "Conversion rate", value: "+12%" },
+      { label: "Attributed events", value: "100%" },
+      { label: "Attribution", value: "100% real" },
     ],
-    footer: "✓ Painel em tempo real",
+    footer: "✓ Real-time dashboard",
   },
 };
 

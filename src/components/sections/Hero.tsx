@@ -243,7 +243,7 @@ export function Hero() {
                 href="/contact"
                 className="group flex items-center gap-1.5 text-[16px] leading-6 font-semibold text-ink-500 transition-colors duration-200 hover:text-ink-800"
               >
-                ou agende uma demo
+                or book a demo
                 <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Link>
             </motion.div>
@@ -256,15 +256,15 @@ export function Hero() {
             >
               <span className="flex items-center gap-1.5 text-[14px] leading-6 text-ink-400">
                 <span className="flex size-4 items-center justify-center rounded-full bg-[#16a34a]/15 text-[10px] text-[#16a34a]">✓</span>
-                Piloto de 30 dias grátis
+                Free 30-day pilot
               </span>
               <span className="flex items-center gap-1.5 text-[14px] leading-6 text-ink-400">
                 <span className="flex size-4 items-center justify-center rounded-full bg-[#16a34a]/15 text-[10px] text-[#16a34a]">✓</span>
-                Sem cartão de crédito
+                No credit card
               </span>
               <span className="flex items-center gap-1.5 text-[14px] leading-6 text-ink-400">
                 <span className="flex size-4 items-center justify-center rounded-full bg-[#16a34a]/15 text-[10px] text-[#16a34a]">✓</span>
-                Setup em 5 minutos
+                5-minute setup
               </span>
             </motion.div>
           </div>
@@ -297,8 +297,8 @@ export function Hero() {
                 </svg>
               </span>
               <span className="flex flex-col">
-                <span className="text-[12px] leading-4 font-semibold text-ink-800">+18,6% conversão</span>
-                <span className="text-[11px] leading-3.5 text-ink-400">com recuperação de busca</span>
+                <span className="text-[12px] leading-4 font-semibold text-ink-800">+18.6% conversion</span>
+                <span className="text-[11px] leading-3.5 text-ink-400">from search recovery</span>
               </span>
             </motion.div>
 
@@ -315,8 +315,8 @@ export function Hero() {
                 </svg>
               </span>
               <span className="flex flex-col">
-                <span className="text-[13px] leading-5 font-semibold text-ink-800">Rev resgatou uma venda</span>
-                <span className="text-[12px] leading-4 text-ink-400">“tênis de corrida” → R$ 549,90</span>
+                <span className="text-[13px] leading-5 font-semibold text-ink-800">Rev recovered a sale</span>
+                <span className="text-[12px] leading-4 text-ink-400">“running shoe” → $549.90</span>
               </span>
             </motion.div>
 
@@ -333,8 +333,8 @@ export function Hero() {
                 </svg>
               </span>
               <span className="flex flex-col">
-                <span className="text-[13px] leading-5 font-semibold text-ink-800">Venda recuperada</span>
-                <span className="text-[12px] leading-4 text-ink-400">+R$ 549,90 · atribuída à RECOVA</span>
+                <span className="text-[13px] leading-5 font-semibold text-ink-800">Sale recovered</span>
+                <span className="text-[12px] leading-4 text-ink-400">+$549.90 · attributed to RECOVA</span>
               </span>
             </motion.div>
 

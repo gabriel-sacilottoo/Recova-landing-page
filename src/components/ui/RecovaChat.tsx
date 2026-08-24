@@ -6,8 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 /**
  * RECOVA — recovery chat mockup.
  * Shows the Rev agent rescuing a sale in real time: the shopper's failed
- * search becomes a conversation that ends in a recovered purchase. Replaces
- * the stock student photos the Aston template shipped with.
+ * search becomes a conversation that ends in a recovered purchase.
  *
  * Messages appear sequentially with a "typing…" indicator between turns,
  * so the mockup reads as a live conversation rather than a static print.
@@ -16,48 +15,48 @@ import { motion, AnimatePresence } from "motion/react";
 const messages = [
   {
     from: "shopper",
-    text: "procuro um tênis de corrida, mas não achei nada",
-    time: "agora",
+    text: "looking for a running shoe, but found nothing",
+    time: "now",
   },
   {
     from: "rev",
-    text: "Entendi! Você quer um tênis para corrida. Vou buscar opções com bom amortecimento e leveza. 🏃",
-    time: "agora",
+    text: "Got it! You want a running shoe. Let me find options with good cushioning and light weight. 🏃",
+    time: "now",
   },
   {
     from: "rev",
-    text: "Encontrei 3 opções que combinam com você:",
-    time: "agora",
+    text: "I found 3 options that fit you:",
+    time: "now",
   },
   {
     from: "product",
-    text: "Nike Air Zoom Pegasus 41 — R$ 549,90",
-    time: "agora",
+    text: "Nike Air Zoom Pegasus 41 — $549.90",
+    time: "now",
   },
   {
     from: "product",
-    text: "Adidas Ultraboost 5 — R$ 599,00",
-    time: "agora",
+    text: "Adidas Ultraboost 5 — $599.00",
+    time: "now",
   },
   {
     from: "shopper",
-    text: "o Pegasus serve no meu número?",
-    time: "agora",
+    text: "is the Pegasus available in my size?",
+    time: "now",
   },
   {
     from: "rev",
-    text: "Sim! Temos o 40 ao 44 em estoque. Quer que eu adicione ao carrinho?",
-    time: "agora",
+    text: "Yes! We have sizes 40 to 44 in stock. Want me to add it to your cart?",
+    time: "now",
   },
   {
     from: "shopper",
-    text: "pode adicionar!",
-    time: "agora",
+    text: "yes, add it!",
+    time: "now",
   },
   {
     from: "success",
-    text: "✓ Venda recuperada — R$ 549,90 atribuída à RECOVA",
-    time: "agora",
+    text: "✓ Sale recovered — $549.90 attributed to RECOVA",
+    time: "now",
   },
 ];
 
@@ -99,15 +98,15 @@ export function RecovaChat() {
             R
           </span>
           <div className="flex flex-col">
-            <span className="text-[13px] font-semibold text-ink-800">Rev · Agente de recuperação</span>
+            <span className="text-[13px] font-semibold text-ink-800">Rev · Recovery agent</span>
             <span className="flex items-center gap-1.5 text-[11px] font-medium text-[#16a34a]">
               <span className="size-1.5 animate-pulse rounded-full bg-[#16a34a]" />
-              online · respondendo agora
+              online · replying now
             </span>
           </div>
         </div>
         <span className="rounded-pill bg-[#e8f1ff] px-2.5 py-1 text-[11px] font-semibold text-[#065cf5]">
-          Busca: “tênis de corrida”
+          Query: “running shoe”
         </span>
       </div>
 
@@ -130,11 +129,11 @@ export function RecovaChat() {
                     </span>
                     <div className="flex flex-col">
                       <span className="text-[13px] font-semibold text-ink-800">{m.text}</span>
-                      <span className="text-[11px] font-medium text-ink-400">em estoque · envio rápido</span>
+                      <span className="text-[11px] font-medium text-ink-400">in stock · fast shipping</span>
                     </div>
                   </div>
                   <span className="rounded-pill bg-[#065cf5] px-3 py-1.5 text-[12px] font-semibold text-white">
-                    Adicionar
+                    Add
                   </span>
                 </motion.div>
               );

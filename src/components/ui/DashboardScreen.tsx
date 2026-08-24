@@ -7,10 +7,10 @@
  */
 
 const variants = [
-  { title: "Vendas recuperadas", value: "+1.284", delta: "+12,4%" },
-  { title: "Receita resgatada", value: "R$ 48,2k", delta: "+9,8%" },
-  { title: "Taxa de recuperação", value: "18,6%", delta: "+3,2 pts" },
-  { title: "Eventos atribuídos", value: "100%", delta: "em tempo real" },
+  { title: "Recovered sales", value: "+1,284", delta: "+12.4%" },
+  { title: "Recovered revenue", value: "$48.2k", delta: "+9.8%" },
+  { title: "Recovery rate", value: "18.6%", delta: "+3.2 pts" },
+  { title: "Attributed events", value: "100%", delta: "in real time" },
 ];
 
 export function DashboardScreen({ index }: { index: number }) {
@@ -18,10 +18,10 @@ export function DashboardScreen({ index }: { index: number }) {
   return (
     <div className="flex h-full w-full flex-col overflow-hidden rounded-[18px] bg-surface">
       <div className="flex items-center justify-between border-b border-line bg-surface-muted px-3 py-2">
-        <span className="text-[11px] font-semibold text-ink-800">Painel RECOVA</span>
+        <span className="text-[11px] font-semibold text-ink-800">RECOVA dashboard</span>
         <span className="flex items-center gap-1 text-[9px] font-semibold text-[#065cf5]">
           <span className="size-1 animate-pulse rounded-full bg-[#065cf5]" />
-          AO VIVO
+          LIVE
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-3">
@@ -40,9 +40,9 @@ export function DashboardScreen({ index }: { index: number }) {
           ))}
         </div>
         <div className="rounded-lg border border-line bg-surface-muted p-2.5">
-          <p className="text-[10px] font-medium text-ink-400">Último resgate</p>
-          <p className="mt-0.5 text-[11px] font-semibold text-ink-800">“tênis de corrida”</p>
-          <p className="text-[10px] font-medium text-[#16a34a]">✓ R$ 549,90 recuperado</p>
+          <p className="text-[10px] font-medium text-ink-400">Last rescue</p>
+          <p className="mt-0.5 text-[11px] font-semibold text-ink-800">“running shoe”</p>
+          <p className="text-[10px] font-medium text-[#16a34a]">✓ $549.90 recovered</p>
         </div>
       </div>
     </div>

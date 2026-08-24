@@ -5,17 +5,16 @@ import { motion, useInView } from "motion/react";
 
 /**
  * RECOVA — product dashboard mockup.
- * A hand-built, realistic preview of the recovery dashboard, replacing the
- * stock photo the Aston template shipped with. Uses the authoritative brand
- * colours and shows the product actually doing its job: recovering sales
- * from failed searches.
+ * A hand-built, realistic preview of the recovery dashboard, using the
+ * authoritative brand colours and showing the product actually doing its
+ * job: recovering sales from failed searches.
  */
 
 const recovered = [
-  { query: "tênis de corrida", intent: "Corrida / amortecedor", product: "Nike Air Zoom Pegasus 41", price: "R$ 549,90", status: "Venda recuperada", time: "agora" },
-  { query: "vestido preto", intent: "Festa / elegante", product: "Vestido Midi Seda Preta", price: "R$ 329,90", status: "Venda recuperada", time: "há 2 min" },
-  { query: "fone bluetooth", intent: "Cancelamento de ruído", product: "JBL Tune 770NC", price: "R$ 499,00", status: "Venda recuperada", time: "há 5 min" },
-  { query: "cadeira gamer", intent: "Ergonômica / ajustável", product: "Cadeira ThunderX3", price: "R$ 1.199,00", status: "Venda recuperada", time: "há 9 min" },
+  { query: "running shoe", intent: "Running / cushioning", product: "Nike Air Zoom Pegasus 41", price: "$549.90", status: "Sale recovered", time: "now" },
+  { query: "black dress", intent: "Party / elegant", product: "Black Midi Silk Dress", price: "$329.90", status: "Sale recovered", time: "2m ago" },
+  { query: "bluetooth headset", intent: "Noise cancelling", product: "JBL Tune 770NC", price: "$499.00", status: "Sale recovered", time: "5m ago" },
+  { query: "gaming chair", intent: "Ergonomic / adjustable", product: "ThunderX3 Chair", price: "$1,199.00", status: "Sale recovered", time: "9m ago" },
 ];
 
 const bars = [42, 58, 47, 66, 52, 74, 61, 82, 69, 88, 77, 95];
@@ -42,7 +41,7 @@ function CountUp({ to, prefix = "", suffix = "", decimals = 0 }: { to: number; p
   return (
     <span ref={ref} className="font-numeric">
       {prefix}
-      {val.toLocaleString("pt-BR", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}
+      {val.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}
       {suffix}
     </span>
   );
@@ -63,7 +62,7 @@ export function RecovaDashboard() {
           app.recova.ai
         </div>
         <div className="flex items-center gap-2">
-          <span className="rounded-pill bg-surface px-3 py-1 text-[12px] font-semibold text-ink-600">Últimos 30 dias</span>
+          <span className="rounded-pill bg-surface px-3 py-1 text-[12px] font-semibold text-ink-600">Last 30 days</span>
         </div>
       </div>
 
@@ -73,33 +72,33 @@ export function RecovaDashboard() {
           {/* KPI row */}
           <div className="grid grid-cols-3 gap-4">
             <div className="rounded-card border border-line bg-surface-muted p-4">
-              <p className="text-[12px] font-medium text-ink-400">Vendas recuperadas</p>
+              <p className="text-[12px] font-medium text-ink-400">Recovered sales</p>
               <p className="mt-1 text-[30px] leading-none font-bold tracking-tight text-ink-900">
                 <CountUp to={1284} prefix="+" />
               </p>
               <p className="mt-2 flex items-center gap-1 text-[12px] font-semibold text-[#16a34a]">
                 <span className="flex size-4 items-center justify-center rounded-full bg-[#16a34a]/15 text-[9px]">▲</span>
-                12,4% vs. mês anterior
+                12.4% vs. last month
               </p>
             </div>
             <div className="rounded-card border border-line bg-surface-muted p-4">
-              <p className="text-[12px] font-medium text-ink-400">Receita resgatada</p>
+              <p className="text-[12px] font-medium text-ink-400">Recovered revenue</p>
               <p className="mt-1 text-[30px] leading-none font-bold tracking-tight text-ink-900">
-                <CountUp to={48.2} prefix="R$ " suffix="k" decimals={1} />
+                <CountUp to={48.2} prefix="$" suffix="k" decimals={1} />
               </p>
               <p className="mt-2 flex items-center gap-1 text-[12px] font-semibold text-[#16a34a]">
                 <span className="flex size-4 items-center justify-center rounded-full bg-[#16a34a]/15 text-[9px]">▲</span>
-                9,8% vs. mês anterior
+                9.8% vs. last month
               </p>
             </div>
             <div className="rounded-card border border-line bg-surface-muted p-4">
-              <p className="text-[12px] font-medium text-ink-400">Taxa de recuperação</p>
+              <p className="text-[12px] font-medium text-ink-400">Recovery rate</p>
               <p className="mt-1 text-[30px] leading-none font-bold tracking-tight text-ink-900">
                 <CountUp to={18.6} suffix="%" decimals={1} />
               </p>
               <p className="mt-2 flex items-center gap-1 text-[12px] font-semibold text-[#16a34a]">
                 <span className="flex size-4 items-center justify-center rounded-full bg-[#16a34a]/15 text-[9px]">▲</span>
-                3,2 pts
+                3.2 pts
               </p>
             </div>
           </div>
@@ -107,13 +106,13 @@ export function RecovaDashboard() {
           {/* chart */}
           <div className="mt-6">
             <div className="flex items-center justify-between">
-              <p className="text-[13px] font-semibold text-ink-700">Vendas recuperadas por dia</p>
+              <p className="text-[13px] font-semibold text-ink-700">Recovered sales per day</p>
               <div className="flex items-center gap-3 text-[12px] font-medium text-ink-400">
                 <span className="flex items-center gap-1.5">
                   <span className="size-2 rounded-full bg-[#065cf5]" /> RECOVA
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="size-2 rounded-full bg-[#c6ced9]" /> Busca nativa
+                  <span className="size-2 rounded-full bg-[#c6ced9]" /> Native search
                 </span>
               </div>
             </div>
@@ -138,14 +137,14 @@ export function RecovaDashboard() {
         {/* ---- right: live recovery feed ---- */}
         <div className="p-6">
           <div className="flex items-center justify-between">
-            <p className="text-[13px] font-semibold text-ink-700">Resgates ao vivo</p>
+            <p className="text-[13px] font-semibold text-ink-700">Live rescues</p>
             <span className="flex items-center gap-1.5 rounded-pill bg-[#e8f1ff] px-2.5 py-1 text-[11px] font-semibold text-[#065cf5]">
               <span className="size-1.5 animate-pulse rounded-full bg-[#065cf5]" />
-              AO VIVO
+              LIVE
             </span>
           </div>
           <div className="mt-4 flex flex-col gap-3">
-            {recovered.map((r, i) => (
+            {recovered.map((r) => (
               <div key={r.query} className="rounded-card border border-line bg-surface-muted p-3">
                 <div className="flex items-center justify-between">
                   <p className="text-[13px] font-semibold text-ink-800">
@@ -163,7 +162,7 @@ export function RecovaDashboard() {
                   </span>
                   <span className="flex items-center gap-1 text-[11px] font-medium text-ink-300">
                     <span className="size-1.5 rounded-full bg-[#16a34a]" />
-                    atribuída à RECOVA
+                    attributed to RECOVA
                   </span>
                 </div>
               </div>

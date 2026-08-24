@@ -77,9 +77,9 @@ export function Numbers() {
           </div>
         </div>
         <div className="flex flex-wrap items-start gap-4">
-          <Button href="/#pricing">Começar agora</Button>
+          <Button href="/#pricing">Start now</Button>
           <Button href="/contact" variant="muted">
-            Falar conosco
+            Talk to us
           </Button>
         </div>
       </div>

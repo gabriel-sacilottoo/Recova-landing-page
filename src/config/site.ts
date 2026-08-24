@@ -1,6 +1,7 @@
 /**
  * RECOVA — central template configuration.
  * Adapted from the Aston template for the RECOVA product.
+ * English copy — new solution (full search, Quality Gate, safe substitution).
  */
 
 export interface NavLink {
@@ -23,7 +24,8 @@ export const siteConfig = {
   /** Brand name, used in metadata, alt text and the footer. */
   name: "RECOVA",
   /** One-line positioning statement shown in the footer. */
-  tagline: "A camada de IA que recupera vendas quando a busca nativa falha.",
+  tagline:
+    "The AI layer that prevents your store from selling the wrong product — and recovers the sale when search fails.",
   /**
    * Canonical production URL — feeds canonicals, the sitemap and OG tags.
    */
@@ -46,79 +48,79 @@ export const siteConfig = {
 
   /** Primary navigation shown inside the header pill. */
   nav: [
-    { label: "Início", href: "/" },
-    { label: "Preços", href: "/pricing" },
+    { label: "Home", href: "/" },
+    { label: "Pricing", href: "/pricing" },
   ] satisfies NavLink[],
 
   /** Contents of the header's "All Pages" dropdown. */
   navDropdown: {
-    label: "Páginas",
+    label: "Pages",
     links: [
-      { label: "Início", href: "/" },
-      { label: "Preços", href: "/pricing" },
-      { label: "Contato", href: "/contact" },
-      { label: "Lista de espera", href: "/waitlist" },
+      { label: "Home", href: "/" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "Contact", href: "/contact" },
+      { label: "Waitlist", href: "/waitlist" },
       { label: "Changelog", href: "/changelog" },
-      { label: "Política de privacidade", href: "/privacy-policy" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "404", href: "/404" },
     ] satisfies NavLink[],
   },
 
   /** Header call-to-action. */
   cta: {
-    label: "Agendar demo",
+    label: "Book a demo",
     href: "/contact",
   },
 
   /** Hero call-to-action. */
   heroCta: {
-    label: "Começar piloto grátis",
+    label: "Start a free pilot",
     href: "/waitlist",
   },
 
   contact: {
-    generalEmail: "ola@recova.ai",
-    salesEmail: "vendas@recova.ai",
+    generalEmail: "hello@recova.ai",
+    salesEmail: "sales@recova.ai",
     bookACallUrl: "https://cal.com/",
   },
 
   /** Footer link columns. */
   footer: {
-    copyright: "RECOVA © 2026 — Recupere as vendas que sua busca perde",
+    copyright: "RECOVA © 2026 — Recover the sales your search loses",
     disclaimer:
-      "A RECOVA é uma camada de IA que atua sobre a busca nativa do seu e-commerce, recuperando vendas quando o shopper não encontra o que procura. Resultados podem variar conforme o tráfego e o catálogo de cada loja.",
+      "RECOVA is an AI layer that sits on top of your native e-commerce search, recovering sales when a shopper can't find the right product — and blocking unsafe substitutions that damage your brand. Results vary by store traffic and catalog.",
     columns: [
       {
-        title: "Seções",
+        title: "Sections",
         links: [
-          { label: "Benefícios", href: "/#benefits" },
-          { label: "Recursos", href: "/#features" },
-          { label: "O que tem dentro", href: "/#what-in" },
-          { label: "Preços", href: "/#pricing" },
-          { label: "Números", href: "/#numbers" },
-          { label: "Comparação", href: "/#comparison" },
-          { label: "Começar", href: "/#get-started" },
+          { label: "Benefits", href: "/#benefits" },
+          { label: "Features", href: "/#features" },
+          { label: "What's inside", href: "/#what-in" },
+          { label: "Pricing", href: "/#pricing" },
+          { label: "Numbers", href: "/#numbers" },
+          { label: "Comparison", href: "/#comparison" },
+          { label: "Get started", href: "/#get-started" },
         ],
       },
       {
-        title: "Produto",
+        title: "Product",
         links: [
-          { label: "Como funciona", href: "/#mobile-app" },
-          { label: "Painel", href: "/#download-app" },
-          { label: "Destaque", href: "/#highlight" },
-          { label: "Sobre", href: "/#about" },
+          { label: "How it works", href: "/#mobile-app" },
+          { label: "Dashboard", href: "/#download-app" },
+          { label: "Highlights", href: "/#highlight" },
+          { label: "About", href: "/#about" },
           { label: "FAQ", href: "/#faq" },
-          { label: "Depoimentos", href: "/#testimonial" },
+          { label: "Testimonials", href: "/#testimonial" },
         ],
       },
       {
-        title: "Páginas",
+        title: "Pages",
         links: [
-          { label: "Início", href: "/" },
-          { label: "Contato", href: "/contact" },
-          { label: "Lista de espera", href: "/waitlist" },
-          { label: "Preços", href: "/pricing" },
-          { label: "Privacidade", href: "/privacy-policy" },
+          { label: "Home", href: "/" },
+          { label: "Contact", href: "/contact" },
+          { label: "Waitlist", href: "/waitlist" },
+          { label: "Pricing", href: "/pricing" },
+          { label: "Privacy", href: "/privacy-policy" },
           { label: "Changelog", href: "/changelog" },
         ],
       },
@@ -139,9 +141,9 @@ export const siteConfig = {
 
   seo: {
     titleTemplate: "%s",
-    defaultTitle: "RECOVA — Recupere as vendas que sua busca perde",
+    defaultTitle: "RECOVA — Stop selling the wrong product",
     defaultDescription:
-      "A camada de IA que recupera vendas quando a busca nativa de e-commerce falha. Conversa com o shopper, entende a intenção e mostra alternativas reais — sem trocar a busca que você já tem.",
+      "RECOVA is the AI layer that prevents your store from selling the wrong product and recovers the sale when search fails. Quality-gated search recovery with safe substitution — without replacing the search you already have.",
     twitterHandle: "@recova",
   },
 } as const;

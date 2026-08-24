@@ -7,12 +7,12 @@
  */
 
 const lines = [
-  { from: "shopper", text: "não achei meu tênis 😕" },
-  { from: "rev", text: "Vou buscar opções de corrida com amortecimento!" },
-  { from: "rev", text: "Encontrei 3 alternativas 👟" },
-  { from: "product", text: "Nike Pegasus 41 · R$ 549,90" },
-  { from: "shopper", text: "esse serve! adiciona" },
-  { from: "success", text: "✓ Venda recuperada" },
+  { from: "shopper", text: "can't find my shoes 😕" },
+  { from: "rev", text: "Let me find running options with cushioning!" },
+  { from: "rev", text: "Found 3 alternatives 👟" },
+  { from: "product", text: "Nike Pegasus 41 · $549.90" },
+  { from: "shopper", text: "that works! add it" },
+  { from: "success", text: "✓ Sale recovered" },
 ];
 
 export function RecovaChatCompact() {

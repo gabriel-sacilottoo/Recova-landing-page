@@ -1,7 +1,6 @@
 /**
  * RECOVA — home-page content.
- * Adapted from the Aston template. Copy rewritten for the RECOVA product:
- * a camada de IA que recupera vendas quando a busca nativa de e-commerce falha.
+ * English copy — new solution: quality-gated full search recovery with safe substitution.
  */
 
 export interface StatItem {
@@ -93,20 +92,20 @@ export interface AudienceItem {
 
 export const hero = {
   badge: {
-    text: "Camada de IA para e-commerce",
+    text: "Quality-gated AI layer for e-commerce",
     avatars: [
       "/images/avatars/hero-1.svg",
       "/images/avatars/hero-2.svg",
       "/images/avatars/hero-3.svg",
     ],
   },
-  title: "Recupere as vendas que a sua busca perde",
+  title: "Stop selling the wrong product",
   description:
-    "Quando a busca nativa falha, a RECOVA entra. Conversa com o shopper, entende a intenção e mostra alternativas reais — sem trocar a busca que você já tem.",
-  note: "10–20% das buscas on-site retornam zero resultados",
+    "RECOVA quality-gates every search. When a shopper can't find the right product — or a result would violate size, compatibility or brand — RECOVA recovers the sale with safe alternatives. Without replacing the search you already have.",
+  note: "Recovers sales from zero-results AND wrong-result searches",
   visual: "/images/illustrations/hero-dashboard.png",
   trustedText:
-    "Feito para lojas em qualquer plataforma — Shopify, VTEX, Wix, Nuvemshop.",
+    "Built for any platform — Shopify, VTEX, Wix, Nuvemshop.",
   logos: [
     "/images/logos/platforms/shopify.svg",
     "/images/logos/platforms/vtex.svg",
@@ -132,11 +131,12 @@ export const hero = {
 /* -------------------------------------------------------------------------- */
 
 export const motto = {
-  title: "A busca falha justamente quando o cliente está mais perto de comprar.",
+  title:
+    "Search fails at the exact moment a shopper is closest to buying.",
   stats: [
-    { value: "10–20", suffix: "%", label: "das buscas retornam zero resultados", from: 10, to: 20 },
-    { value: "50", suffix: "%", label: "das vendas são perdidas na busca", from: 50, to: 50 },
-    { value: "3", suffix: "s", label: "para a RECOVA entrar na falha", from: 3, to: 3 },
+    { value: "10–20", suffix: "%", label: "of on-site searches return zero results", from: 10, to: 20 },
+    { value: "80", suffix: "%", label: "of shoppers leave after a poor search", from: 80, to: 80 },
+    { value: "<2", suffix: "ms", label: "for RECOVA to quality-gate every search", from: 2, to: 2 },
   ] satisfies StatItem[],
 };
 
@@ -145,44 +145,44 @@ export const motto = {
 /* -------------------------------------------------------------------------- */
 
 export const whatsIn = {
-  title: "O que a RECOVA recupera",
+  title: "What RECOVA recovers",
   description:
-    "Uma camada que transforma o momento do zero-results em venda recuperada.",
+    "A layer that turns search failure — and unsafe results — into a recovered, attributed sale.",
   cards: [
     {
       image: "/images/illustrations/whats-in-card-1.svg",
       background: "/images/illustrations/whats-in-card-1-bg.svg",
-      title: "Vendas recuperadas",
+      title: "Recovered sales",
       description:
-        "Cada busca sem resultado vira uma conversa com o shopper — e uma chance real de compra.",
+        "Every failed search becomes a conversation with the shopper — and a real chance to buy.",
       aspect: 3.05357,
     },
     {
       image: "/images/illustrations/whats-in-card-2.svg",
       background: "/images/illustrations/whats-in-card-2-bg.svg",
-      title: "Alternativas relevantes",
-      description: "Mostra 3+ opções que atendem à intenção, não só ao termo digitado.",
+      title: "Safe alternatives",
+      description: "Shows options that respect size, compatibility and brand constraints — never a random best-seller.",
       aspect: 2.00712,
     },
     {
       image: "/images/illustrations/whats-in-card-3.svg",
       background: "/images/illustrations/whats-in-card-3-bg.svg",
-      title: "Reengajamento",
-      description: "Volta ao shopper que abandonou, com o produto certo no momento certo.",
+      title: "Re-engagement",
+      description: "Returns to shoppers who left, with the right product at the right moment.",
       aspect: 1.49107,
     },
     {
       image: "/images/illustrations/whats-in-card-4.svg",
       background: "/images/illustrations/whats-in-card-4-bg.svg",
-      title: "Sem trocar sua busca",
-      description: "Atua como camada sobre a busca nativa que você já tem.",
+      title: "Keep your search",
+      description: "Acts as a layer on top of the native search you already have.",
       aspect: 1.75446,
     },
     {
       image: "/images/illustrations/whats-in-card-5.svg",
       background: "/images/illustrations/whats-in-card-5-bg.svg",
-      title: "Resultado mensurável",
-      description: "Cada venda resgatada é atribuída à RECOVA, não estimada.",
+      title: "Measurable impact",
+      description: "Every recovered sale is attributed to RECOVA — never estimated.",
       aspect: 1.75446,
     },
   ] satisfies BenefitCard[],
@@ -201,26 +201,26 @@ export const whatsIn = {
 /* -------------------------------------------------------------------------- */
 
 export const platformHighlight = {
-  badge: { icon: "/images/icons/badge/whats-inside.svg", label: "Tipos de falha" },
-  title: "Funciona em qualquer tipo de falha de busca",
+  badge: { icon: "/images/icons/badge/whats-inside.svg", label: "Search failure types" },
+  title: "Works across every type of search failure",
   tags: [
-    { icon: "/images/icons/ticker/web-design.svg", label: "Zero resultados" },
-    { icon: "/images/icons/ticker/data-science.svg", label: "Termo coloquial" },
-    { icon: "/images/icons/ticker/digital-marketing.svg", label: "Produto esgotado" },
-    { icon: "/images/icons/ticker/software-development.svg", label: "Busca por sinônimo" },
-    { icon: "/images/icons/ticker/machine-learning.svg", label: "Filtro sem match" },
-    { icon: "/images/icons/ticker/graphic-design.svg", label: "Categoria vazia" },
-    { icon: "/images/icons/ticker/ai-tools.svg", label: "Intenção ambígua" },
-    { icon: "/images/icons/ticker/project-management.svg", label: "Ortografia" },
-    { icon: "/images/icons/ticker/cybersecurity.svg", label: "Plural/singular" },
-    { icon: "/images/icons/ticker/cloud-computing.svg", label: "Marca vs genérico" },
-    { icon: "/images/icons/ticker/ux-ui-design.svg", label: "Tamanho indisponível" },
-    { icon: "/images/icons/ticker/business-analytics.svg", label: "Cor indisponível" },
-    { icon: "/images/icons/ticker/programming-languages.svg", label: "Faixa de preço" },
-    { icon: "/images/icons/ticker/seo-techniques.svg", label: "Busca por ocasião" },
-    { icon: "/images/icons/ticker/financial-modeling.svg", label: "Uso coloquial" },
-    { icon: "/images/icons/ticker/mobile-development.svg", label: "Busca por voz" },
-    { icon: "/images/icons/ticker/content-creation.svg", label: "Intenção de presente" },
+    { icon: "/images/icons/ticker/web-design.svg", label: "Zero results" },
+    { icon: "/images/icons/ticker/data-science.svg", label: "Wrong result" },
+    { icon: "/images/icons/ticker/digital-marketing.svg", label: "Out of stock" },
+    { icon: "/images/icons/ticker/software-development.svg", label: "Synonym search" },
+    { icon: "/images/icons/ticker/machine-learning.svg", label: "Constraint violated" },
+    { icon: "/images/icons/ticker/graphic-design.svg", label: "Empty category" },
+    { icon: "/images/icons/ticker/ai-tools.svg", label: "Ambiguous intent" },
+    { icon: "/images/icons/ticker/project-management.svg", label: "Typo" },
+    { icon: "/images/icons/ticker/cybersecurity.svg", label: "Plural / singular" },
+    { icon: "/images/icons/ticker/cloud-computing.svg", label: "Brand vs. generic" },
+    { icon: "/images/icons/ticker/ux-ui-design.svg", label: "Size unavailable" },
+    { icon: "/images/icons/ticker/business-analytics.svg", label: "Color unavailable" },
+    { icon: "/images/icons/ticker/programming-languages.svg", label: "Price range" },
+    { icon: "/images/icons/ticker/seo-techniques.svg", label: "Occasion search" },
+    { icon: "/images/icons/ticker/financial-modeling.svg", label: "Colloquial use" },
+    { icon: "/images/icons/ticker/mobile-development.svg", label: "Voice search" },
+    { icon: "/images/icons/ticker/content-creation.svg", label: "Gift intent" },
     { icon: "/images/icons/ticker/e-commerce.svg", label: "E-commerce" },
   ] satisfies TickerTag[],
 };
@@ -230,40 +230,40 @@ export const platformHighlight = {
 /* -------------------------------------------------------------------------- */
 
 export const coreFeatures = {
-  badge: { icon: "/images/icons/badge/features.svg", label: "Recursos" },
-  title: "Uma camada, três movimentos de resgate",
+  badge: { icon: "/images/icons/badge/features.svg", label: "Features" },
+  title: "One layer, three recovery moves",
   description:
-    "A RECOVA entra no momento exato da falha e conduz o shopper de volta ao carrinho.",
+    "RECOVA quality-gates every search and guides the shopper safely back to checkout.",
   items: [
     {
       icon: "/images/icons/feature/smart-prioritization.svg",
-      title: "Encontra a falha",
-      description: "Detecta o zero-results e a intenção real por trás da busca.",
+      title: "Quality-gates every search",
+      description: "A deterministic gate scores each search (0–100) and routes it to SILENT, ASSISTED or FULL.",
     },
     {
       icon: "/images/icons/feature/offline-access.svg",
-      title: "Conversa e entende",
-      description: "Um agente conversa com o shopper e refina o que ele procura.",
+      title: "Understands the real intent",
+      description: "Extracts size, compatibility, brand and function — the constraints that matter.",
     },
     {
       icon: "/images/icons/feature/real-time-sync.svg",
-      title: "Recupera e reengaja",
-      description: "Mostra alternativas e volta ao shopper que abandonou.",
+      title: "Recovers and re-engages",
+      description: "Shows safe alternatives and returns to shoppers who abandoned.",
     },
     {
       icon: "/images/icons/feature/automated-workflows.svg",
-      title: "Atribuição real",
-      description: "Cada venda resgatada é contabilizada, não estimada.",
+      title: "Real attribution",
+      description: "Every recovered sale is counted — never estimated.",
     },
     {
       icon: "/images/icons/feature/user-management.svg",
-      title: "Sem trocar a busca",
-      description: "Camada sobre a busca nativa que você já tem.",
+      title: "Blocks unsafe substitutes",
+      description: "Never shows 'sneakers → flip-flops'. Constraints hard/soft are enforced by policy.",
     },
     {
       icon: "/images/icons/feature/real-time-notifications.svg",
-      title: "Implantação em minutos",
-      description: "Conecte sua loja e comece a recuperar no mesmo dia.",
+      title: "Deploys in minutes",
+      description: "Connect your store and start recovering the same day.",
     },
   ] satisfies FeatureItem[],
 };
@@ -273,15 +273,15 @@ export const coreFeatures = {
 /* -------------------------------------------------------------------------- */
 
 export const numbers = {
-  badge: { icon: "/images/icons/badge/numbers.svg", label: "Números" },
-  title: "O impacto da recuperação de busca",
+  badge: { icon: "/images/icons/badge/numbers.svg", label: "Numbers" },
+  title: "The impact of search recovery",
   description:
-    "Dados de mercado mostram o tamanho da oportunidade que a RECOVA captura.",
+    "Market data shows the size of the opportunity RECOVA captures.",
   stats: [
-    { value: "10–20", suffix: "%", label: "das buscas retornam zero resultados" },
-    { value: "50", suffix: "%", label: "das vendas são perdidas na busca" },
-    { value: "80", suffix: "%", label: "saem por uma busca ruim" },
-    { value: "66", suffix: "%", label: "não recebem alternativas" },
+    { value: "10–20", suffix: "%", label: "of searches return zero results" },
+    { value: "80", suffix: "%", label: "leave after a poor search" },
+    { value: "66", suffix: "%", label: "get no alternatives when item is unavailable" },
+    { value: "<0.5", suffix: "%", label: "unsafe substitute rate enforced by policy" },
   ] satisfies StatItem[],
 };
 
@@ -290,34 +290,34 @@ export const numbers = {
 /* -------------------------------------------------------------------------- */
 
 export const powerfulFeatures = {
-  badge: { icon: "/images/icons/badge/benefits.svg", label: "Recursos" },
-  title: "O que a RECOVA faz por você",
+  badge: { icon: "/images/icons/badge/benefits.svg", label: "Features" },
+  title: "What RECOVA does for you",
   highlights: [
-    "Recuperação de buscas sem resultado",
-    "Chat de refinamento com IA",
-    "3+ alternativas de produto",
-    "Reengajamento após 30 segundos",
+    "Quality Gate (0–100) on every search",
+    "SILENT · ASSISTED · FULL routing",
+    "Safe substitution with constraint blocking",
+    "Real order-attributed recovery",
   ],
   items: [
     {
       icon: "/images/icons/feature/resource-library.svg",
-      title: "Conversa inteligente",
-      description: "O agente Rev entende a intenção e refina a busca com o shopper.",
+      title: "Smart conversation",
+      description: "The Rev agent understands intent and refines the search with the shopper.",
     },
     {
       icon: "/images/icons/feature/collaborative-projects.svg",
-      title: "Alternativas reais",
-      description: "Mostra produtos que atendem à intenção, não só ao termo.",
+      title: "Safe alternatives",
+      description: "Shows products that meet the intent — and block substitutes that violate constraints.",
     },
     {
       icon: "/images/icons/feature/live-qa.svg",
-      title: "Reengajamento",
-      description: "Volta ao shopper que abandonou no momento certo.",
+      title: "Re-engagement",
+      description: "Returns to shoppers who left at the right moment.",
     },
     {
       icon: "/images/icons/feature/smart-analytics.svg",
-      title: "Métricas claras",
-      description: "Exposição, interação, clique e compra atribuída.",
+      title: "Clear metrics",
+      description: "Exposure, interaction, click and attributed purchase.",
     },
   ] satisfies FeatureItem[],
 };
@@ -327,20 +327,20 @@ export const powerfulFeatures = {
 /* -------------------------------------------------------------------------- */
 
 export const mobileApp = {
-  badge: { icon: "/images/icons/badge/mobile-app.svg", label: "Como funciona" },
-  title: "Veja o resgate acontecer",
-  cardTags: ["Encontra a falha", "Conversa e entende"],
+  badge: { icon: "/images/icons/badge/mobile-app.svg", label: "How it works" },
+  title: "Watch the recovery happen",
+  cardTags: ["Quality-gates the search", "Understands intent"],
   features: [
-    { icon: "/images/icons/list/mobile-1.svg", label: "Detecta o zero-results" },
-    { icon: "/images/icons/list/mobile-2.svg", label: "Entende a intenção" },
-    { icon: "/images/icons/list/mobile-3.svg", label: "Mostra alternativas" },
-    { icon: "/images/icons/list/mobile-4.svg", label: "Recupera a venda" },
-    { icon: "/images/icons/list/mobile-5.svg", label: "Atribui o resultado" },
-    { icon: "/images/icons/list/mobile-6.svg", label: "Reengaja o shopper" },
+    { icon: "/images/icons/list/mobile-1.svg", label: "Quality-gates every search" },
+    { icon: "/images/icons/list/mobile-2.svg", label: "Understands the intent" },
+    { icon: "/images/icons/list/mobile-3.svg", label: "Shows safe alternatives" },
+    { icon: "/images/icons/list/mobile-4.svg", label: "Recovers the sale" },
+    { icon: "/images/icons/list/mobile-5.svg", label: "Attributes the result" },
+    { icon: "/images/icons/list/mobile-6.svg", label: "Re-engages the shopper" },
   ],
   video: {
-    title: "Veja a demo interativa",
-    subtitle: "Experimente o Rev",
+    title: "See the interactive demo",
+    subtitle: "Try the Rev agent",
     thumbnail: "/images/illustrations/mobile-app-video-thumb.png",
   },
 };
@@ -350,22 +350,22 @@ export const mobileApp = {
 /* -------------------------------------------------------------------------- */
 
 export const downloadApp = {
-  badge: { icon: "/images/icons/badge/download-app.svg", label: "Painel" },
-  title: "Veja a recuperação acontecendo, em tempo real",
+  badge: { icon: "/images/icons/badge/download-app.svg", label: "Dashboard" },
+  title: "See recovery happening, in real time",
   stats: [
-    { icon: "/images/icons/list/download-1.svg", label: "+12% conversão" },
-    { icon: "/images/icons/list/download-2.svg", label: "R$ 48k recuperados/mês" },
+    { icon: "/images/icons/list/download-1.svg", label: "+12% conversion" },
+    { icon: "/images/icons/list/download-2.svg", label: "$48k recovered / month" },
   ],
   buttons: [
     {
       icon: "/images/icons/google-play.svg",
-      small: "Ver no",
+      small: "View on",
       large: "GitHub",
       href: "https://github.com/patrickpassosb/recova",
     },
     {
       icon: "/images/icons/app-store.svg",
-      small: "Agendar",
+      small: "Book a",
       large: "Demo",
       href: "/contact",
     },
@@ -383,61 +383,61 @@ export const downloadApp = {
 /* -------------------------------------------------------------------------- */
 
 const BASE_FEATURES = [
-  "Recuperação de buscas sem resultado",
-  "Chat de refinamento com IA",
-  "3+ alternativas de produto",
-  "Reengajamento após 30 segundos",
-  "Métricas de recuperação",
-  "Camada sobre a busca nativa",
-  "Suporte dedicado",
+  "Quality Gate on every search",
+  "SILENT / ASSISTED / FULL routing",
+  "Safe substitution with constraint blocking",
+  "Re-engagement after 30 seconds",
+  "Recovery metrics",
+  "Layer on top of your native search",
+  "Dedicated support",
 ];
 
 export const pricing = {
-  badge: { icon: "/images/icons/badge/pricing.svg", label: "Preços" },
-  title: "Planos para cada tamanho de loja",
+  badge: { icon: "/images/icons/badge/pricing.svg", label: "Pricing" },
+  title: "Plans for every store size",
   description:
-    "Comece no piloto e escale conforme a recuperação de vendas cresce.",
+    "Start with a pilot and scale as recovered revenue grows.",
   plans: [
     {
-      name: "Piloto",
-      audience: "Para validar",
-      bestFor: "Melhor para testar",
-      price: "Grátis",
-      billingNote: "Piloto de 30 dias. Sem cartão de crédito.",
-      ctaLabel: "Começar piloto",
+      name: "Pilot",
+      audience: "To validate",
+      bestFor: "Best to test",
+      price: "Free",
+      billingNote: "30-day pilot. No credit card.",
+      ctaLabel: "Start pilot",
       ctaHref: "/waitlist",
-      includedLabel: "O que está incluído",
+      includedLabel: "What's included",
       features: BASE_FEATURES,
       activeCount: 4,
       layout: "card",
     },
     {
-      name: "Crescimento",
-      audience: "Lojas em escala",
-      bestFor: "Melhor para o seu negócio",
-      price: "R$ 297/m",
-      billingNote: "Cobrado mensalmente ou anualmente. Cancele quando quiser.",
-      ctaLabel: "Começar agora",
+      name: "Growth",
+      audience: "Stores at scale",
+      bestFor: "Best for your business",
+      price: "$99/mo",
+      billingNote: "Billed monthly or yearly. Cancel anytime.",
+      ctaLabel: "Start now",
       ctaHref: "/waitlist",
-      includedLabel: "O que está incluído",
+      includedLabel: "What's included",
       features: BASE_FEATURES,
       activeCount: 7,
       layout: "card",
     },
     {
       name: "Enterprise",
-      audience: "Alto volume",
-      bestFor: "Melhor para toda a operação",
-      price: "Sob consulta",
-      billingNote: "Volume alto, múltiplas lojas e SLAs dedicados.",
-      ctaLabel: "Falar com vendas",
+      audience: "High volume",
+      bestFor: "Best for the whole operation",
+      price: "Custom",
+      billingNote: "High volume, multiple stores and dedicated SLAs.",
+      ctaLabel: "Talk to sales",
       ctaHref: "/contact",
-      includedLabel: "O que está incluído",
+      includedLabel: "What's included",
       features: [
         ...BASE_FEATURES,
-        "Múltiplas lojas",
-        "SLA dedicado",
-        "Onboarding assistido",
+        "Multiple stores",
+        "Dedicated SLA",
+        "Assisted onboarding",
       ],
       activeCount: 10,
       layout: "panel",
@@ -450,17 +450,18 @@ export const pricing = {
 /* -------------------------------------------------------------------------- */
 
 export const comparison = {
-  badge: { icon: "/images/icons/badge/comparison.svg", label: "Comparação" },
-  title: "RECOVA vs. busca nativa",
-  othersLabel: "Busca nativa",
+  badge: { icon: "/images/icons/badge/comparison.svg", label: "Comparison" },
+  title: "RECOVA vs. native search",
+  othersLabel: "Native search",
   rows: [
-    { others: "Zero resultados = abandono", aston: "Zero resultados = conversa e venda" },
-    { others: "Só responde ao termo digitado", aston: "Entende a intenção real" },
-    { others: "Sem alternativas quando não acha", aston: "Mostra 3+ alternativas relevantes" },
-    { others: "Shopper que sai não volta", aston: "Reengaja quem abandonou" },
-    { others: "Venda perdida não é medida", aston: "Cada venda resgatada é atribuída" },
-    { others: "Exige trocar a busca", aston: "Camada sobre a busca que você já tem" },
-    { others: "Sem métricas de recuperação", aston: "Painel com exposição, clique e compra" },
+    { others: "Zero results = abandonment", aston: "Zero results = conversation and sale" },
+    { others: "Only answers the typed term", aston: "Understands the real intent" },
+    { others: "No alternatives when it can't find", aston: "Shows safe, constraint-respecting alternatives" },
+    { others: "Shopper who leaves never returns", aston: "Re-engages who abandoned" },
+    { others: "Wrong product shown = brand damage", aston: "Blocks unsafe substitutes by policy" },
+    { others: "Lost sale is not measured", aston: "Every recovered sale is attributed" },
+    { others: "Requires replacing search", aston: "Layer on top of the search you already have" },
+    { others: "No recovery metrics", aston: "Dashboard with exposure, click and purchase" },
   ] satisfies ComparisonRow[],
 };
 
@@ -469,16 +470,16 @@ export const comparison = {
 /* -------------------------------------------------------------------------- */
 
 export const about = {
-  badge: { icon: "/images/icons/badge/about-us.svg", label: "Sobre" },
-  title: "A RECOVA nasce do zero-results",
+  badge: { icon: "/images/icons/badge/about-us.svg", label: "About" },
+  title: "RECOVA is born from search failure",
   description:
-    "Todo e-commerce perde vendas quando a busca falha. A RECOVA é a camada de IA que transforma esse momento de frustração em conversa, alternativa e venda recuperada — sem exigir que você troque a busca que já tem.",
-  primaryCta: { label: "Ver no GitHub", href: "https://github.com/patrickpassosb/recova" },
-  secondaryCta: { label: "Falar conosco", href: "/contact" },
+    "Every e-commerce loses sales when search fails — and risks its brand when the wrong product is shown. RECOVA is the AI layer that quality-gates every search, recovers the sale with safe substitutes, and blocks the unsafe ones. Without forcing you to replace the search you already have.",
+  primaryCta: { label: "View on GitHub", href: "https://github.com/patrickpassosb/recova" },
+  secondaryCta: { label: "Talk to us", href: "/contact" },
   stats: [
-    { value: "10–20", suffix: "%", label: "das buscas retornam zero resultados", from: 10, to: 20 },
-    { value: "50", suffix: "%", label: "das vendas são perdidas na busca", from: 50, to: 50 },
-    { value: "3", suffix: "s", label: "para a RECOVA entrar na falha", from: 3, to: 3 },
+    { value: "10–20", suffix: "%", label: "of searches return zero results", from: 10, to: 20 },
+    { value: "80", suffix: "%", label: "leave after a poor search", from: 80, to: 80 },
+    { value: "<2", suffix: "ms", label: "to quality-gate every search", from: 2, to: 2 },
   ] satisfies StatItem[],
   students: [
     "/images/illustrations/about-student-1.png",
@@ -486,12 +487,12 @@ export const about = {
     "/images/illustrations/about-student-3.png",
   ],
   testimonials: [
-    { name: "Lojista de moda", quote: "A busca falhava e eu perdia a venda. Agora o shopper encontra um caminho.", avatar: "/images/avatars/about-1.svg" },
-    { name: "E-commerce de beleza", quote: "O zero-results virou conversa. A recuperação é real e mensurável.", avatar: "/images/avatars/about-2.svg" },
-    { name: "Loja de casa & decoração", quote: "Sem trocar a busca, recuperamos vendas que nem sabíamos que perdíamos.", avatar: "/images/avatars/about-3.svg" },
-    { name: "Marketplace", quote: "A atribuição é clara: cada venda resgatada aparece no painel.", avatar: "/images/avatars/about-4.svg" },
-    { name: "Loja de calçados", quote: "O agente entende a intenção e mostra o tamanho certo. Impressionante.", avatar: "/images/avatars/about-5.svg" },
-    { name: "E-commerce de eletrônicos", quote: "Implantação em minutos e resultado no mesmo dia.", avatar: "/images/avatars/about-6.svg" },
+    { name: "Fashion retailer", quote: "Search failed and I lost the sale. Now the shopper finds a safe path.", avatar: "/images/avatars/about-1.svg" },
+    { name: "Beauty e-commerce", quote: "Zero-results became a conversation. Recovery is real and measurable.", avatar: "/images/avatars/about-2.svg" },
+    { name: "Home & decor store", quote: "Without replacing search, we recovered sales we didn't know we were losing.", avatar: "/images/avatars/about-3.svg" },
+    { name: "Marketplace", quote: "Attribution is clear: every recovered sale shows up in the dashboard.", avatar: "/images/avatars/about-4.svg" },
+    { name: "Shoe store", quote: "The agent understands intent and shows the right size. Impressive.", avatar: "/images/avatars/about-5.svg" },
+    { name: "Electronics e-commerce", quote: "Minutes to deploy and results the same day.", avatar: "/images/avatars/about-6.svg" },
   ] satisfies MiniTestimonial[],
 };
 
@@ -500,24 +501,24 @@ export const about = {
 /* -------------------------------------------------------------------------- */
 
 export const whoCanUse = {
-  badge: { icon: "/images/icons/badge/who-can-use.svg", label: "Para quem é" },
-  title: "Feito para o seu tipo de loja",
+  badge: { icon: "/images/icons/badge/who-can-use.svg", label: "Who it's for" },
+  title: "Made for your type of store",
   items: [
     {
-      title: "Moda e vestuário",
+      title: "Fashion & apparel",
       description:
-        "Tamanhos, cores e estilos que a busca nativa não entende — a RECOVA recupera.",
+        "Sizes, colors and styles the native search can't understand — RECOVA recovers.",
     },
-    { title: "Beleza e cosméticos", description: "Termos coloquiais e marcas viram venda." },
-    { title: "Casa & decoração", description: "Intenção de ocasião e presente, recuperada." },
+    { title: "Beauty & cosmetics", description: "Colloquial terms and brands become sales." },
+    { title: "Home & decor", description: "Occasion and gift intent, recovered." },
   ] satisfies AudienceItem[],
   panel: {
     image: "/images/illustrations/who-can-use-panel.png",
     avatar: "/images/avatars/who-can-use.png",
-    kicker: "Feito para lojistas",
-    title: "Pronto para recuperar?",
-    subtitle: "Fale conosco agora",
-    ctaLabel: "Falar conosco",
+    kicker: "Built for retailers",
+    title: "Ready to recover?",
+    subtitle: "Talk to us now",
+    ctaLabel: "Talk to us",
     ctaHref: "/contact",
   },
 };
@@ -527,11 +528,11 @@ export const whoCanUse = {
 /* -------------------------------------------------------------------------- */
 
 export const team = {
-  badge: { icon: "/images/icons/badge/our-team.svg", label: "Nosso time" },
-  title: "Quem está por trás da RECOVA",
+  badge: { icon: "/images/icons/badge/our-team.svg", label: "Our team" },
+  title: "Who is behind RECOVA",
   members: [
     { name: "Patrick Passos", role: "Tech Lead", photo: "/images/avatars/patrick-passos.png", social: "https://www.linkedin.com/in/patrickpassosb/" },
-    { name: "Gabriel Sacilotto", role: "Produto & Branding", photo: "/images/avatars/gabriel-sacilotto.jfif", social: "https://www.linkedin.com/in/gabriel-sacilotto-819343365/" },
+    { name: "Gabriel Sacilotto", role: "Product & Branding", photo: "/images/avatars/gabriel-sacilotto.jfif", social: "https://www.linkedin.com/in/gabriel-sacilotto-819343365/" },
   ] satisfies TeamMember[],
 };
 
@@ -540,27 +541,27 @@ export const team = {
 /* -------------------------------------------------------------------------- */
 
 export const process = {
-  badge: { icon: "/images/icons/badge/process.svg", label: "Processo" },
-  title: "Do zero à primeira venda recuperada",
-  ctaLabel: "Começar agora",
+  badge: { icon: "/images/icons/badge/process.svg", label: "Process" },
+  title: "From zero to your first recovered sale",
+  ctaLabel: "Start now",
   ctaHref: "/waitlist",
   steps: [
     {
-      step: "Passo 01",
-      title: "Conecte sua loja",
-      description: "Conecte a RECOVA à sua plataforma em minutos, sem trocar a busca.",
+      step: "Step 01",
+      title: "Connect your store",
+      description: "Connect RECOVA to your platform in minutes, without replacing search.",
       screen: "/images/illustrations/process-screen-1.png",
     },
     {
-      step: "Passo 02",
-      title: "Valide no piloto",
-      description: "Veja as primeiras vendas recuperadas e o impacto no painel.",
+      step: "Step 02",
+      title: "Validate in the pilot",
+      description: "See the first recovered sales and the impact on the dashboard.",
       screen: "/images/illustrations/process-screen-2.png",
     },
     {
-      step: "Passo 03",
-      title: "Escale e meça",
-      description: "Aumente a cobertura e acompanhe a receita recuperada em R$.",
+      step: "Step 03",
+      title: "Scale and measure",
+      description: "Grow coverage and track recovered revenue in $.",
       screen: "/images/illustrations/process-screen-3.png",
     },
   ] satisfies ProcessStep[],
@@ -572,42 +573,42 @@ export const process = {
 
 export const faq = {
   badge: { icon: "/images/icons/badge/faq.svg", label: "FAQ" },
-  title: "Perguntas frequentes",
+  title: "Frequently asked questions",
   items: [
     {
-      question: "Preciso trocar minha busca?",
+      question: "Do I need to replace my search?",
       answer:
-        "Não. A RECOVA atua como uma camada sobre a busca nativa que você já tem. Ela entra apenas no momento da falha — quando o shopper não encontra o que procura.",
+        "No. RECOVA acts as a layer on top of the native search you already have. It only engages when the shopper can't find the right product.",
     },
     {
-      question: "Quanto tempo leva para implantar?",
+      question: "How long does implementation take?",
       answer:
-        "Minutos. Conecte sua loja à plataforma e a RECOVA começa a recuperar vendas no mesmo dia, sem mudanças no seu front-end.",
+        "Minutes. Connect your store and RECOVA starts recovering sales the same day, without front-end changes.",
     },
     {
-      question: "Como sei que está funcionando?",
+      question: "How do I know it's working?",
       answer:
-        "O painel mostra cada venda resgatada com clareza: exposição, interação, clique e compra atribuída. Sem promessas — evidência.",
+        "The dashboard shows every recovered sale clearly: exposure, interaction, click and attributed purchase. No promises — evidence.",
     },
     {
-      question: "Funciona com a minha plataforma?",
+      question: "Does it work with my platform?",
       answer:
-        "A RECOVA é agnóstica de plataforma. Funciona com Shopify, VTEX, Wix, Nuvemshop e outras, como uma camada sobre a busca.",
+        "RECOVA is platform-agnostic. It works with Shopify, VTEX, Wix, Nuvemshop and others, as a layer on top of search.",
     },
     {
-      question: "A RECOVA respeita a minha marca?",
+      question: "Does RECOVA respect my brand?",
       answer:
-        "Sim. A conversa e as alternativas seguem o tom e o visual da sua loja, mantendo a experiência consistente para o shopper.",
+        "Yes. Conversations and alternatives follow your store's tone and visuals — and unsafe substitutes that would damage your brand are blocked.",
     },
     {
-      question: "O que acontece com o shopper que abandona?",
+      question: "What about the shopper who leaves?",
       answer:
-        "A RECOVA reengaja o shopper que saiu da busca, voltando com o produto certo no momento certo — recuperando vendas que a busca nativa perderia.",
+        "RECOVA re-engages shoppers who left, returning with the right product at the right moment — recovering sales native search would lose.",
     },
     {
-      question: "Como é cobrado?",
+      question: "How am I charged?",
       answer:
-        "Comece no piloto gratuito. Depois, planos por volume de recuperação, com cancelamento a qualquer momento.",
+        "Start with a free pilot. After that, plans based on recovery volume, cancellable anytime.",
     },
   ] satisfies FaqItem[],
 };
@@ -617,11 +618,11 @@ export const faq = {
 /* -------------------------------------------------------------------------- */
 
 export const finalCta = {
-  title: "Nenhuma busca merece terminar sem resposta",
+  title: "No search deserves to end without an answer",
   description:
-    "Agende uma demonstração e veja a RECOVA resgatar uma venda que sua busca nativa perdeu — na sua loja, com seus produtos.",
-  points: ["Implantação em minutos", "Atribuição real", "Sem trocar sua busca"],
-  ctaLabel: "Agendar demo",
+    "Book a demo and see RECOVA recover a sale your native search lost — on your store, with your products, and never showing the wrong one.",
+  points: ["Deploys in minutes", "Real attribution", "Blocks unsafe substitutes"],
+  ctaLabel: "Book a demo",
   ctaHref: "/contact",
 };
 
@@ -630,10 +631,10 @@ export const finalCta = {
 /* -------------------------------------------------------------------------- */
 
 export const testimonials = {
-  badge: { icon: "/images/icons/badge/testimonials.svg", label: "Depoimentos" },
-  title: "O que os lojistas ganham",
+  badge: { icon: "/images/icons/badge/testimonials.svg", label: "Testimonials" },
+  title: "What retailers gain",
   description:
-    "Baseado em benchmarks de mercado e no padrão de recuperação de busca em e-commerce.",
+    "Based on market benchmarks and e-commerce search-recovery patterns.",
   avatarStrip: [
     "/images/avatars/testimonial-strip-1.svg",
     "/images/avatars/testimonial-strip-2.svg",
@@ -645,14 +646,14 @@ export const testimonials = {
     "/images/avatars/testimonial-strip-8.svg",
   ],
   items: [
-    { quote: "Lojas que recuperam buscas sem resultado veem aumento médio de conversão — porque o shopper que busca é o que está mais perto de comprar.", name: "Benchmark de mercado", role: "Recuperação de busca", avatar: "/images/avatars/testimonial-1.svg" },
-    { quote: "Mais da metade dos shoppers segue a jornada quando recebe alternativas relevantes no momento em que o item não está disponível.", name: "Nosto", role: "Pesquisa de comportamento", avatar: "/images/avatars/testimonial-2.svg" },
-    { quote: "A taxa de zero-result ideal é abaixo de 2%. Acima de 3–5%, a loja está perdendo vendas que poderiam ser recuperadas.", name: "Algolia", role: "Playbook de zero-results", avatar: "/images/avatars/testimonial-3.svg" },
-    { quote: "80% dos shoppers saem de uma loja por causa de uma busca ruim.", name: "Benchmark de mercado", role: "Experiência de busca", avatar: "/images/avatars/testimonial-4.svg" },
-    { quote: "66% dos shoppers não recebem alternativas quando o produto não está disponível.", name: "Pesquisa de e-commerce", role: "Zero-results", avatar: "/images/avatars/testimonial-5.svg" },
-    { quote: "Conteúdo interativo pode dobrar as conversões em comparação com páginas estáticas.", name: "Benchmark de mercado", role: "Conversão", avatar: "/images/avatars/testimonial-6.svg" },
-    { quote: "74% dos compradores B2B escolhem o fornecedor que primeiro os ajuda a montar o business case.", name: "Pesquisa B2B", role: "Decisão de compra", avatar: "/images/avatars/testimonial-7.svg" },
-    { quote: "Prova social perto do CTA pode aumentar a conversão em até 34%.", name: "Benchmark de conversão", role: "Social proof", avatar: "/images/avatars/testimonial-8.svg" },
-    { quote: "Schema de dados estruturados pode aumentar o tráfego em até 43%.", name: "Benchmark de SEO", role: "Dados estruturados", avatar: "/images/avatars/testimonial-9.svg" },
+    { quote: "Stores that recover no-result searches see an average conversion lift — because the shopper who searches is closest to buying.", name: "Market benchmark", role: "Search recovery", avatar: "/images/avatars/testimonial-1.svg" },
+    { quote: "More than half of shoppers continue the journey when they receive relevant alternatives at the moment an item is unavailable.", name: "Nosto", role: "Behavior research", avatar: "/images/avatars/testimonial-2.svg" },
+    { quote: "The ideal zero-result rate is below 2%. Above 3–5%, the store is losing recoverable sales.", name: "Algolia", role: "Zero-results playbook", avatar: "/images/avatars/testimonial-3.svg" },
+    { quote: "80% of shoppers leave a store because of a poor search.", name: "Market benchmark", role: "Search experience", avatar: "/images/avatars/testimonial-4.svg" },
+    { quote: "66% of shoppers receive no alternatives when a product is unavailable.", name: "E-commerce research", role: "Zero-results", avatar: "/images/avatars/testimonial-5.svg" },
+    { quote: "Shown the wrong substitute, shoppers lose trust — safe substitution is a brand asset.", name: "Market benchmark", role: "Brand integrity", avatar: "/images/avatars/testimonial-6.svg" },
+    { quote: "74% of buyers choose the provider that first helps them build the business case.", name: "B2B research", role: "Purchase decision", avatar: "/images/avatars/testimonial-7.svg" },
+    { quote: "Social proof near the CTA can lift conversion by up to 34%.", name: "Conversion benchmark", role: "Social proof", avatar: "/images/avatars/testimonial-8.svg" },
+    { quote: "Structured data schema can increase traffic by up to 43%.", name: "SEO benchmark", role: "Structured data", avatar: "/images/avatars/testimonial-9.svg" },
   ] satisfies Testimonial[],
 };

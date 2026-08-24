@@ -76,19 +76,19 @@ export const contactPage = {
     {
       icon: "/images/icons/mail-outline.svg",
       label: "Email",
-      value: "ola@recova.ai",
-      href: "mailto:ola@recova.ai",
+      value: "hello@recova.ai",
+      href: "mailto:hello@recova.ai",
     },
     {
       icon: "/images/icons/mail-outline.svg",
-      label: "Vendas",
-      value: "vendas@recova.ai",
-      href: "mailto:vendas@recova.ai",
+      label: "Sales",
+      value: "sales@recova.ai",
+      href: "mailto:sales@recova.ai",
     },
     {
       icon: "/images/icons/phone.svg",
-      label: "Agendar",
-      value: "Agendar uma demo",
+      label: "Book",
+      value: "Book a demo",
       href: "https://calendly.com/",
     },
   ],
@@ -246,7 +246,7 @@ export const privacyPage = {
     },
     {
       heading: "Contact Us",
-      body: "Se você tiver dúvidas ou preocupações sobre nossa Política de Privacidade ou o tratamento de suas informações pessoais, entre em contato conosco em ola@recova.ai",
+      body: "If you have any questions or concerns about our Privacy Policy or how we handle your personal information, please contact us at hello@recova.ai",
     },
   ] satisfies LegalSection[],
 };
