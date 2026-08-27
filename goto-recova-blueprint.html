@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RECOVA — Blueprint de Alinhamento (contrato do sistema)</title>
+<style>
+  :root{
+    --bg:#F4F7FA; --ink:#1D2939; --sub:#475467; --line:#D0D5DD; --line2:#EAECF0;
+    --blue:#065CF5; --blue-soft:#E8F1FF; --orange:#FF5B0A; --navy:#06345D; --green:#16A34A;
+    --must:#C0362C; --mustbg:#FEF3F2;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; line-height:1.5}
+  a{color:var(--blue)}
+  .topbar{position:sticky; top:0; z-index:60; background:var(--navy); color:#fff; padding:10px 16px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .topbar .brand{font-weight:800; letter-spacing:.12em; font-size:13px; background:var(--orange); padding:4px 12px; border-radius:999px}
+  .topbar .t{font-size:14px; font-weight:700}
+  .topbar .links{margin-left:auto; display:flex; gap:12px; font-size:12px; padding-right:10px}
+  .topbar a{color:#9cc3ff; text-decoration:none}
+  header{max-width:980px; margin:0 auto; padding:28px 20px 4px; text-align:center}
+  header h1{font-size:clamp(19px,3.2vw,28px); font-weight:800; letter-spacing:-.02em}
+  header p{color:var(--sub); font-size:13.5px; max-width:760px; margin:7px auto 0}
+
+  .readmap{max-width:980px; margin:16px auto 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:9px; padding:0 16px}
+  .rcard{background:#fff; border:1px solid var(--line2); border-radius:11px; padding:10px 12px; font-size:11px}
+  .rcard b{display:block; font-size:12px; color:var(--navy)}
+  .rcard .min{color:var(--orange); font-weight:800; font-size:10px}
+  .rcard a{font-weight:700}
+
+  main{max-width:980px; margin:0 auto; padding:26px 16px 30px}
+  .sec{background:#fff; border:1px solid var(--line2); border-radius:14px; padding:18px 20px; margin-bottom:18px; scroll-margin-top:70px}
+  .sec > h2{font-size:16.5px; font-weight:800; margin-bottom:2px}
+  .sec > .why{color:var(--sub); font-size:12px; margin-bottom:13px}
+  .why b{color:var(--ink)}
+  .num{display:inline-flex; width:26px; height:26px; border-radius:50%; background:var(--blue); color:#fff; font-size:13px; font-weight:800; align-items:center; justify-content:center; margin-right:8px; vertical-align:middle}
+
+  table{width:100%; border-collapse:collapse; font-size:11.5px}
+  th{color:var(--sub); text-transform:uppercase; font-size:9.5px; letter-spacing:.07em; text-align:left; padding:6px 8px; border-bottom:1.5px solid var(--line)}
+  td{padding:7px 8px; border-bottom:1px solid var(--line2); vertical-align:top}
+  td .ap{font-weight:800; color:var(--orange); white-space:nowrap}
+  td .cd{font-family:ui-monospace,Menlo,monospace; font-weight:700; color:var(--navy); white-space:nowrap}
+  td .one{color:var(--sub)}
+  .pill{display:inline-block; font-size:9.5px; font-weight:800; padding:2px 8px; border-radius:999px}
+  .p-locked{background:var(--mustbg); color:var(--must)}
+  .p-open{background:var(--blue-soft); color:var(--navy)}
+  .p-done{background:#D1FADF; color:#067647}
+
+  /* state machine */
+  .sm{display:flex; flex-direction:column; align-items:center}
+  .st{width:max-content; max-width:100%; background:#fff; border:1.5px solid var(--blue); border-radius:10px; padding:6px 14px; font-size:11.5px; font-weight:700; text-align:center}
+  .st small{display:block; font-weight:400; color:var(--sub); font-size:9.5px}
+  .st.term{border-color:var(--navy); background:var(--navy); color:#fff}
+  .st.term small{color:#9fb8d4}
+  .st.bad{border-color:var(--must); background:var(--mustbg); color:var(--must)}
+  .st.honest{border-style:dashed; border-color:var(--orange)}
+  .tr{display:flex; flex-direction:column; align-items:center; padding:4px 0}
+  .tr .a{color:var(--blue); font-size:13px; font-weight:800; line-height:1}
+  .tr .c{font-family:ui-monospace,Menlo,monospace; font-size:9.5px; background:#FFF1E7; color:#9A3412; border:1px solid #FDBA8C; border-radius:6px; padding:1px 8px; margin-top:3px; text-align:center}
+  .tr .tref{font-size:9px; color:var(--sub)}
+  .branch{display:grid; grid-template-columns:1fr 1fr; gap:14px; width:100%}
+  .branch > div{display:flex; flex-direction:column; align-items:center}
+  @media(max-width:700px){.branch{grid-template-columns:1fr}}
+
+  /* sequence */
+  .seq{overflow-x:auto}
+  .seq-in{min-width:640px}
+  .actors{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-bottom:4px}
+  .actors div{background:var(--navy); color:#fff; border-radius:8px; padding:6px 4px; font-size:10px; font-weight:800; text-align:center}
+  .msgrow{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; border-top:1px dashed var(--line2); padding:5px 0; align-items:center}
+  .msgrow .m{grid-column:span 5; font-size:11px}
+  .msgrow .m b{font-family:ui-monospace,Menlo,monospace; color:var(--navy)}
+  .msgrow .who{font-size:9.5px; color:var(--sub); display:flex; gap:6px; flex-wrap:wrap}
+  .msgrow .who span{background:var(--blue-soft); border-radius:5px; padding:1px 7px; font-weight:700}
+  .msgrow .ms2{font-size:9.5px; color:var(--orange); font-weight:800}
+
+  pre{background:#0B1220; color:#D6E4F0; border-radius:11px; padding:13px 15px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10.5px; overflow-x:auto; line-height:1.55}
+  pre .k{color:#7FB5FF} pre .s{color:#FFC49B} pre .c{color:#5D7A99; font-style:italic} pre .n{color:#9BE8C0}
+  details{border:1px solid var(--line2); border-radius:10px; padding:10px 13px; margin-top:9px; background:#FBFCFE}
+  details summary{cursor:pointer; font-weight:800; font-size:12.5px; color:var(--navy)}
+  details .a{font-size:12px; margin-top:8px; padding-top:8px; border-top:1px dashed var(--line2)}
+  details .a b{color:var(--must)}
+  .dod li{display:flex; gap:7px; font-size:11.5px; padding:4px 0; border-top:1px solid var(--line2)}
+  .dod{list-style:none}
+  .dod li::before{content:'☐'; color:var(--blue); flex:none}
+  .footnote{font-size:10.5px; color:var(--sub); margin-top:10px}
+  footer{max-width:980px; margin:0 auto; padding:22px 20px 44px; color:var(--sub); font-size:12px; text-align:center}
+  footer a{margin:0 8px}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <span class="brand">RECOVA</span>
+  <span class="t">Blueprint de Alinhamento — contrato do sistema</span>
+  <span class="links">
+    <a href="#s1">Dicionário</a><a href="#s2">Estados</a><a href="#s3">Sequência</a><a href="#s4">Contratos</a><a href="#s5">Rastreio</a><a href="#s6">Decisões</a><a href="#s7">DoD</a><a href="#s8">Teste 5min</a>
+  </span>
+</nav>
+
+<header>
+  <h1>Zero chance de mal-entendido — o contrato por trás dos desenhos</h1>
+  <p>Os diagramas mostram <b>o que</b> o sistema é. Este documento define <b>o que cada palavra significa, o que já foi decidido, de onde vem cada número na tela e como sabemos que cada tela está pronta</b>. Se algo aqui estiver aberto, não é — tem status FECHADA e um porquê.</p>
+</header>
+
+<div class="readmap">
+  <div class="rcard"><span class="min">⏱️ 2 MIN</span> <a href="https://tinyurl.com/263y4ts4">Fluxograma passo a passo</a> — o sistema inteiro, decisões e gatilhos</div>
+  <div class="rcard"><span class="min">⏱️ 10 MIN</span> <b>Este blueprint</b> — vocabulário, estados, contratos e decisões fechadas</div>
+  <div class="rcard"><span class="min">⏱️ 30 MIN</span> <a href="https://tinyurl.com/25tej88o">Telas ①–⑬</a> + <a href="https://github.com/patrickpassosb/recova">código no repo</a> — o que o usuário vê e o que já existe</div>
+  <div class="rcard"><span class="min">⏱️ 45 MIN</span> <a href="https://tinyurl.com/2acwq58e">Canvas MoSCoW</a> — prioridades e escopo desta edição</div>
+</div>
+
+<main>
+
+  <!-- ================= S1 DICIONARIO ================= -->
+  <section class="sec" id="s1">
+    <h2><span class="num">1</span> Dicionário de bolso — mesmo idioma, sempre</h2>
+    <p class="why"><b>Por quê existe:</b> nas conversas usamos apelidos ("o fiscal") e no código os nomes são outros. Se um apelido não estiver aqui, ele não existe — não invente significado.</p>
+    <table>
+      <tr><th>Apelido (conversa)</th><th>Componente (código/ADK)</th><th>Papel em 1 frase</th><th>Regra crítica</th></tr>
+      <tr><td class="ap">O Vigia</td><td class="cd">SignalFanOut (ParallelAgent)</td><td>Percebe a busca falha e dispara 3 análises em paralelo</td><td>Só acorda o motor se <span class="cd">zero_results && query≥3</span></td></tr>
+      <tr><td class="ap">O Porteiro</td><td class="cd">RouteResolver</td><td>Transforma a frase em requisitos e escolhe a rota</td><td>3 rotas: NATIVE_OK · RECOVER · CLARIFY</td></tr>
+      <tr><td class="ap">O Cérebro</td><td class="cd">Gemini 3.7 Flash (Vertex AI)</td><td>Interpreta linguagem natural, julga finalistas, escreve o "Por quê"</td><td>Nunca vê os 10k itens — só a shortlist</td></tr>
+      <tr><td class="ap">O Estagiário</td><td class="cd">Gemma 4 31B</td><td>Varre o catálogo inteiro baratinho e rápido</td><td>Entrega ~50 candidatos, nunca responde ao usuário</td></tr>
+      <tr><td class="ap">O Fiscal</td><td class="cd">ConstraintSolver</td><td>Testa cada candidato contra os requisitos, um a um</td><td>Filtros duros (orçamento/tamanho) são inegociáveis</td></tr>
+      <tr><td class="ap">O Portão</td><td class="cd">Safe-Substitution Gate</td><td>Bloqueia substituição por categoria diferente</td><td>tênis→chinelo = BLOQUEADO, sempre</td></tr>
+      <tr><td class="ap">A Conversa</td><td class="cd">RefinementLoop (LoopAgent)</td><td>Reavalia o catálogo quando o usuário adiciona regra</td><td>Máx. 3 voltas; depois pede escolha ou encerra honesto</td></tr>
+      <tr><td class="ap">A Esteira</td><td class="cd">Webhook→HMAC→Pub/Sub→Ledger</td><td>Transforma pedido pago em receita atribuída auditável</td><td>Idempotente: 1 pedido = 1 crédito, nunca 2</td></tr>
+      <tr><td class="ap">As Câmeras</td><td class="cd">OpenTelemetry</td><td>Grava cada evento sem atrapalhar a loja</td><td>Falha de telemetria NUNCA derruba a venda</td></tr>
+    </table>
+  </section>
+
+  <!-- ================= S2 ESTADOS ================= -->
+  <section class="sec" id="s2">
+    <h2><span class="num">2</span> Máquina de estados de uma sessão de busca</h2>
+    <p class="why"><b>Por quê existe:</b> "em que momento o bot fala?" deixa de ser opinião — é um estado com condição de entrada e saída. Qualquer comportamento fora dessas transições é <b>bug</b>, não feature.</p>
+    <div class="sm">
+      <div class="st">IDLE<small>sessão aberta, nada aconteceu</small></div>
+      <div class="tr"><span class="a">▼</span><span class="c">busca_submetida (query ≥ 3 chars)</span></div>
+      <div class="st">SEARCHING<small>busca nativa roda</small></div>
+      <div class="tr"><span class="a">▼</span><span class="c">resultado == 0 → SignalFanOut acorda · senão → NATIVE_OK (overlay nunca aparece) <span class="tref">· Tela ①</span></span></div>
+      <div class="st">RECOVERY_OFFERED<small>painel laranja com 1 único CTA</small></div>
+      <div class="branch">
+        <div>
+          <div class="tr"><span class="a">▼</span><span class="c">user recusa / 30s sem resposta</span></div>
+          <div class="st term">CLOSED<small>1 oferta por sessão — anti-spam</small></div>
+        </div>
+        <div>
+          <div class="tr"><span class="a">▼</span><span class="c">user aceita <span class="tref">· Tela ②</span></span></div>
+          <div class="st">REQUIREMENTS_PARSED<small>chips: verde · casamento · ≤R$200 · rota RECOVER</small></div>
+        </div>
+      </div>
+      <div class="tr"><span class="a">▼</span><span class="c">Gemma varre 10k → ~50 · Solver testa 1 a 1</span></div>
+      <div class="st">CARDS_SHOWN<small>≥1 cartão aprovado <span style="color:var(--must)">· Tela ③</span></small></div>
+      <div class="branch">
+        <div>
+          <div class="tr"><span class="a">▼</span><span class="c">0 aprovados</span></div>
+          <div class="st honest">NO_VALID<small>honestidade radical · Tela ⑦ — sai para WAITLIST (C4)</small></div>
+        </div>
+        <div>
+          <div class="tr"><span class="a">▼</span><span class="c">user manda atributo novo (máx 3×)</span></div>
+          <div class="st">REFINING<small>volta ao Solver com regra nova · Tela ④</small></div>
+          <div class="tr"><span class="a">▼</span><span class="c">user clica um cartão</span></div>
+          <div class="st">CARD_SELECTED<small>→ checkout · Tela ⑤</small></div>
+        </div>
+      </div>
+      <div class="tr"><span class="a">▼</span><span class="c">ORDER_PAID (webhook HMAC ✓ → fila → ledger)</span></div>
+      <div class="st term">REVENUE_ATTRIBUTED<small>R$ 189 no painel · Tela ⑥ — estado final feliz</small></div>
+    </div>
+  </section>
+
+  <!-- ================= S3 SEQUENCIA ================= -->
+  <section class="sec" id="s3">
+    <h2><span class="num">3</span> Sequência no tempo (quem fala com quem, em que ordem)</h2>
+    <p class="why"><b>Por quê existe:</b> o fluxograma mostra o caminho; a sequência mostra o <b>tempo</b>. É aqui que latência e ordem de chamadas ficam explícitas.</p>
+    <div class="seq"><div class="seq-in">
+      <div class="actors"><div>Maria<br>(browser)</div><div>Overlay<br>Recova</div><div>Cloud Run<br>(ADK)</div><div>Gemma +<br>Gemini</div><div>Shopify /<br>Conector</div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+0ms</span> · <span class="who"><span>Maria→Loja</span></span> digita <b>"vestido verde casamento até 200"</b> → busca nativa responde 0</div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+50ms</span> · <span class="who"><span>Loja→Overlay</span></span> evento <b>search_failed</b> (o Vigia valida: zero_results && ≥3 ✓)</div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+80ms</span> · <span class="who"><span>Overlay→Cloud Run</span></span> <b>POST /recovery/offer</b> — painel laranja aparece <b>sem esperar LLM</b> (copy estática) <span style="color:var(--sub)">· Tela ①</span></div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+~2s</span> · <span class="who"><span>Maria→Overlay</span></span> clica <b>"Sim, achar meu vestido"</b> → <b>POST /recovery/parse</b></div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+~3s</span> · <span class="who"><span>Cloud Run→Modelos</span></span> SignalFanOut (3 ramos) → Porteiro (Gemini) → <b>rota RECOVER</b> · <span class="who"><span>Cloud Run→Conector</span></span> lê catálogo</div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+~4s</span> · <span class="who"><span>Modelos</span></span> Gemma 10k→50 → Solver testa 1 a 1 → Gate → <b>3 cartões + "Por quê" (Gemini)</b> · <span class="who"><span>Overlay</span></span> renderiza <span style="color:var(--sub)">· Tela ③</span></div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+~8s</span> · <span class="who"><span>Maria</span></span> "não quero longo demais" → LoopAgent → <b>cartões atualizados</b> (sem reload)</div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+~40s</span> · <span class="who"><span>Maria</span></span> clica cartão → checkout na loja → paga</div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+~45s</span> · <span class="who"><span>Shopify→Cloud Run</span></span> webhook <b>ORDER_PAID</b> (HMAC ✓) → Pub/Sub → <b>ledger: R$ 189 = receita recuperada</b> · <span class="who"><span>Overlay</span></span> confete discreto</div></div>
+      <div class="msgrow"><div class="m"><span class="ms2">T+∞</span> · <span class="who"><span>Lojista</span></span> abre painel → <b>R$ 512 hoje</b>, busca falha virou sinal de estoque <span style="color:var(--sub)">· Tela ⑥</span></div></div>
+    </div></div>
+  </section>
+
+  <!-- ================= S4 CONTRATOS ================= -->
+  <section class="sec" id="s4">
+    <h2><span class="num">4</span> Contratos de dados — o fio entre as telas e o motor</h2>
+    <p class="why"><b>Por quê existe:</b> cada número que aparece numa tela tem uma origem exata. Estes são os contratos que o backend entrega; se um campo mudar, a tela quebra de propósito (fail fast). <i>Status: contrato-alvo a implementar (W08 pendente é parte disto).</i></p>
+    <details open><summary>▸ POST /recovery/parse — a frase vira requisitos + rota (alimenta Tela ②)</summary>
+      <div class="a">
+<pre>{
+  session_id: <span class="s">"sess_8f2"</span>,
+  query: <span class="s">"vestido verde casamento até 200 reais"</span>,
+  requirements: {
+    hard:  [{attr: <span class="s">"price_max"</span>, value: <span class="n">200</span>}, {attr: <span class="s">"size"</span>, value: <span class="s">"M"</span>}],   <span class="c">// inegociáveis</span>
+    soft:  [{attr: <span class="s">"color"</span>, value: <span class="s">"verde"</span>}, {attr: <span class="s">"occasion"</span>, value: <span class="s">"casamento"</span>}] <span class="c">// flexibilizáveis</span>
+  },
+  route: <span class="s">"RECOVER"</span>,            <span class="c">// NATIVE_OK | RECOVER | CLARIFY</span>
+  clarify_question: <span class="k">null</span>       <span class="c">// preenchido só na rota CLARIFY (1 pergunta, chips)</span>
+}</pre>
+      </div>
+    </details>
+    <details><summary>▸ POST /recovery/solve — os cartões com prova (alimenta Tela ③)</summary>
+      <div class="a">
+<pre>{
+  candidates: [
+    { sku: <span class="s">"VD-SERENA-M"</span>, title: <span class="s">"Vestido Midi Serena · Verde Oliva"</span>,
+      price: <span class="n">189.00</span>, strategy: <span class="s">"EXACT_ALTERNATIVE"</span>,          <span class="c">// 1 das 6 táticas</span>
+      proof: {color: <span class="k">true</span>, occasion: <span class="k">true</span>, price_max: <span class="k">true</span>, stock: <span class="k">true</span>},
+      why: <span class="s">"O único verde disponível no seu orçamento — e é midi, tendência pra casamento."</span>,
+      recommended: <span class="k">true</span> }
+    <span class="c">// + VARIANT_RECOVERY (R$214, acima do teto) + BUNDLE_RECOVERY (R$168)</span>
+  ],
+  fallback: <span class="k">null</span>                <span class="c">// se vazio → strategy = "NO_VALID_RECOVERY" (Tela ⑦)</span>
+}</pre>
+      </div>
+    </details>
+    <details><summary>▸ Evento ORDER_PAID → ledger (gera o número da Tela ⑥)</summary>
+      <div class="a">
+<pre>{
+  event: <span class="s">"order.paid"</span>, order_id: <span class="s">"shp_1001"</span>,        <span class="c">// idempotency_key = order_id</span>
+  session_id: <span class="s">"sess_8f2"</span>,                          <span class="c">// liga o pedido à busca que falhou</span>
+  recovered: <span class="k">true</span>,                                  <span class="c">// true se houve interação Recova na sessão</span>
+  amount: <span class="n">189.00</span>, currency: <span class="s">"BRL"</span>,
+  hmac_verified: <span class="k">true</span>, attempts: <span class="n">1</span>                 <span class="c">// attempts>1 = replay bloqueado</span>
+}
+<span class="c">// → Firestore ledger (append-only): "R$ 512 recuperados hoje" soma estes eventos</span></pre>
+      </div>
+    </details>
+    <details><summary>▸ Config do lojista (versão) — alimenta Telas ⑪ e ⑫</summary>
+      <div class="a">
+<pre>{
+  merchant_id: <span class="s">"aurora"</span>, version: <span class="n">7</span>,
+  menu: [{id: <span class="s">"ocasioes"</span>, label: <span class="s">"👗 Ocasiões"</span>, enabled: <span class="k">true</span>, order: <span class="n">1</span>} <span class="c">/*…*/</span>],
+  bot: {name: <span class="s">"Luana"</span>, tone: <span class="s">"acolhedor"</span>, emoji: <span class="s">"moderado"</span>, avatar: <span class="s">"oneworks:sun-3d"</span>,
+        show_why: <span class="k">true</span>, voice: <span class="k">false</span>},
+  locked: {honesty: <span class="k">true</span>, hard_constraints: <span class="k">true</span>, revenue_attribution: <span class="k">true</span>}  <span class="c">// NÃO editável</span>
+}</pre>
+      </div>
+    </details>
+  </section>
+
+  <!-- ================= S5 RASTREIO ================= -->
+  <section class="sec" id="s5">
+    <h2><span class="num">5</span> Rastreabilidade — de onde vem CADA número das telas</h2>
+    <p class="why"><b>Por quê existe:</b> se o Patrick olhar a Tela ③ e se perguntar "esse preço vem de onde?", a resposta está aqui. Nenhum dado de tela é inventado.</p>
+    <table>
+      <tr><th>Tela</th><th>Elemento</th><th>Dado</th><th>Origem exata</th></tr>
+      <tr><td>①</td><td>⚠️ 0 resultados</td><td>contagem da busca nativa</td><td>evento <span class="cd">search_failed</span> do conector</td></tr>
+      <tr><td>②</td><td>chips de requisitos</td><td>hard/soft constraints</td><td>resposta de <span class="cd">/recovery/parse</span> (Gemini)</td></tr>
+      <tr><td>③</td><td>preço R$ 189</td><td>preço real do SKU</td><td>catálogo (Firestore, sincronizado pelo conector)</td></tr>
+      <tr><td>③</td><td>"Por quê: …"</td><td>justificativa</td><td>Gemini 3.7 sobre a prova do Solver</td></tr>
+      <tr><td>③</td><td>✓ verdes</td><td>resultado da checagem</td><td><span class="cd">proof{}</span> do ConstraintSolver</td></tr>
+      <tr><td>⑤</td><td>trilha 14:02:11…</td><td>eventos do pedido</td><td>webhook ORDER_PAID → Pub/Sub (tempo real)</td></tr>
+      <tr><td>⑥</td><td>R$ 512 recuperados</td><td>soma do ledger</td><td>Firestore ledger W08 (append-only, idempotente)</td></tr>
+      <tr><td>⑥</td><td>"27 buscas falharam"</td><td>contagem de sessões SEARCHING→0</td><td>telemetria OTel agregada</td></tr>
+      <tr><td>⑨</td><td>"38% casamento/festa"</td><td>distribuição das falhas</td><td>análise Gemini sobre o histórico do próprio lojista</td></tr>
+      <tr><td>⑪⑫</td><td>menu/bot</td><td>config versionada</td><td>Firestore <span class="cd">merchants/{id}/config</span> (hot reload)</td></tr>
+    </table>
+  </section>
+
+  <!-- ================= S6 DECISOES ================= -->
+  <section class="sec" id="s6">
+    <h2><span class="num">6</span> Log de decisões — já discutido, já decidido, não reabrir sem novo fato</h2>
+    <p class="why"><b>Por quê existe:</b> reunião de alinhamento que já aconteceu não pode acontecer de novo. Se discordar de alguma, o canal é trazer <b>evidência nova</b>, não preferência.</p>
+    <table>
+      <tr><th>#</th><th>Decisão</th><th>Por quê</th><th>Status</th></tr>
+      <tr><td>D1</td><td>Rotas NATIVE_OK/RECOVER/CLARIFY — sem score 0–100</td><td>score numérico exige calibração que não temos; rotas são explicáveis</td><td><span class="pill p-done">FECHADA</span></td></tr>
+      <tr><td>D2</td><td>6 táticas nomeadas, incl. NO_VALID_RECOVERY</td><td>honestidade radical é a tese; o vazio é resposta</td><td><span class="pill p-done">FECHADA</span></td></tr>
+      <tr><td>D3</td><td>2 modelos: Gemma varre, Gemini julga</td><td>custo: estagiário faz volume, cérebro faz julgamento</td><td><span class="pill p-done">FECHADA</span></td></tr>
+      <tr><td>D4</td><td>Catálogo via import programático (~10k), nunca via LLM</td><td>custo/latência/consistência; LLM não inventa catálogo</td><td><span class="pill p-done">FECHADA</span></td></tr>
+      <tr><td>D5</td><td>Avatar OneWorks (MIT), presentation-only, sem mic</td><td>presença visual sem risco de privacidade; leve (SVG/GIF)</td><td><span class="pill p-done">FECHADA</span></td></tr>
+      <tr><td>D6</td><td>Voz = Gemini Live API (COULD — só com tudo verde)</td><td>stack 100% Google, diferencial pro júri; risco controlado</td><td><span class="pill p-open">CONDICIONAL</span></td></tr>
+      <tr><td>D7</td><td>Demo: pagamento simulado, esteira de eventos REAL</td><td>prova de engenharia sem depender de gateway em 4 dias</td><td><span class="pill p-done">FECHADA</span></td></tr>
+      <tr><td>D8</td><td>W08 atribuição idempotente = métrica nº 1</td><td>"R$ recuperados" é o que o lojista (e o júri) compra</td><td><span class="pill p-open">EM EXECUÇÃO</span></td></tr>
+      <tr><td>D9</td><td>Instalação: Shopify app principal; script p/ demais; MCP p/ devs</td><td>2 cliques vence; mesmo motor nos 3 caminhos</td><td><span class="pill p-done">FECHADA</span></td></tr>
+      <tr><td>D10</td><td>IA propõe 3 bots; regras duras nunca editáveis</td><td>1 clique vence formulário; honestidade não se negocia</td><td><span class="pill p-done">FECHADA</span></td></tr>
+      <tr><td>D11</td><td>Menu/bot editáveis com versionamento + hot reload &lt;30s</td><td>customização sem deploy; rollback em 1 clique</td><td><span class="pill p-open">EM EXECUÇÃO</span></td></tr>
+      <tr><td>D12</td><td>MoSCoW congelado desta edição (MOSCOW-v7.md)</td><td>4 dias: foco no que aparece no vídeo e nos requisitos Google</td><td><span class="pill p-done">FECHADA</span></td></tr>
+    </table>
+  </section>
+
+  <!-- ================= S7 DOD ================= -->
+  <section class="sec" id="s7">
+    <h2><span class="num">7</span> Definition of Done por tela — "pronta" tem critério objetivo</h2>
+    <p class="why"><b>Por quê existe:</b> "acho que tá pronto" não existe aqui. Uma tela está pronta quando TODAS as caixas dela estão marcadas.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:12px">
+      <div><b style="font-size:12px; color:var(--navy)">① Busca falha + oferta</b><ul class="dod">
+        <li>Overlay aparece SOMENTE com zero_results && query≥3</li><li>Máx. 1 oferta por sessão (anti-spam)</li><li>Aparece &lt; 200ms, sem esperar LLM</li><li>Nunca cobre nem bloqueia os best-sellers</li></ul></div>
+      <div><b style="font-size:12px; color:var(--navy)">② Leitura da busca</b><ul class="dod">
+        <li>Chips = hard vs soft visível</li><li>Rotas coerentes com os exemplos do PLAN_FINAL</li><li>Nunca pede o que a frase já trouxe</li></ul></div>
+      <div><b style="font-size:12px; color:var(--navy)">③ Cartões</b><ul class="dod">
+        <li>Todos os proof ✓ vêm do Solver (não decoram)</li><li>Preço/estoque = catálogo real</li><li>"Por quê" cita o motivo real da escolha</li></ul></div>
+      <div><b style="font-size:12px; color:var(--navy)">④ Conversa</b><ul class="dod">
+        <li>Atributo novo → cartões atualizam sem reload</li><li>Máx. 3 refinamentos; depois decide ou encerra</li></ul></div>
+      <div><b style="font-size:12px; color:var(--navy)">⑤ Checkout + esteira</b><ul class="dod">
+        <li>Pagamento simulado, ORDER_PAID REAL</li><li>HMAC verificado + idempotência testada (replay não conta 2×)</li></ul></div>
+      <div><b style="font-size:12px; color:var(--navy)">⑥ Painel</b><ul class="dod">
+        <li>KPIs = soma do ledger (não mock fixo)</li><li>Lista de buscas falhas = OTel real</li></ul></div>
+      <div><b style="font-size:12px; color:var(--navy)">⑦ Honestidade</b><ul class="dod">
+        <li>Aparece QUANDO strategy=NO_VALID_RECOVERY</li><li>Nunca mostra produto não aprovado</li><li>2 saídas: alerta (C4) ou risco do usuário</li></ul></div>
+      <div><b style="font-size:12px; color:var(--navy)">⑧–⑩ Onboarding</b><ul class="dod">
+        <li>3 portas funcionam no demo (Shopify = fluxo mostrado)</li><li>3 propostas de bot derivam do catálogo demo</li><li>Preview conversa com catálogo real</li></ul></div>
+      <div><b style="font-size:12px; color:var(--navy)">⑪–⑫ Dashboard</b><ul class="dod">
+        <li>Menu: drag+toggle → vale na próxima busca (&lt;30s)</li><li>Bot: teste roda as regras ANTES de publicar</li><li>locked{} inalterável pela UI</li></ul></div>
+      <div><b style="font-size:12px; color:var(--navy)">⑬ Voz (COULD)</b><ul class="dod">
+        <li>Live API responde &lt; 500ms com interrupção</li><li>Fallback texto sem perder contexto</li><li>Feature flag ON só se ①–⑦ prontas</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ================= S8 TESTE ================= -->
+  <section class="sec" id="s8">
+    <h2><span class="num">8</span> Teste dos 5 minutos — se responder estas 5, você entendeu 100%</h2>
+    <p class="why"><b>Como usar:</b> tente responder antes de abrir. Se travar em alguma, a seção indicada resolve. Se alguma resposta aqui surpreender, o blueprint cumpriu o papel.</p>
+    <details><summary>1 · Em que caso EXATO o bot aparece para a cliente?</summary><div class="a"><b>zero_results === true E query ≥ 3 caracteres</b>, no máximo 1 vez por sessão de busca (oferta, nunca pergunta em aberto). Se a nativa resolveu: silêncio total. <i>→ Estados + Tela ①</i></div></details>
+    <details><summary>2 · Qual a diferença entre VARIAÇÃO e FLEXIBILIZOU?</summary><div class="a"><b>VARIAÇÃO</b> = mesmo produto, outra variante (verde escuro em vez de verde claro). <b>FLEXIBILIZOU</b> = uma preferência declarada foi relaxada COM PERMISSÃO (tom do verde), mas os filtros duros (orçamento, tamanho) ficam intatos — e o cartão diz o que flexibilizou. <i>→ Solver, 6 táticas</i></div></details>
+    <details><summary>3 · De onde vem o "R$ 512 recuperados" do painel?</summary><div class="a">Do <b>ledger append-only (W08)</b>: cada ORDER_PAID da loja chega por webhook <b>assinado (HMAC)</b>, passa pela fila Pub/Sub e é creditado 1× (idempotência). "Recuperado" = pedido ligado a uma sessão com interação Recova. Sem esse encadeamento, o número não existe. <i>→ Esteira + Contratos</i></div></details>
+    <details><summary>4 · O que o lojista NÃO pode customizar de jeito nenhum?</summary><div class="a"><b>3 coisas, travadas em config:</b> honestidade radical (NO_VALID_RECOVERY sempre disponível), filtros duros (orçamento/tamanho inegociáveis) e atribuição de receita auditável. Ele muda a VOZ do bot, nunca a HONESTIDADE. <i>→ Decisões D10 + faixa vermelha</i></div></details>
+    <details><summary>5 · Na demo, o que é simulado e o que é real?</summary><div class="a"><b>Simulado:</b> só o clique final do pagamento. <b>Real:</b> a busca, o roteamento, a varredura do catálogo, os cartões com prova, a conversa, e TODA a esteira de eventos (webhook, HMAC, fila, ledger, painel). O pitch é: "a engenharia é real, o cartão de crédito é que é de mentira". <i>→ Decisão D7</i></div></details>
+    <p class="footnote">💬 Discordou de algo aqui? O fluxo é: trazer evidência nova → reabrir a decisão específica pelo número (D#) → decidir em 1 conversa → atualizar ESTE arquivo. Preferência sem evidência não reabre decisão.</p>
+  </section>
+
+</main>
+
+<footer>
+  <a href="https://tinyurl.com/263y4ts4">Fluxograma</a> ·
+  <a href="https://tinyurl.com/25tej88o">Telas ①–⑬</a> ·
+  <a href="https://tinyurl.com/2acwq58e">Canvas</a> ·
+  <a href="https://tinyurl.com/2cunppxo">Draw.io v4</a> ·
+  <a href="https://github.com/patrickpassosb/recova">Repo</a><br>
+  RECOVA — Search Recovery · Google All Things Agentic Hackathon
+</footer>
+
+</body>
+</html>
