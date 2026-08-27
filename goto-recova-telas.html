@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RECOVA — Da busca que falha à venda recuperada</title>
+<style>
+  :root{
+    --bg:#F4F7FA; --ink:#1D2939; --sub:#475467; --line:#D0D5DD; --line2:#EAECF0;
+    --blue:#065CF5; --blue-soft:#E8F1FF; --orange:#FF5B0A; --navy:#06345D; --green:#16A34A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; line-height:1.45}
+  a{color:var(--blue)}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--navy); color:#fff; padding:40px 24px 30px; text-align:center}
+  .hero .brand{display:inline-block; background:var(--orange); color:#fff; font-weight:800; letter-spacing:.14em; font-size:13px; padding:5px 14px; border-radius:999px; margin-bottom:14px}
+  .hero h1{font-size:clamp(22px,4vw,34px); font-weight:800; letter-spacing:-.02em}
+  .hero p{max-width:640px; margin:10px auto 0; color:#cfe0f2; font-size:14.5px}
+  .hero a{color:#9cc3ff}
+
+  /* ---------- ENGINE STRIP (integração com o diagrama v4) ---------- */
+  .strip{position:sticky; top:0; z-index:50; background:var(--navy); border-top:1px solid rgba(255,255,255,.12); padding:10px 12px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap}
+  .pill{display:flex; align-items:center; gap:7px; border:1px solid rgba(255,255,255,.25); color:#cfe0f2; background:transparent; border-radius:999px; padding:6px 13px; font-size:12.5px; font-weight:600; cursor:pointer; transition:all .2s}
+  .pill .n{font-size:13px}
+  .pill.active{background:var(--blue); border-color:var(--blue); color:#fff}
+  .pill:hover{border-color:#fff}
+  .legend{background:var(--navy); color:#9fb8d4; text-align:center; font-size:11.5px; padding:0 16px 14px}
+
+  /* ---------- LAYOUT ---------- */
+  main{max-width:1180px; margin:0 auto; padding:36px 20px 10px}
+  .step{display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:34px; align-items:start; padding:44px 0 52px; border-bottom:1px dashed var(--line)}
+  .step:last-of-type{border-bottom:none}
+  @media(max-width:900px){.step{grid-template-columns:1fr}}
+  .step .num{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:50%; background:var(--blue); color:#fff; font-size:17px; font-weight:800; margin-bottom:10px}
+  .why h2{font-size:21px; font-weight:800; letter-spacing:-.01em; margin-bottom:6px}
+  .why .hook{color:var(--sub); font-size:14px; margin-bottom:14px}
+  .engine{background:#fff; border:1px solid var(--line2); border-left:4px solid var(--orange); border-radius:10px; padding:14px 16px; font-size:13.5px}
+  .engine h4{font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--orange); margin-bottom:8px}
+  .engine ul{list-style:none}
+  .engine li{padding:5px 0; border-top:1px solid var(--line2); color:var(--ink)}
+  .engine li b{color:var(--navy)}
+  .engine li .en{color:var(--sub); font-size:12px}
+
+  /* ---------- BROWSER FRAME ---------- */
+  .browser{background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 12px 32px rgba(16,24,40,.10)}
+  .bbar{background:#EAECF0; display:flex; align-items:center; gap:6px; padding:9px 12px}
+  .bbar .dot{width:10px; height:10px; border-radius:50%}
+  .d1{background:#F97066}.d2{background:#FDB022}.d3{background:#32D583}
+  .burl{flex:1; background:#fff; border-radius:7px; font-size:11px; color:var(--sub); padding:4px 12px; margin-left:6px; white-space:nowrap; overflow:hidden}
+  .screen{padding:16px}
+
+  /* ---------- STORE UI (shared) ---------- */
+  .shop-head{display:flex; align-items:center; gap:12px; padding-bottom:12px; border-bottom:1px solid var(--line2); margin-bottom:14px}
+  .logo{font-weight:800; letter-spacing:.06em; font-size:14px; color:var(--navy)}
+  .search{flex:1; display:flex; align-items:center; gap:8px; background:#F2F4F7; border:1px solid var(--line); border-radius:9px; padding:8px 12px; font-size:12.5px; color:var(--sub)}
+  .search .q{color:var(--ink); font-weight:600}
+  .ico{width:26px; height:26px; border-radius:8px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; font-size:12px}
+  .prodgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+  .prod{border:1px solid var(--line2); border-radius:10px; overflow:hidden}
+  .prod .ph{height:64px; display:flex; align-items:center; justify-content:center; font-size:26px; background:linear-gradient(135deg,#F2F4F7,#E4E9F0)}
+  .prod .nm{font-size:10.5px; font-weight:600; padding:6px 8px 1px; color:var(--ink)}
+  .prod .pr{font-size:10.5px; color:var(--sub); padding:0 8px 8px}
+  .zero{background:#FFFAEB; border:1px solid #FEDF89; color:#93370D; border-radius:9px; padding:10px 12px; font-size:12.5px; font-weight:600; margin-bottom:12px}
+
+  /* recova overlay pieces */
+  .rc-badge{display:inline-flex; align-items:center; gap:6px; background:var(--orange); color:#fff; font-size:10px; font-weight:800; letter-spacing:.08em; padding:3px 9px; border-radius:999px}
+  .rc-panel{border:2px solid var(--orange); border-radius:12px; padding:14px; background:#FFF7F2}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin:9px 0}
+  .chip{background:var(--blue-soft); color:var(--navy); border:1px solid #B2D0FB; font-size:11.5px; font-weight:700; padding:4px 10px; border-radius:999px}
+  .status{font-size:11.5px; color:var(--sub); display:flex; gap:6px; align-items:center}
+  .ok{color:var(--green); font-weight:700}
+
+  /* decision cards */
+  .cards{display:grid; gap:10px}
+  .dcard{display:grid; grid-template-columns:74px 1fr; gap:12px; border:1px solid var(--line); border-radius:12px; padding:11px; background:#fff}
+  .dcard.rec{border:2px solid var(--blue); background:linear-gradient(0deg,rgba(6,92,245,.03),rgba(6,92,245,.03)),#fff}
+  .dcard .img{height:74px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:30px; background:linear-gradient(135deg,#E8F1FF,#F2F4F7)}
+  .tag{display:inline-block; font-size:9.5px; font-weight:800; letter-spacing:.07em; padding:2px 8px; border-radius:999px; margin-bottom:4px}
+  .t-exact{background:#D1FADF; color:#067647}
+  .t-variant{background:var(--blue-soft); color:var(--navy)}
+  .t-bundle{background:#FEF0C7; color:#93370D}
+  .dcard h3{font-size:13.5px; font-weight:700}
+  .dcard .price{font-size:14px; font-weight:800; color:var(--navy); margin:2px 0}
+  .proof{font-size:11px; color:var(--sub)}
+  .proof b{color:var(--green)}
+  .whyline{font-size:11px; color:var(--sub); font-style:italic; margin-top:3px}
+  .cta{display:inline-block; background:var(--blue); color:#fff; font-size:11.5px; font-weight:700; padding:6px 14px; border-radius:8px; margin-top:7px}
+  .cta.ghost{background:#fff; color:var(--blue); border:1px solid var(--blue)}
+
+  /* chat */
+  .chat{display:grid; gap:9px}
+  .msg{max-width:82%; padding:9px 12px; border-radius:12px; font-size:12.5px}
+  .msg.user{background:var(--blue); color:#fff; justify-self:end; border-bottom-right-radius:4px}
+  .msg.bot{background:#F2F4F7; color:var(--ink); justify-self:start; border-bottom-left-radius:4px}
+  .msg.bot .mini{display:flex; gap:8px; margin-top:8px}
+  .msg.bot .mini div{flex:1; border:1px solid var(--line); border-radius:8px; padding:6px; font-size:10.5px; text-align:center; background:#fff}
+  .tagline{font-size:10px; color:var(--sub); margin-top:4px; font-style:italic}
+
+  /* checkout / esteira */
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  @media(max-width:640px){.split{grid-template-columns:1fr}}
+  .box{border:1px solid var(--line2); border-radius:11px; padding:12px}
+  .box h4{font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--sub); margin-bottom:9px}
+  .line{display:flex; justify-content:space-between; font-size:12px; padding:4px 0; border-top:1px dashed var(--line2)}
+  .line:first-of-type{border-top:none}
+  .total{font-weight:800; color:var(--navy)}
+  .log{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:10.5px; color:var(--sub); display:grid; gap:5px}
+  .log .t{color:#98A2B3; margin-right:6px}
+  .log .g{color:var(--green); font-weight:700}
+
+  /* dashboard */
+  .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-bottom:12px}
+  .kpi{background:var(--navy); color:#fff; border-radius:11px; padding:11px 12px}
+  .kpi .v{font-size:19px; font-weight:800}
+  .kpi .l{font-size:10px; color:#9fb8d4; text-transform:uppercase; letter-spacing:.06em; margin-top:2px}
+  .kpi.hl{background:var(--orange)}
+  .kpi.hl .l{color:#ffe1d1}
+  .bars{display:flex; align-items:flex-end; gap:7px; height:64px; padding:10px 12px; border:1px solid var(--line2); border-radius:11px; margin-bottom:12px}
+  .bar{flex:1; background:var(--blue-soft); border-radius:4px 4px 0 0; border-bottom:2px solid var(--blue)}
+  .bar.hot{background:#FFE6D5; border-bottom-color:var(--orange)}
+  table{width:100%; border-collapse:collapse; font-size:11px}
+  th{color:var(--sub); text-transform:uppercase; font-size:9.5px; letter-spacing:.07em; text-align:left; padding:6px 8px; border-bottom:1px solid var(--line)}
+  td{padding:7px 8px; border-bottom:1px solid var(--line2)}
+  .st{font-size:10px; font-weight:800; padding:2px 8px; border-radius:999px}
+  .st-ok{background:#D1FADF; color:#067647}
+  .st-no{background:#F2F4F7; color:#475467}
+
+  /* honest screen */
+  .honest{max-width:430px; margin:6px auto; text-align:center; border:2px solid var(--line); border-radius:14px; padding:22px 18px; background:#fff}
+  .honest .big{font-size:30px; margin-bottom:8px}
+  .honest h3{font-size:15px; font-weight:800; margin-bottom:6px}
+  .honest p{font-size:12px; color:var(--sub); margin-bottom:12px}
+  .honest .opts{display:grid; gap:8px}
+  .honest .opt{border:1px solid var(--line); border-radius:9px; padding:8px 10px; font-size:12px; font-weight:600; color:var(--navy)}
+  .honest .opt.p{border-color:var(--blue); background:var(--blue-soft)}
+
+  footer{max-width:1180px; margin:0 auto; padding:26px 20px 44px; color:var(--sub); font-size:12px; text-align:center}
+  footer a{margin:0 8px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="brand">RECOVA · SEARCH RECOVERY</span>
+  <h1>Da busca que falha à venda recuperada</h1>
+  <p>As 7 telas da jornada da Maria — o que ela <b>vê</b> na loja, e qual peça do <a href="https://tinyurl.com/2cunppxo" target="_blank" rel="noopener">motor (diagrama v4)</a> trabalha atrás de cada uma.</p>
+</header>
+
+<nav class="strip" id="strip">
+  <button class="pill active" data-t="s1"><span class="n">①</span> A falha</button>
+  <button class="pill" data-t="s2"><span class="n">②</span> O porteiro</button>
+  <button class="pill" data-t="s3"><span class="n">③</span> Os cartões</button>
+  <button class="pill" data-t="s4"><span class="n">④</span> A conversa</button>
+  <button class="pill" data-t="s5"><span class="n">⑤</span> A compra</button>
+  <button class="pill" data-t="s6"><span class="n">⑥</span> Os números</button>
+  <button class="pill" data-t="s7"><span class="n">⑦</span> O honesto</button>
+</nav>
+<div class="legend">A trilha acima é o motor do diagrama v4 — o bloco aceso é o que está trabalhando na tela que você está vendo.</div>
+
+<main>
+
+  <!-- ================= ① ================= -->
+  <section class="step" id="s1">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">auroramoda.com.br — Nova coleção</span></div>
+      <div class="screen">
+        <div class="shop-head">
+          <span class="logo">AURORA</span>
+          <span class="search">🔍 <span class="q">vestido verde casamento até 200 reais</span></span>
+          <span class="ico">🛍️</span><span class="ico">👤</span>
+        </div>
+        <div class="zero">⚠️ Nenhum resultado para "vestido verde casamento" — mostrando best-sellers</div>
+        <div class="prodgrid">
+          <div class="prod"><div class="ph">👟</div><div class="nm">Tênis Street</div><div class="pr">R$ 259</div></div>
+          <div class="prod"><div class="ph">👜</div><div class="nm">Bolsa Luna</div><div class="pr">R$ 189</div></div>
+          <div class="prod"><div class="ph">👖</div><div class="nm">Calça Reta</div><div class="pr">R$ 199</div></div>
+          <div class="prod"><div class="ph">🧢</div><div class="nm">Boné Classic</div><div class="pr">R$ 89</div></div>
+        </div>
+        <div style="margin-top:14px" class="rc-panel">
+          <span class="rc-badge">RECOVA</span>
+          <p style="font-size:13px; font-weight:700; margin-top:8px">Não achei nada igual — mas entendi <u>exatamente</u> o que você quer. Quer que eu procure de verdade?</p>
+          <span class="cta">Sim, achar meu vestido →</span>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">①</span>
+      <h2>A busca que falha</h2>
+      <p class="hook">A Maria digita do jeito dela. A loja responde com produtos que não têm nada a ver — e ela está a 1 clique de ir embora.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>Busca nativa</b> <span class="en">— só casa palavra exata; não entende "casamento" ou "até 200"</span></li>
+          <li><b>O Vigia</b> <span class="en">— SignalFanOut · percebe a busca falha (0 resultados) e acorda o motor</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ② ================= -->
+  <section class="step" id="s2">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">auroramoda.com.br — RECOVA</span></div>
+      <div class="screen">
+        <div class="rc-panel">
+          <span class="rc-badge">RECOVA</span>
+          <h3 style="font-size:15px; margin-top:9px">Entendi sua busca:</h3>
+          <div class="chips">
+            <span class="chip">🎨 verde</span>
+            <span class="chip">💒 ocasião: casamento</span>
+            <span class="chip">💰 até R$ 200</span>
+          </div>
+          <div class="status"><span class="ok">✓</span> 3 requisitos identificados &nbsp;·&nbsp; Rota escolhida: <b>RECOVER</b> (há o que trabalhar no catálogo)</div>
+          <div class="status" style="margin-top:5px"><span class="ok">✓</span> Lendo os ~10.000 itens da loja antes de responder…</div>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">②</span>
+      <h2>O porteiro lê o pedido</h2>
+      <p class="hook">Em 1 segundo, a frase solta da Maria vira 3 requisitos organizados — e o sistema decide o que fazer com eles.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>O Porteiro</b> <span class="en">— RouteResolver · separa restrições duras (orçamento) de preferências (tom de verde)</span></li>
+          <li><b>O Cérebro</b> <span class="en">— Gemini 3.7 Flash · interpreta a frase em linguagem natural</span></li>
+          <li><b>3 rotas</b> <span class="en">— NATIVE_OK (nativa resolve) · RECOVER (recuperar) · CLARIFY (perguntar antes)</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ③ ================= -->
+  <section class="step" id="s3">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">auroramoda.com.br — RECOVA · 3 opções encontradas</span></div>
+      <div class="screen">
+        <div class="rc-panel" style="background:#fff">
+          <span class="rc-badge">RECOVA</span>
+          <p style="font-size:13px; font-weight:700; margin:9px 0 11px">Achei 3 caminhos pro seu vestido verde de casamento:</p>
+          <div class="cards">
+            <div class="dcard rec">
+              <div class="img">👗</div>
+              <div>
+                <span class="tag t-exact">EXATA</span>
+                <h3>Vestido Midi Serena · Verde Oliva</h3>
+                <div class="price">R$ 189</div>
+                <div class="proof">verde <b>✓</b> · festa <b>✓</b> · até R$200 <b>✓</b> · tamanho M em estoque</div>
+                <div class="whyline">Por quê: o único verde disponível no seu orçamento — e é midi, tendência pra casamento.</div>
+                <span class="cta">Ver este</span>
+              </div>
+            </div>
+            <div class="dcard">
+              <div class="img">👗</div>
+              <div>
+                <span class="tag t-variant">VARIAÇÃO</span>
+                <h3>Vestido Longo Camila · Verde Escuro</h3>
+                <div class="price">R$ 214</div>
+                <div class="proof">verde <b>✓</b> · festa <b>✓</b> · R$ 14 acima do teto</div>
+                <div class="whyline">Por quê: se o comprimento importar mais que o limite, é a melhor saída.</div>
+                <span class="cta ghost">Ver este</span>
+              </div>
+            </div>
+            <div class="dcard">
+              <div class="img">👚</div>
+              <div>
+                <span class="tag t-bundle">LOOK COMPLETO</span>
+                <h3>Saia Verde + Blusa Mariana</h3>
+                <div class="price">R$ 168</div>
+                <div class="proof">verde <b>✓</b> · festa <b>✓</b> · 2 peças por menos</div>
+                <div class="whyline">Por quê: nenhum vestido fecha? O look montado cumpre o mesmo papel.</div>
+                <span class="cta ghost">Ver este</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">③</span>
+      <h2>Os cartões — o coração</h2>
+      <p class="hook">Em vez de um grid aleatório, 3 cartões com a prova embaixo de cada um: o que cumpre, o que flexibiliza, o que improvisa.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>O Fiscal</b> <span class="en">— testa cada candidato do catálogo contra os 3 requisitos, um a um</span></li>
+          <li><b>As 6 táticas</b> <span class="en">— EXATA · VARIAÇÃO · FLEXIBILIZOU · REFORMULOU · LOOK COMPLETO · NADA SEGURO</span></li>
+          <li><b>Só aprovado vira cartão</b> <span class="en">— nada entra na tela sem passar nos filtros duros</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ④ ================= -->
+  <section class="step" id="s4">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">auroramoda.com.br — RECOVA · conversa</span></div>
+      <div class="screen">
+        <div class="rc-panel" style="background:#fff">
+          <span class="rc-badge">RECOVA</span>
+          <div class="chat" style="margin-top:10px">
+            <div class="msg user">o verde pode ser escuro, mas não quero longo demais</div>
+            <div class="msg bot">Perfeito — anotei: <b>verdes escuros</b>, comprimento <b>midi ou curtinho</b>. Reavaliei o catálogo com essa regra e sobraram 2 opções fortes:
+              <div class="mini">
+                <div>👗 Midi Serena<br>Verde Oliva · R$ 189</div>
+                <div>👗 Curto Bianca<br>Verde Musgo · R$ 175</div>
+              </div>
+              <div class="tagline">entendeu: verde escuro ✓ · midi ✓ · atualizou os 2 cartões</div>
+            </div>
+          </div>
+          <div class="search" style="margin-top:11px">💬 Responda como se fosse pro WhatsApp…</div>
+        </div>
+      </div>
+    <aside class="why">
+      <span class="num">④</span>
+      <h2>A conversa afia a busca</h2>
+      <p class="hook">A Maria não preenche filtro nenhum — ela fala. O sistema entende, reavalia o catálogo e devolve cartões novos em segundos.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>O Cérebro</b> <span class="en">— Gemini 3.7 Flash · traduz "não longo demais" em regra: midi ou curto</span></li>
+          <li><b>O Estagiário</b> <span class="en">— Gemma 4 · varre os 10 mil itens baratinho e deixa só dezenas pro Cérebro julgar</span></li>
+          <li><b>Tática usada</b> <span class="en">— FLEXIBILIZOU: relaxou o tom do verde, manteve o orçamento intocado</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ⑤ ================= -->
+  <section class="step" id="s5">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">auroramoda.com.br — checkout</span></div>
+      <div class="screen">
+        <div class="split">
+          <div class="box">
+            <h4>Seu pedido</h4>
+            <div class="line"><span>👗 Vestido Midi Serena · M</span><span>R$ 189</span></div>
+            <div class="line"><span>Frete</span><span>Grátis</span></div>
+            <div class="line total"><span>Total</span><span>R$ 189</span></div>
+            <span class="cta" style="margin-top:11px">Finalizar compra</span>
+            <p style="font-size:10.5px;color:var(--sub);margin-top:9px">💡 <i>demo: pagamento simulado — a esteira de eventos, real</i></p>
+          </div>
+          <div class="box">
+            <h4>Trilha do pedido (tempo real)</h4>
+            <div class="log">
+              <div><span class="t">14:02:11</span>ORDER_PAID emitido</div>
+              <div><span class="t">14:02:11</span>assinatura HMAC <span class="g">✓ verificada</span></div>
+              <div><span class="t">14:02:12</span>na fila (Pub/Sub) <span class="g">✓</span></div>
+              <div><span class="t">14:02:12</span>R$ 189 creditados como <b>receita recuperada</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">⑤</span>
+      <h2>A compra — e a prova dela</h2>
+      <p class="hook">A Maria compra em 2 toques. No mesmo segundo, o pedido vira um evento assinado e auditável — não é "confie em mim", é matemática.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>A Esteira</b> <span class="en">— webhook ORDER_PAID → assinatura HMAC (lacre anti-falsificação) → fila → contador</span></li>
+          <li><b>Idempotência</b> <span class="en">— o mesmo pedido nunca conta duas vezes, nem se a internet falhar</span></li>
+          <li><b>Atribuição de receita</b> <span class="en">— W08 · a métrica nº 1 do pitch nasce aqui</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ⑥ ================= -->
+  <section class="step" id="s6">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">auroramoda.com.br — RECOVA · painel do lojista</span></div>
+      <div class="screen">
+        <div class="kpis">
+          <div class="kpi hl"><div class="v">R$ 512</div><div class="l">receita recuperada · hoje</div></div>
+          <div class="kpi"><div class="v">3 vendas</div><div class="l">recuperadas · hoje</div></div>
+          <div class="kpi"><div class="v">27</div><div class="l">buscas que falharam · hoje</div></div>
+        </div>
+        <div class="bars">
+          <div class="bar" style="height:30%"></div><div class="bar" style="height:55%"></div>
+          <div class="bar hot" style="height:90%"></div><div class="bar" style="height:45%"></div>
+          <div class="bar" style="height:70%"></div><div class="bar hot" style="height:60%"></div>
+          <div class="bar" style="height:80%"></div>
+        </div>
+        <table>
+          <tr><th>Busca que falhou</th><th>Resultado</th></tr>
+          <tr><td>vestido verde casamento até 200</td><td><span class="st st-ok">RECUPERADA · R$ 189</span></td></tr>
+          <tr><td>tênis corrida 40 impermeável</td><td><span class="st st-ok">RECUPERADA · R$ 214</span></td></tr>
+          <tr><td>vestido longo verde musgo</td><td><span class="st st-no">sem opção segura</span></td></tr>
+          <tr><td>saia couro cintura alta 42</td><td><span class="st st-ok">RECUPERADA · R$ 109</span></td></tr>
+        </table>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">⑥</span>
+      <h2>O painel que o lojista não tinha</h2>
+      <p class="hook">Até hoje essa lista era feita no Excel, no chute (a dor que o Bruno contou). Agora é automática: cada busca perdida e cada venda resgatada, com valor.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>As Câmeras</b> <span class="en">— OTel · gravam cada evento sem atrapalhar a loja</span></li>
+          <li><b>Os Números</b> <span class="en">— ledger + Merchant Analytics · receita atribuída, buscas falhas, taxas</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ⑦ ================= -->
+  <section class="step" id="s7">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">auroramoda.com.br — RECOVA</span></div>
+      <div class="screen">
+        <div class="honest">
+          <div class="big">🤝</div>
+          <h3>Não achei nada que eu possa garantir pra você.</h3>
+          <p>Prefiro dizer "não" do que te empurrar produto errado — igual um vendedor de confiança faria.</p>
+          <div class="opts">
+            <div class="opt p">🔔 Me avise quando chegar um verde casamento ≤ R$ 200</div>
+            <div class="opt">👀 Ver parecidos por minha conta e risco</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">⑦</span>
+      <h2>O estado que ninguém tem coragem</h2>
+      <p class="hook">Todo concorrente enche a tela com best-seller aleatório. A Recova admite o vazio — e transforma em cadastro de demanda pra loja.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>NADA SEGURO</b> <span class="en">— a 6ª tática: nenhuma opção passou nos filtros duros, e isso é uma resposta</span></li>
+          <li><b>Alerta de reposição</b> <span class="en">— a busca falha vira sinal de estoque pro lojista, não perda seca</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+</main>
+
+<footer>
+  <a href="https://tinyurl.com/2cunppxo" target="_blank" rel="noopener">Diagrama do motor (v4)</a> ·
+  <a href="https://github.com/patrickpassosb/recova" target="_blank" rel="noopener">Repo técnico</a><br>
+  RECOVA — Search Recovery · Google All Things Agentic Hackathon
+</footer>
+
+<script>
+  const pills=[...document.querySelectorAll('.pill')];
+  pills.forEach(p=>p.addEventListener('click',()=>document.getElementById(p.dataset.t).scrollIntoView({behavior:'smooth',block:'start'})));
+  const obs=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        pills.forEach(p=>p.classList.toggle('active',p.dataset.t===e.target.id));
+      }
+    });
+  },{rootMargin:'-30% 0px -55% 0px'});
+  document.querySelectorAll('.step').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
