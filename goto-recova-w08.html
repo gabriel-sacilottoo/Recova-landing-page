@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RECOVA — W08 · Atribuição de Receita (plano de execução)</title>
+<style>
+  :root{
+    --bg:#F4F7FA; --ink:#1D2939; --sub:#475467; --line:#D0D5DD; --line2:#EAECF0;
+    --blue:#065CF5; --blue-soft:#E8F1FF; --orange:#FF5B0A; --navy:#06345D; --green:#16A34A;
+    --must:#C0362C; --mustbg:#FEF3F2; --okbg:#D1FADF; --oktx:#067647;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif; line-height:1.5}
+  a{color:var(--blue)}
+  .topbar{position:sticky; top:0; z-index:60; background:var(--navy); color:#fff; padding:10px 16px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .topbar .brand{font-weight:800; letter-spacing:.12em; font-size:13px; background:var(--orange); padding:4px 12px; border-radius:999px}
+  .topbar .t{font-size:14px; font-weight:700}
+  .topbar .meta{margin-left:auto; font-size:12px; color:#9fb8d4; padding-right:10px}
+  header{max-width:960px; margin:0 auto; padding:28px 20px 4px; text-align:center}
+  header h1{font-size:clamp(19px,3.2vw,27px); font-weight:800; letter-spacing:-.02em}
+  header p{color:var(--sub); font-size:13.5px; max-width:720px; margin:7px auto 0}
+  .goal{max-width:960px; margin:16px auto 0; padding:0 16px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap}
+  .goal .g{background:#fff; border:1px solid var(--line2); border-radius:999px; padding:6px 14px; font-size:12px; font-weight:700}
+  .goal .g b{color:var(--must)}
+  main{max-width:960px; margin:0 auto; padding:24px 16px 30px}
+  .sec{background:#fff; border:1px solid var(--line2); border-radius:14px; padding:18px 20px; margin-bottom:18px; scroll-margin-top:70px}
+  .sec > h2{font-size:16.5px; font-weight:800; margin-bottom:2px}
+  .sec > .why{color:var(--sub); font-size:12px; margin-bottom:13px}
+  .num{display:inline-flex; width:26px; height:26px; border-radius:50%; background:var(--blue); color:#fff; font-size:13px; font-weight:800; align-items:center; justify-content:center; margin-right:8px; vertical-align:middle}
+  .arch{background:var(--navy); border-radius:12px; padding:14px; overflow-x:auto}
+  .arch pre{color:#D6E4F0; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px; line-height:1.6}
+  .arch .hl{color:#FFB27A; font-weight:800}
+  .arch .c{color:#5D7A99}
+  table{width:100%; border-collapse:collapse; font-size:11.5px}
+  th{color:var(--sub); text-transform:uppercase; font-size:9.5px; letter-spacing:.07em; text-align:left; padding:6px 8px; border-bottom:1.5px solid var(--line)}
+  td{padding:7px 8px; border-bottom:1px solid var(--line2); vertical-align:top}
+  td code, .inl{font-family:ui-monospace,Menlo,monospace; font-size:10.5px; background:#F2F4F7; border-radius:5px; padding:1px 6px; color:var(--navy); font-weight:600}
+  pre.code{background:#0B1220; color:#D6E4F0; border-radius:11px; padding:13px 15px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10.5px; overflow-x:auto; line-height:1.55; margin:10px 0 4px}
+  pre.code .k{color:#7FB5FF} pre.code .s{color:#FFC49B} pre.code .c{color:#5D7A99; font-style:italic} pre.code .n{color:#9BE8C0} pre.code .f{color:#FFB27A}
+  .step{border-left:3px solid var(--blue); padding:2px 0 2px 14px; margin:16px 0 6px}
+  .step h3{font-size:13.5px; font-weight:800}
+  .step .file{font-family:ui-monospace,Menlo,monospace; font-size:10.5px; color:var(--sub)}
+  .step .t{float:right; font-size:10px; font-weight:800; color:var(--navy); background:var(--blue-soft); border-radius:999px; padding:2px 9px}
+  .accept{background:#F6FEF9; border:1px solid #A6E9C6; border-radius:9px; padding:8px 12px; font-size:11px; margin:8px 0 4px}
+  .accept b{color:var(--oktx)}
+  .dod{list-style:none}
+  .dod li{display:flex; gap:8px; font-size:11.5px; padding:5px 0; border-top:1px solid var(--line2)}
+  .dod li::before{content:'☐'; color:var(--blue); flex:none; font-size:13px}
+  .note{background:#FFFAEB; border:1px solid #FEDF89; border-radius:9px; padding:9px 12px; font-size:11.5px; margin-top:10px}
+  .note b{color:#93370D}
+  .kill{background:var(--okbg); border:1px solid #7BD8A8; border-radius:9px; padding:10px 12px; font-size:12px; margin-top:10px}
+  .kill b{color:var(--oktx)}
+  footer{max-width:960px; margin:0 auto; padding:22px 20px 44px; color:var(--sub); font-size:12px; text-align:center}
+  footer a{margin:0 8px}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <span class="brand">RECOVA</span>
+  <span class="t">W08 · Atribuição de Receita — plano de execução</span>
+  <span class="meta">dono: Patrick · prioridade: MUST (M3) · mata M1 no mesmo movimento</span>
+</nav>
+
+<header>
+  <h1>W08: todo pedido pago vira receita atribuída — exatamente 1 vez, sempre</h1>
+  <p>Este plano é executável do jeito que está: cada passo tem arquivo, código de partida e teste de aceitação. As decisões de arquitetura já foram tomadas (D7, D8 do Blueprint) — aqui só falta implementar. Ao final, o painel da Tela ⑥ mostra números reais vindos do ledger.</p>
+</header>
+
+<div class="goal">
+  <span class="g">🎯 <b>MUST M3</b> — métrica nº 1 do pitch</span>
+  <span class="g">⏱️ estimativa honesta: <b>6–9h</b> de trabalho focado</span>
+  <span class="g">🚀 bônus: o deploy final já é o <b>M1 (Cloud Run)</b></span>
+</div>
+
+<main>
+
+  <!-- ===== ARQUITETURA ===== -->
+  <section class="sec">
+    <h2>Arquitetura do fluxo (nada aqui é reaberto — é isto que vamos construir)</h2>
+    <p class="why">Decisão D7 (pagamento simulado, esteira real) + D8 (idempotência) já fechadas. O desenho abaixo é o contrato entre as partes.</p>
+    <div class="arch"><pre><span class="c">┌──────────┐  webhook assinado   ┌───────────────────┐   publish    ┌──────────┐  push (OIDC)  ┌─────────────────────┐</span>
+<span class="c">│ Shopify / │ ──────────────────▶ │ Cloud Run          │ ──────────▶ │ Pub/Sub   │ ────────────▶ │ Cloud Run            │</span>
+<span class="c">│ demo pay  │  HMAC-SHA256 ✓      │ /webhooks/orders/  │             │ order-    │               │ /internal/ledger/    │</span>
+<span class="c">└──────────┘  (raw body!)        │ paid               │             │ events    │               │ credit               │</span>
+                                  └───────────────────┘             └──────────┘               └──────────┬──────────┘
+                                                                                                          │ create() fail-if-exists
+                                                                                             <span class="hl">Firestore ledger</span> + summary increment (transaction)
+                                                                                                          │
+                                                                                          <span class="c">Dashboard Tela ⑥ lê summary (listener realtime)</span></pre></div>
+    <ul class="dod" style="margin-top:12px">
+      <li><b>Por que fila?</b> webhook tem que ackar rápido (&lt;1s) — processamento assíncrono com retry grátis do Pub/Sub</li>
+      <li><b>Por que create()?</b> Firestore rejeita doc que já existe = idempotência de graça, sem transação no caminho crítico</li>
+      <li><b>Por que HMAC sobre raw body?</b> JSON re-serializado quebra a assinatura — validar nos bytes exatos recebidos</li>
+    </ul>
+  </section>
+
+  <!-- ===== CONTRATOS ===== -->
+  <section class="sec">
+    <h2>Contratos (iguais aos do Blueprint — copiados aqui pra não ter desculpa)</h2>
+    <p class="why">Estes são os payloads exatos. Se um campo mudar, avisar ANTES — telas dependem disto.</p>
+    <table>
+      <tr><th>Fronteira</th><th>Schema</th></tr>
+      <tr><td><code>POST /webhooks/orders/paid</code><br><span class="inl">header: X-Recova-Hmac (base64)</span></td><td>raw body Shopify-format: <code>{order_id, session_id?, total_price, currency, timestamp}</code> → ack 200 em &lt;1s, publish na fila</td></tr>
+      <tr><td><code>Pub/Sub message</code></td><td><code>{order_id, session_id|null, amount, currency, received_at}</code></td></tr>
+      <tr><td><code>ledger/{order_id}</code><br><span class="inl">Firestore, append-only</span></td><td><code>{order_id, session_id, amount, currency, recovered: bool, hmac_verified: true, attempts: 1, credited_at}</code></td></tr>
+      <tr><td><code>summary/current</code><br><span class="inl">lido pela Tela ⑥</span></td><td><code>{recovered_revenue, recovered_orders, total_orders, window:"today", updated_at}</code></td></tr>
+    </table>
+    <div class="note"><b>Regra de atribuição (fechada):</b> <code>recovered=true</code> ⟺ existe sessão com evento <code>recovery_accepted</code> ou <code>card_selected</code>. Sem session_id ou sessão sem interação → <code>recovered=false</code>. <b>Nunca adivinhar.</b></div>
+  </section>
+
+  <!-- ===== PASSOS ===== -->
+  <section class="sec">
+    <h2>Passo a passo — 7 passos, cada um com teste de aceitação</h2>
+    <p class="why">Ordem pensada pra sempre ter algo testável. Não pule o teste de aceitação — é o que separa "pronto" de "parece pronto".</p>
+
+    <div class="step"><span class="t">~45min</span><h3>0 · Setup GCP</h3><div class="file">console/gcloud — one-time</div></div>
+<pre class="code">gcloud services enable pubsub.googleapis.com firestore.googleapis.com run.googleapis.com secretmanager.googleapis.com
+gcloud pubsub topics create order-events
+<span class="c"># secret do webhook (demo: gerar com openssl rand -base64 32; produção: mesmo formato da Shopify)</span>
+openssl rand -base64 32 | gcloud secrets create SHOPIFY_WEBHOOK_SECRET --data-file=-
+<span class="c"># Firestore: modo nativo, região southamerica-east1 (SP — latência BR)</span></pre>
+    <div class="accept"><b>✓ Aceito quando:</b> 4 APIs ativas, tópico existe, secret criado, Firestore nativo em southamerica-east1.</div>
+
+    <div class="step"><span class="t">~1h</span><h3>1 · Middleware HMAC</h3><div class="file">src/webhooks/hmac.ts</div></div>
+<pre class="code"><span class="k">import</span> crypto <span class="k">from</span> <span class="s">'node:crypto'</span>;
+<span class="k">export function</span> <span class="f">verifyHmac</span>(rawBody: <span class="n">string</span>, header: <span class="n">string</span>, secret: <span class="n">string</span>): <span class="n">boolean</span> {
+  <span class="k">const</span> digest = crypto.<span class="f">createHmac</span>(<span class="s">'sha256'</span>, secret).<span class="f">update</span>(rawBody, <span class="s">'utf8'</span>).<span class="f">digest</span>(<span class="s">'base64'</span>);
+  <span class="k">const</span> a = Buffer.<span class="f">from</span>(digest), b = Buffer.<span class="f">from</span>(header ?? <span class="s">''</span>);
+  <span class="k">return</span> a.length === b.length && crypto.<span class="f">timingSafeEqual</span>(a, b);  <span class="c">// timing-safe, sempre</span>
+}</pre>
+    <p style="font-size:11.5px">⚠️ <b>Ler o body como bytes crus</b> (não usar middleware JSON antes da verificação). No Express: <code>express.raw({type:'*/*'})</code> nesta rota.</p>
+    <div class="accept"><b>✓ Aceito quando:</b> teste unitário verde: (a) assinatura válida passa, (b) 1 byte alterado falha, (c) header ausente falha, (d) timing-safe (não vaza por comparação).</div>
+
+    <div class="step"><span class="t">~1h</span><h3>2 · Endpoint do webhook + publish</h3><div class="file">src/webhooks/orders-paid.ts</div></div>
+<pre class="code"><span class="c">// POST /webhooks/orders/paid — ack rápido, processa assíncrono</span>
+<span class="f">app</span>.post(<span class="s">'/webhooks/orders/paid'</span>, express.<span class="f">raw</span>({type:<span class="s">'*/*'</span>}), <span class="k">async</span> (req, res) =&gt; {
+  <span class="k">if</span> (!<span class="f">verifyHmac</span>(req.body.toString(<span class="s">'utf8'</span>), req.header(<span class="s">'x-recova-hmac'</span>)!, SECRET)) {
+    span.addEvent(<span class="s">'hmac.fail'</span>);                          <span class="c">// câmera liga</span>
+    <span class="k">return</span> res.<span class="f">status</span>(<span class="n">401</span>).<span class="f">send</span>(<span class="s">'invalid signature'</span>);
+  }
+  <span class="k">const</span> evt = <span class="f">extractOrderEvent</span>(req.body);              <span class="c">// {order_id, session_id?, amount…}</span>
+  <span class="k">await</span> topic.<span class="f">publishMessage</span>({ json: evt });            <span class="c">// fila durável + retry grátis</span>
+  res.<span class="f">status</span>(<span class="n">200</span>).<span class="f">send</span>(<span class="s">'accepted'</span>);                    <span class="c">// ack &lt; 1s — NÃO processa aqui</span>
+});</pre>
+    <div class="accept"><b>✓ Aceito quando:</b> curl com assinatura válida → 200 + mensagem aparece no tópico; assinatura inválida → 401 e <b>nada</b> publicado.</div>
+
+    <div class="step"><span class="t">~1h30</span><h3>3 · Subscriber: ledger idempotente + summary</h3><div class="file">src/ledger/credit.ts</div></div>
+<pre class="code"><span class="c">// POST /internal/ledger/credit — push do Pub/Sub (auth OIDC da sub)</span>
+<span class="k">const</span> ref = db.<span class="f">doc</span>(<span class="s">`merchants/${mid}/ledger/${evt.order_id}`</span>);
+<span class="k">try</span> {
+  <span class="k">await</span> ref.<span class="f">create</span>({ ...evt, recovered: <span class="k">await</span> <span class="f">wasRecovered</span>(evt.session_id),
+                     hmac_verified: <span class="k">true</span>, attempts: <span class="n">1</span>, credited_at: FieldValue.<span class="f">serverTimestamp</span>() });
+  <span class="k">await</span> <span class="f">incrementSummary</span>(mid, evt.recovered);          <span class="c">// runTransaction com FieldValue.increment</span>
+} <span class="k">catch</span> (e) {
+  <span class="k">if</span> (e.code === <span class="n">6</span>) {                                   <span class="c">// ALREADY_EXISTS → replay!</span>
+    <span class="k">await</span> ref.<span class="f">update</span>({ attempts: FieldValue.<span class="f">increment</span>(<span class="n">1</span>) });  <span class="c">// registra, NÃO credita 2×</span>
+    span.addEvent(<span class="s">'ledger.replay_blocked'</span>);
+  } <span class="k">else</span> <span class="k">throw</span> e;                                       <span class="c">// erro real → Pub/Sub reentrega</span>
+}
+<span class="k">async function</span> <span class="f">wasRecovered</span>(sid?: <span class="n">string</span>) {
+  <span class="k">if</span> (!sid) <span class="k">return</span> <span class="k">false</span>;                               <span class="c">// nunca adivinhar</span>
+  <span class="k">const</span> s = <span class="k">await</span> db.<span class="f">doc</span>(<span class="s">`merchants/${mid}/sessions/${sid}`</span>).<span class="f">get</span>();
+  <span class="k">return</span> [<span class="s">'recovery_accepted'</span>,<span class="s">'card_selected'</span>].<span class="f">some</span>(e =&gt; s.get(<span class="s">'events'</span>)?.includes(e));
+}</pre>
+    <div class="accept"><b>✓ Aceito quando:</b> primeiro delivery credita; replay do MESMO order_id → <code>attempts=2</code>, receita NÃO sobe; erro simulado no summary → mensagem volta pra fila (retry).</div>
+
+    <div class="step"><span class="t">~45min</span><h3>4 · Atribuição na origem: session_id no carrinho</h3><div class="file">overlay: no clique do cartão</div></div>
+<pre class="code"><span class="c">// Shopify (tema/AJAX):</span>
+<span class="k">await</span> <span class="f">fetch</span>(<span class="s">'/cart/update.js'</span>, { method:<span class="s">'POST'</span>, headers:{<span class="s">'Content-Type'</span>:<span class="s">'application/json'</span>},
+  body: <span class="f">JSON</span>.<span class="f">stringify</span>({ attributes: { <span class="s">'__recova_session'</span>: sessionId } }) });
+<span class="c">// Storefront API: cartAttributesUpdate com o mesmo atributo — o conector repassa no webhook</span></pre>
+    <div class="accept"><b>✓ Aceito quando:</b> pedido feito após clicar cartão chega no webhook com <code>session_id</code> preenchido; pedido sem Recova chega com <code>null</code>.</div>
+
+    <div class="step"><span class="t">~45min</span><h3>5 · Leitura do painel (Tela ⑥ viva)</h3><div class="file">src/metrics/summary.ts + dashboard</div></div>
+<pre class="code"><span class="c">// GET /metrics/summary?merchant=aurora → {recovered_revenue, recovered_orders, total_orders}</span>
+<span class="c">// Dashboard: onSnapshot(summary/current) — o número SOZINHO na tela quando um pedido cai</span>
+<span class="c">// DoD ⑥: KPI = soma do ledger, ZERO valor hardcoded</span></pre>
+    <div class="accept"><b>✓ Aceito quando:</b> painel mostra o valor do summary e atualiza em tempo real (listener), sem reload.</div>
+
+    <div class="step"><span class="t">~45min</span><h3>6 · Demo pay — o "pagamento simulado, esteira real" (D7)</h3><div class="file">src/demo/pay.ts</div></div>
+<pre class="code"><span class="c">// POST /demo/pay {session_id, amount} → monta body Shopify-format, ASSINA com HMAC, POSTa no próprio webhook</span>
+<span class="c">// é literalmente um Shopify de mentira: o pipeline inteiro depois disso é produção de verdade</span></pre>
+    <div class="accept"><b>✓ Aceito quando:</b> script semeia ≥5 pedidos (valores variados, 1 sem sessão, 1 replay 3×) e o painel reflete: 4 recuperados creditados 1× cada, replay bloqueado visível em <code>attempts</code>.</div>
+
+    <div class="step"><span class="t">~1h</span><h3>7 · Deploy Cloud Run (mata o M1 junto)</h3><div class="file">deploy + smoke test</div></div>
+<pre class="code">gcloud run deploy recova-engine --source . --region southamerica-east1 \
+  --allow-unauthenticated --set-secrets SHOPIFY_WEBHOOK_SECRET=SHOPIFY_WEBHOOK_SECRET:latest
+gcloud pubsub subscriptions create order-events-sub --topic=order-events \
+  --push-endpoint=&lt;CLOUD_RUN_URL&gt;/internal/ledger/credit --push-auth-service-account=&lt;SA&gt;
+<span class="c"># rota /internal/* exige token OIDC do Pub/Sub (push-auth) — não expor publicamente</span></pre>
+    <div class="accept"><b>✓ Aceito quando:</b> smoke test em produção: demo/pay → 401 sem assinatura → 200 com assinatura → painel sobe 1 crédito → replay não duplica. URL vira print do vídeo.</div>
+  </section>
+
+  <!-- ===== TESTES ===== -->
+  <section class="sec">
+    <h2>Tabela de prova — os 5 testes que o júri (e o Gabriel) vão pedir</h2>
+    <table>
+      <tr><th>#</th><th>Cenário</th><th>Como testar</th><th>Resultado esperado</th></tr>
+      <tr><td>T1</td><td>Pedido legítimo</td><td><code>demo/pay</code> com HMAC válido</td><td>ledger cria doc, summary sobe, painel atualiza</td></tr>
+      <tr><td>T2</td><td><b>Replay 3×</b></td><td>mesmo order_id 3 vezes</td><td>receita conta 1× · <code>attempts=3</code> no doc · evento <code>replay_blocked</code></td></tr>
+      <tr><td>T3</td><td>Assinatura falsa</td><td>alterar 1 byte do body</td><td>401 · nada publicado · <code>hmac.fail</code> nas câmeras</td></tr>
+      <tr><td>T4</td><td>Sem Recova na sessão</td><td>pay com session_id de sessão limpa</td><td><code>recovered=false</code> · não entra em "recuperados"</td></tr>
+      <tr><td>T5</td><td>Fila em apuros</td><td>forçar erro no summary (firewall 1min)</td><td>Pub/Sub reentrega → crédito final acontece 1×</td></tr>
+    </table>
+    <div class="kill"><b>💡 Movimento estratégico:</b> este plano implementado = <b>M3 fechado + M1 fechado</b> (o pipeline JÁ É Cloud Run + Pub/Sub + Firestore — os 3 serviços obrigatórios do hackathon, provados em produção no smoke test do passo 7). É o caminho mais curto entre o estado atual e "competível".</div>
+    <div class="note"><b>Fora do escopo deste plano (não fazer agora):</b> W07 menu config, análise IA do onboarding, voz. Depois do T5 verde → vídeo (M6) usando a trilha real do T1–T2 como cena.</div>
+  </section>
+
+</main>
+
+<footer>
+  <a href="https://tinyurl.com/2amgqyu2">Blueprint (contratos + decisões)</a> ·
+  <a href="https://tinyurl.com/263y4ts4">Fluxograma</a> ·
+  <a href="https://github.com/patrickpassosb/recova">Repo</a><br>
+  RECOVA — Search Recovery · W08 execution plan · v1
+</footer>
+
+</body>
+</html>
