@@ -136,6 +136,33 @@
   .honest .opt{border:1px solid var(--line); border-radius:9px; padding:8px 10px; font-size:12px; font-weight:600; color:var(--navy)}
   .honest .opt.p{border-color:var(--blue); background:var(--blue-soft)}
 
+  /* interactions trigger map */
+  .imap{background:#fff; border:1px solid var(--line2); border-radius:14px; padding:18px; margin:34px auto 0; max-width:1180px; scroll-margin-top:76px}
+  .imap h2{font-size:19px; font-weight:800; margin-bottom:4px}
+  .imap .sub{color:var(--sub); font-size:13px; margin-bottom:14px}
+  .imap table{font-size:12px}
+  .imap td:first-child{font-weight:800; color:var(--navy); white-space:nowrap}
+  .imap .trig{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10.5px; background:#F2F4F7; border-radius:6px; padding:2px 6px; color:#93370D}
+  .part-divider{grid-column:1/-1; text-align:center; margin:14px 0 6px}
+  .part-divider span{background:var(--navy); color:#fff; font-size:12px; font-weight:800; letter-spacing:.12em; padding:8px 22px; border-radius:999px; text-transform:uppercase}
+  /* editor widgets (dashboard) */
+  .tabs{display:flex; gap:6px; margin-bottom:12px}
+  .tab{font-size:11.5px; font-weight:700; padding:6px 12px; border-radius:999px; border:1px solid var(--line); color:var(--sub); background:#fff}
+  .tab.on{background:var(--navy); color:#fff; border-color:var(--navy)}
+  .mitem{display:flex; align-items:center; gap:8px; border:1px solid var(--line2); border-radius:9px; padding:7px 10px; font-size:12px; margin-bottom:7px; background:#fff}
+  .mitem .grip{color:#98A2B3}
+  .mitem .lbl{flex:1; font-weight:600}
+  .tg{width:30px; height:17px; border-radius:999px; background:var(--green); position:relative; flex:none}
+  .tg::after{content:''; position:absolute; width:12px; height:12px; border-radius:50%; background:#fff; top:2.5px; right:2.5px}
+  .tg.off{background:#D0D5DD}
+  .sw{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600; border:1px solid var(--line); border-radius:8px; padding:5px 9px; margin:0 6px 6px 0}
+  .sw i{width:11px; height:11px; border-radius:3px; display:inline-block}
+  .sw.on{border-color:var(--blue); background:var(--blue-soft)}
+  /* voice */
+  .ava{width:64px; height:64px; border-radius:50%; background:radial-gradient(circle at 32% 30%,#FFE6D5,var(--orange)); display:flex; align-items:center; justify-content:center; font-size:28px; margin:0 auto 8px; border:3px solid #fff; box-shadow:0 4px 14px rgba(255,91,10,.35)}
+  .wave{display:flex; align-items:center; justify-content:center; gap:3px; height:34px; margin:9px 0}
+  .wave b{width:4px; border-radius:3px; background:var(--blue); display:block}
+  .statechip{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.06em; padding:3px 10px; border-radius:999px; background:var(--green); color:#fff}
   footer{max-width:1180px; margin:0 auto; padding:26px 20px 44px; color:var(--sub); font-size:12px; text-align:center}
   footer a{margin:0 8px}
 </style>
@@ -145,7 +172,7 @@
 <header class="hero">
   <span class="brand">RECOVA · SEARCH RECOVERY</span>
   <h1>Da busca que falha à venda recuperada</h1>
-  <p>As 7 telas da jornada da Maria — o que ela <b>vê</b> na loja, e qual peça do <a href="https://tinyurl.com/2cunppxo" target="_blank" rel="noopener">motor (diagrama v4)</a> trabalha atrás de cada uma.</p>
+  <p>As telas da jornada da Maria — o que ela <b>vê</b> na loja, qual peça do <a href="https://tinyurl.com/2cunppxo" target="_blank" rel="noopener">motor (diagrama v4)</a> trabalha em cada uma, e como o lojista instala, customiza e acompanha tudo.</p>
 </header>
 
 <nav class="strip" id="strip">
@@ -156,8 +183,15 @@
   <button class="pill" data-t="s5"><span class="n">⑤</span> A compra</button>
   <button class="pill" data-t="s6"><span class="n">⑥</span> Os números</button>
   <button class="pill" data-t="s7"><span class="n">⑦</span> O honesto</button>
+  <button class="pill" data-t="imap"><span class="n">⚡</span> Interações</button>
+  <button class="pill" data-t="s8"><span class="n">⑧</span> Instalar</button>
+  <button class="pill" data-t="s9"><span class="n">⑨</span> Análise IA</button>
+  <button class="pill" data-t="s10"><span class="n">⑩</span> Escolher bot</button>
+  <button class="pill" data-t="s11"><span class="n">⑪</span> Editar menu</button>
+  <button class="pill" data-t="s12"><span class="n">⑫</span> Editar bot</button>
+  <button class="pill" data-t="s13"><span class="n">🎤</span> Voz</button>
 </nav>
-<div class="legend">A trilha acima é o motor do diagrama v4 — o bloco aceso é o que está trabalhando na tela que você está vendo.</div>
+<div class="legend">A trilha acima é o motor do diagrama v4 — o bloco aceso é o que está trabalhando na tela que você está vendo. ①–⑦ = jornada do shopper · ⑧–⑫ = jornada do lojista · 🎤 = diferencial de voz.</div>
 
 <main>
 
@@ -439,6 +473,318 @@
     </aside>
   </section>
 
+  <!-- ================= ⑧ INSTALAR ================= -->
+  <section class="step" id="s8">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">app.recova.com.br/onboarding — passo 1 de 3 · instalar</span></div>
+      <div class="screen">
+        <div style="display:flex; gap:6px; margin-bottom:14px">
+          <span class="tab on">1 · Instalar</span><span class="tab">2 · Análise IA</span><span class="tab">3 · Seu bot</span>
+        </div>
+        <h3 style="font-size:16px; margin-bottom:4px">Onde sua loja vive hoje?</h3>
+        <p style="font-size:12px; color:var(--sub); margin-bottom:12px">Conectamos com o catálogo em tempo real — sem CSV, sem importar nada.</p>
+        <div class="cards">
+          <div class="dcard rec">
+            <div class="img" style="font-size:24px">🛍️</div>
+            <div>
+              <h3>Shopify</h3>
+              <div class="proof">App oficial — instala em <b>2 cliques</b>, sem tocar em código. Recomendado.</div>
+              <span class="cta">Instalar da Shopify App Store</span>
+            </div>
+          </div>
+          <div class="dcard">
+            <div class="img" style="font-size:24px">🧩</div>
+            <div>
+              <h3>Outra plataforma (VTEX, Nuvemshop, Woo…)</h3>
+              <div class="proof">1 script &lt;script&gt; de 4 linhas antes do &lt;/body&gt;. Cola e pronto.</div>
+              <span class="cta ghost">Copiar snippet</span>
+            </div>
+          </div>
+          <div class="dcard">
+            <div class="img" style="font-size:24px">⚙️</div>
+            <div>
+              <h3>API própria (MCP)</h3>
+              <div class="proof">Pra quem tem time de dev: conecte seu catálogo e eventos direto ao motor.</div>
+              <span class="cta ghost">Ver docs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">⑧</span>
+      <h2>Instalar em minutos, não semanas</h2>
+      <p class="hook">Shopify = app oficial (2 cliques). Qualquer outra loja = 1 script de 4 linhas. Time de dev? API via MCP. Mesmo motor nos três.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>Conector</b> <span class="en">— lê catálogo + emite ORDER_PAID; é o único ponto de contato com a loja</span></li>
+          <li><b>Shopify app</b> <span class="en">— webhook de pedido já vem assinado (HMAC nativo da Shopify)</span></li>
+          <li><b>Script universal</b> <span class="en">— carrega o overlay Recova e escuta a busca nativa; zero mudança no tema</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ⑨ ANÁLISE IA ================= -->
+  <section class="step" id="s9">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">app.recova.com.br/onboarding — passo 2 de 3 · análise</span></div>
+      <div class="screen">
+        <div style="display:flex; gap:6px; margin-bottom:14px">
+          <span class="tab">1 · Instalar</span><span class="tab on">2 · Análise IA</span><span class="tab">3 · Seu bot</span>
+        </div>
+        <div class="status" style="margin-bottom:10px"><span class="statechip">ANALISANDO</span> <span style="font-size:12px">Lendo catálogo (1.284 produtos), categorias e as últimas buscas que falharam…</span></div>
+        <div class="rc-panel" style="background:#fff">
+          <span class="rc-badge">RECOVA</span>
+          <p style="font-size:13.5px; font-weight:800; margin:9px 0 3px">A IA leu sua loja e propôs 3 personalidades de bot:</p>
+          <p style="font-size:11.5px; color:var(--sub); margin-bottom:11px">Baseado no seu catálogo (moda feminina), nas buscas que falharam e no tom da sua marca.</p>
+          <div class="cards">
+            <div class="dcard rec">
+              <div class="img">💃</div>
+              <div>
+                <span class="tag t-exact">RECOMENDADO PRA VOCÊ</span>
+                <h3>Consultora de Ocasiões</h3>
+                <div class="whyline">Suas buscas falhas concentram em "casamento" e "festa" (38%). Bot que entende ocasião, dress code e orçamento.</div>
+                <span class="cta">Escolher esta</span>
+              </div>
+            </div>
+            <div class="dcard">
+              <div class="img">📏</div>
+              <div>
+                <span class="tag t-variant">OPÇÃO 2</span>
+                <h3>Assistente de Medidas</h3>
+                <div class="whyline">12% das buscas falhas citam tamanho/numeração. Bot especialista em fit e trocas preventivas.</div>
+                <span class="cta ghost">Escolher</span>
+              </div>
+            </div>
+            <div class="dcard">
+              <div class="img">🎁</div>
+              <div>
+                <span class="tag t-bundle">OPÇÃO 3</span>
+                <h3>Vendedora de Looks</h3>
+                <div class="whyline">Seu ticket médio sobe 34% em combo. Bot que sempre propõe look completo quando faz sentido.</div>
+                <span class="cta ghost">Escolher</span>
+              </div>
+            </div>
+          </div>
+          <p style="font-size:11px; color:var(--sub); margin-top:9px">✏️ Ou comece do zero usando um template como base — você edita tudo depois no painel.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">⑨</span>
+      <h2>A IA lê a loja e propõe 3 bots</h2>
+      <p class="hook">O lojista não configura nada do zero: a IA analisa catálogo + buscas falhas reais e propõe 3 personalidades prontas — ele escolhe 1 ou parte de um template.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>O Cérebro</b> <span class="en">— Gemini 3.7 analisa catálogo + histórico de buscas falhas → 3 propostas rankeadas</span></li>
+          <li><b>Por que 3?</b> <span class="en">— decisão em 1 clique vence formulário em 12 campos; a IA faz o trabalho pesado</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ⑩ ESCOLHER BOT ================= -->
+  <section class="step" id="s10">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">app.recova.com.br/onboarding — passo 3 de 3 · seu bot</span></div>
+      <div class="screen">
+        <div style="display:flex; gap:6px; margin-bottom:14px">
+          <span class="tab">1 · Instalar</span><span class="tab">2 · Análise IA</span><span class="tab on">3 · Seu bot</span>
+        </div>
+        <div class="split">
+          <div class="box">
+            <h4>Personalidade escolhida</h4>
+            <div style="display:flex; gap:10px; align-items:center; margin-bottom:9px">
+              <div class="ava" style="width:48px; height:48px; font-size:22px">👩</div>
+              <div>
+                <b style="font-size:13px">Consultora de Ocasiões</b>
+                <div style="font-size:11px; color:var(--sub)">fala de "você" · tom acolhedor · sugere looks</div>
+              </div>
+            </div>
+            <span class="sw on"><i style="background:var(--orange)"></i> Avatar 3D visível</span>
+            <span class="sw"><i style="background:#98A2B3"></i> Voz (beta)</span>
+            <span class="sw on"><i style="background:var(--blue)"></i> Prova nos cartões</span>
+            <div class="line" style="margin-top:8px"><span>Tom das respostas</span><span class="total">Acolhedor</span></div>
+            <div class="line"><span>Idioma</span><span>Português (BR)</span></div>
+          </div>
+          <div class="box">
+            <h4>Pré-visualização ao vivo</h4>
+            <div class="chat">
+              <div class="msg user">preciso de vestido pra casamento de dia</div>
+              <div class="msg bot">Amei a ocasião! ☀️ Pra casamento de dia penso em tons claros e tecidos leves. Olha o que separei — tudo até o seu limite:
+                <div class="mini"><div>👗 Midi Serena<br>Verde Oliva · R$ 189</div><div>👗 Curto Bianca<br>Verde Musgo · R$ 175</div></div>
+              </div>
+            </div>
+            <span class="cta" style="margin-top:10px">Publicar na minha loja 🚀</span>
+            <p style="font-size:10.5px; color:var(--sub); margin-top:8px">Publica em &lt; 1 min · pode editar tudo depois no painel</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">⑩</span>
+      <h2>Escolher e ver o bot vivo antes de publicar</h2>
+      <p class="hook">Preview conversa de verdade com o catálogo real. O avatar 3D (OneWorks, licença MIT) dá rosto à marca da loja — sem nenhuma dependência pesada.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>Templates + IA</b> <span class="en">— a personalidade escolhida vira system prompt versionado, editável no painel</span></li>
+          <li><b>Avatar OneWorks</b> <span class="en">— @oneworks/avatar (MIT) · SVG/GIF leve, presentation-only, sem ouvir nem gravar nada</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ⑪ EDITAR MENU ================= -->
+  <section class="step" id="s11">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">app.recova.com.br/dashboard — menu da Recova</span></div>
+      <div class="screen">
+        <div class="tabs"><span class="tab on">Menu da Recova</span><span class="tab">Personalidade do bot</span><span class="tab">Regras de segurança</span></div>
+        <div class="split">
+          <div>
+            <p style="font-size:12px; color:var(--sub); margin-bottom:9px">Estes atalhos aparecem dentro do painel da Recova na sua loja. Arraste pra reordenar:</p>
+            <div class="mitem"><span class="grip">⠿</span><span>👗 Ocasiões (casamento, festa…)</span><span class="tg"></span></div>
+            <div class="mitem"><span class="grip">⠿</span><span>💰 Por faixa de preço</span><span class="tg"></span></div>
+            <div class="mitem"><span class="grip">⠿</span><span>📏 Encontre meu tamanho</span><span class="tg"></span></div>
+            <div class="mitem"><span class="grip">⠿</span><span>🔔 Avisar quando chegar</span><span class="tg off"></span></div>
+            <span class="cta" style="margin-top:4px">Salvar menu</span>
+          </div>
+          <div class="box">
+            <h4>Como fica na loja</h4>
+            <div class="rc-panel" style="background:#fff">
+              <span class="rc-badge">RECOVA</span>
+              <div class="chips" style="margin-bottom:0">
+                <span class="chip">👗 Ocasiões</span><span class="chip">💰 Faixa de preço</span><span class="chip">📏 Meu tamanho</span>
+              </div>
+            </div>
+            <p style="font-size:11px; color:var(--sub); margin-top:9px">✓ Ativa na loja em &lt; 30s — sem publicar tema, sem deploy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">⑪</span>
+      <h2>O menu, do jeito da loja</h2>
+      <p class="hook">Atalhos que fazem sentido pro catálogo DELE: loja de moda mostra ocasiões; loja de tênis mostra numeração. Drag-and-drop, toggle, pronto.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>Config versionada</b> <span class="en">— cada mudança gera versão; rollback em 1 clique se algo ficar estranho</span></li>
+          <li><b>Hot reload</b> <span class="en">— o overlay da loja lê a config a cada sessão; mudança vale na próxima busca</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ⑫ EDITAR BOT ================= -->
+  <section class="step" id="s12">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">app.recova.com.br/dashboard — personalidade do bot</span></div>
+      <div class="screen">
+        <div class="split">
+          <div class="box">
+            <h4>Identidade</h4>
+            <div class="line"><span>Nome do bot</span><b>Luana · Aurora</b></div>
+            <div class="line"><span>Personalidade base</span><b>Consultora de Ocasiões</b></div>
+            <div class="line"><span>Tom</span><b>Acolhedor</b></div>
+            <div style="margin-top:10px">
+              <span class="sw on"><i style="background:var(--orange)"></i> Avatar 3D animado</span>
+              <span class="sw on"><i style="background:var(--blue)"></i> Emoji moderado</span>
+              <span class="sw"><i style="background:#D0D5DD"></i> Voz (beta)</span>
+              <span class="sw on"><i style="background:var(--green)"></i> Sempre mostrar o "Por quê"</span>
+            </div>
+            <h4 style="margin-top:12px">Regras que ela nunca quebra</h4>
+            <div class="log" style="font-family:inherit">
+              <div>✓ Nunca prometer prazo ou estoque incerto</div>
+              <div>✓ Nunca substituir item por categoria diferente</div>
+              <div>✓ Orçamento do cliente é inegociável (hard constraint)</div>
+            </div>
+          </div>
+          <div class="box">
+            <h4>Teste antes de salvar</h4>
+            <div class="chat">
+              <div class="msg user">tem esse vestido em azul?</div>
+              <div class="msg bot">Deixa eu ver no estoque… azul não tenho, mas tenho o <b>Verde Oliva</b> no seu tamanho — e verde é super alta pra casamentos de dia. Quer ver?</div>
+            </div>
+            <div class="status" style="margin-top:9px"><span class="ok">✓</span> passou nas 3 regras · tom ok · 0 promessas indevidas</div>
+            <span class="cta" style="margin-top:9px">Publicar mudanças</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">⑫</span>
+      <h2>Editar o bot sem mexer em código</h2>
+      <p class="hook">Nome, tom, emoji, regras invioláveis — tudo em formulário com preview de conversa real e checagem automática das regras antes de publicar.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>System prompt versionado</b> <span class="en">— o lojista edita texto; o motor recebe a nova versão em segundos</span></li>
+          <li><b>Regras duras protegidas</b> <span class="en">— o lojista customiza a voz, mas NÃO pode desligar a honestidade (NO_VALID_RECOVERY segue lá)</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ================= ⑬ VOZ ================= -->
+  <section class="step" id="s13">
+    <div class="browser">
+      <div class="bbar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="burl">auroramoda.com.br — RECOVA · conversa por voz</span></div>
+      <div class="screen">
+        <div class="rc-panel" style="text-align:center; background:#fff">
+          <div class="ava">👩</div>
+          <span class="statechip">● OUVINDO</span>
+          <p style="font-size:13px; font-weight:700; margin-top:9px">"Oi! Me conta: qual a ocasião?"</p>
+          <div class="wave">
+            <b style="height:30%"></b><b style="height:60%"></b><b style="height:100%"></b><b style="height:55%"></b>
+            <b style="height:85%"></b><b style="height:45%"></b><b style="height:95%"></b><b style="height:35%"></b>
+            <b style="height:70%"></b><b style="height:50%"></b><b style="height:90%"></b><b style="height:40%"></b>
+          </div>
+          <div class="status" style="justify-content:center"><span class="ok">🎤</span> Maria fala · Gemini Live API responde por voz em &lt; 500ms — sem apertar botão</div>
+          <div style="display:flex; gap:8px; justify-content:center; margin-top:11px">
+            <span class="cta">🔇 Encerrar</span><span class="cta ghost">💬 Mudar pra texto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="why">
+      <span class="num">🎤</span>
+      <h2>Voz em tempo real (o Could-Have)</h2>
+      <p class="hook">Falar é o jeito mais natural de descrever "um vestido assim, mas assim" — igual conversar com uma vendedora. O stack é 100% Google: Gemini Live API.</p>
+      <div class="engine">
+        <h4>Por trás (diagrama v4)</h4>
+        <ul>
+          <li><b>Gemini Live API</b> <span class="en">— streaming bidirecional de áudio: fala, interrupção e resposta em tempo real (os 2 vídeos do Google Cloud)</span></li>
+          <li><b>Avatar OneWorks</b> <span class="en">— rosto 3D geométrico que anima enquanto fala (mesma técnica da bitHuman, mas leve e open-source)</span></li>
+          <li><b>Fallback por texto</b> <span class="en">— a mesma conversa continua escrito se o mic falhar</span></li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+</main>
+
+<section class="imap" id="imap">
+  <h2>⚡ Mapa de interações — quando o bot fala e por quê</h2>
+  <p class="sub">Regra de ouro: o bot só aparece com <b>proposta</b>, nunca com pergunta em aberto. Cada interação tem um gatilho exato — o mesmo que vai no código.</p>
+  <table>
+    <tr><th style="width:150px">Interação</th><th style="width:270px">Gatilho exato</th><th>O que o bot faz</th></tr>
+    <tr><td>1 · Oferta de resgate</td><td><span class="trig">zero_results === true</span> <span class="trig">&& query.length ≥ 3</span></td><td>Painel laranja "entendi o que você quer — quer que eu procure de verdade?" sob a busca vazia (Tela ①). Único CTA permitido: iniciar recuperação.</td></tr>
+    <tr><td>2 · Confirmação de leitura</td><td><span class="trig">user_accepts_recovery == true</span></td><td>Mostra os 3 requisitos em chips + rota escolhida (NATIVE_OK / RECOVER / CLARIFY) em &lt; 1s (Tela ②). Nunca pede informação que a frase já trouxe.</td></tr>
+    <tr><td>3 · Entrega dos cartões</td><td><span class="trig">solver.status == "ok"</span> <span class="trig">&& candidates ≥ 1</span></td><td>3 cartões com prova visível (verde ✓ · festa ✓ · ≤ R$200 ✓) + linha "Por quê:" (Tela ③). Recomendado primeiro, com motivo explícito.</td></tr>
+    <tr><td>4 · Refinamento conversacional</td><td><span class="trig">user_message</span> sobre atributo (ex.: "não quero longo")</td><td>Reavalia o catálogo com a nova regra e <b>atualiza os cartões</b> — nunca recarrega a página nem pede filtro (Tela ④).</td></tr>
+    <tr><td>5 · Substituição segura</td><td><span class="trig">cart_item.out_of_stock == true</span></td><td>No carrinho: propõe o equivalente mais próximo já validado nos filtros duros. Nunca substitui por best-seller (gate tênis→chinelo BLOQUEADO).</td></tr>
+    <tr><td>6 · Honestidade radical</td><td><span class="trig">strategy == NO_VALID_RECOVERY</span></td><td>"Não achei nada que eu possa garantir" + 2 saídas: alerta de chegada ou busca por conta e risco (Tela ⑦). Nunca enche com produto aleatório.</td></tr>
+  </table>
+  <p class="sub" style="margin-top:10px"><b>Regra anti-spam:</b> máximo de 1 iniciativa do bot por sessão de busca, e nunca duas interações em sequência sem resposta do usuário.</p>
+</section>
+
+<main>
+  <div class="part-divider" id="lojista"><span>PARTE 2 · A JORNADA DO LOJISTA — INSTALAR, CUSTOMIZAR, ACOMPANHAR</span></div>
 </main>
 
 <footer>
@@ -458,6 +804,8 @@
     });
   },{rootMargin:'-30% 0px -55% 0px'});
   document.querySelectorAll('.step').forEach(s=>obs.observe(s));
+  const imap=document.getElementById('imap');
+  if(imap) obs.observe(imap);
 </script>
 </body>
 </html>
