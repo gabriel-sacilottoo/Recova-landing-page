@@ -1,265 +1,295 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><title>Recova — Agentic Commerce Recovery (draw.io)</title></head>
+<head><meta charset="UTF-8"><title>Recova — diagrama técnico + humano</title></head>
 <body style="font-family:monospace;background:#0B1220;color:#E2E8F0;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
-<p>Abrindo o diagrama Recova v3 (PLAN_FINAL) no draw.io…</p>
+<p>Abrindo o diagrama Recova v4 (técnico + linguagem humana) no draw.io…</p>
 <script>
 var xml = `<mxfile host="app.diagrams.net" agent="Hermes" version="24.7.7">
-  <diagram id="recova-plan-final-v3" name="Recova Agentic Commerce Recovery">
-    <mxGraphModel dx="1400" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1760" pageHeight="1960" math="0" shadow="0">
+  <diagram id="recova-plain-tech-v4" name="Recova — técnico + humano">
+    <mxGraphModel dx="1400" dy="900" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1840" pageHeight="2880" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="bg" value="" style="fillColor=#0B1220;strokeColor=none" vertex="1" parent="1">
-          <mxGeometry x="0" y="0" width="1760" height="1960" as="geometry" />
+          <mxGeometry x="0" y="0" width="1840" height="2760" as="geometry" />
         </mxCell>
-        <mxCell id="title" value="RECOVA — Agentic Commerce Recovery&lt;br&gt;&lt;font style=&quot;font-size:14px&quot;&gt;Google ADK (TypeScript) · Gemini 3.7 Flash + Gemma 4 31B · Cloud Run · Track: Taskmaster · fonte: PLAN_FINAL&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontColor=#FFFFFF;fontSize=28;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="380" y="24" width="1000" height="76" as="geometry" />
+        <mxCell id="title" value="RECOVA — Agentic Commerce Recovery&lt;br&gt;&lt;font style=&quot;font-size:13px&quot;&gt;Google ADK (TypeScript) · Gemini 3.7 Flash + Gemma 4 31B · Cloud Run · Track: Taskmaster&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontColor=#FFFFFF;fontSize=27;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="380" y="20" width="1080" height="74" as="geometry" />
         </mxCell>
-        <mxCell id="leg0" value="UI Client / Overlay" style="fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="64" y="122" width="262" height="44" as="geometry" />
+        <mxCell id="tagline" value="A ideia em uma frase: quando a busca da loja falha, o Recova entende o que a pessoa quer comprar, mostra até 3 opções REAIS do estoque e ainda prova quanto de receita recuperou." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#065CF5;fontColor=#06345D;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="380" y="102" width="1080" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="leg1" value="LlmAgent (ADK)" style="fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="338" y="122" width="220" height="44" as="geometry" />
+        <mxCell id="leg0" value="O que o cliente VÊ (tela)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=11;fontStyle=1;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="64" y="160" width="272" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="leg2" value="Determinístico — SEM LLM" style="fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="570" y="122" width="280" height="44" as="geometry" />
+        <mxCell id="leg1" value="IA agente (ADK) — conversa e decide" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#172554;fontSize=11;fontStyle=1;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="348" y="160" width="272" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="leg3" value="Rota / Worker async" style="fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#9A3412;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="862" y="122" width="230" height="44" as="geometry" />
+        <mxCell id="leg2" value="Motor de regras — SEM IA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=11;fontStyle=1;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="632" y="160" width="272" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="leg4" value="Modelo Gemini · Gemma" style="fillColor=#E8F1FF;strokeColor=#065CF5;fontColor=#06345D;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="1104" y="122" width="250" height="44" as="geometry" />
+        <mxCell id="leg3" value="Modelos de IA (Gemini/Gemma)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#065CF5;fontColor=#06345D;fontSize=11;fontStyle=1;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="916" y="160" width="272" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="leg5" value="Dados &amp; Infra" style="fillColor=#FFFFFF;strokeColor=#64748B;fontColor=#111827;whiteSpace=wrap;html=1;fontSize=11;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="1366" y="122" width="190" height="44" as="geometry" />
+        <mxCell id="leg4" value="Trabalho em 2º plano" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontColor=#4C1D95;fontSize=11;fontStyle=1;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="1200" y="160" width="272" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="tech0" value="Gemini 3.7 Flash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="64" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="leg5" value="Dados &amp; infra" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;fontSize=11;fontStyle=1;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="1484" y="160" width="272" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="tech1" value="Gemma 4 31B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="190" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="storyLbl" value="A HISTÓRIA DA MARIA — como o Recova salva uma venda em 6 passos" style="text;html=1;align=left;fontColor=#94A3B8;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="64" y="216" width="700" height="24" as="geometry" />
         </mxCell>
-        <mxCell id="tech2" value="Google ADK (TS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="316" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="story0" value="① Maria busca “vestido midi verde 40” — a loja NÃO acha" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#F1F5F9;fontSize=11.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="64" y="246" width="280" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="tech3" value="Vertex AI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="442" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="story1" value="② O Recova entende o pedido e as exigências dela" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#F1F5F9;fontSize=11.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="356" y="246" width="280" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="tech4" value="Cloud Run" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="568" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="story2" value="③ A IA procura no estoque REAL — com regras rígidas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#F1F5F9;fontSize=11.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="648" y="246" width="280" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="tech5" value="Firestore" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="694" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="story3" value="④ Aparecem até 3 cartões, cada um com a prova" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#F1F5F9;fontSize=11.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="940" y="246" width="280" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="tech6" value="Pub/Sub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="820" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="story4" value="⑤ Ela adiciona à sacola e compra na loja mesma" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#F1F5F9;fontSize=11.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="1232" y="246" width="280" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="tech7" value="Secret Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="946" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="story5" value="⑥ A venda vira receita PROVADA no painel do lojista" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#F1F5F9;fontSize=11.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="1524" y="246" width="280" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="tech8" value="OpenTelemetry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="1072" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="p1" value="① A BUSCA FALHOU — e o “porteiro” decide se o Recova entra em ação&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#475467&quot;&gt;Antes de qualquer IA, regras fixas avaliam a busca em menos de 50 milissegundos. Três saídas possíveis:&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#0F172A;fontSize=15;fontStyle=1;verticalAlign=top;spacingTop=10;spacingLeft=14;align=left;arcSize=6" vertex="1" parent="1">
+          <mxGeometry x="400" y="330" width="1000" height="430" as="geometry" />
         </mxCell>
-        <mxCell id="tech9" value="Shopify Storefront" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="1198" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="r_ok" value="&lt;b&gt;NATIVE_OK — “busca boa”&lt;/b&gt;&lt;br&gt;a própria loja já respondeu bem.&lt;br&gt;&lt;b&gt;O Recova nem aparece.&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;regra: resultado nativo forte e sem violar exigências&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="450" width="310" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="tech10" value="Catálogo ~10k moda" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="1324" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="r_rec" value="&lt;b&gt;RECOVER — “preciso salvar”&lt;/b&gt;&lt;br&gt;busca vazia OU os resultados violam o que a Maria pediu.&lt;br&gt;&lt;b&gt;É aqui que o Recova brilha.&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;ativa o overlay com cartões de decisão&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#7C2D12;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="745" y="450" width="310" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="tech11" value="Cloudflare (storefront)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10" vertex="1" parent="1">
-          <mxGeometry x="1450" y="186" width="118" height="32" as="geometry" />
+        <mxCell id="r_cla" value="&lt;b&gt;CLARIFY — “preciso perguntar”&lt;/b&gt;&lt;br&gt;o pedido está ambíguo ou nada seguro foi encontrado.&lt;br&gt;&lt;b&gt;Faz UMA pergunta, nunca chuta.&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;ex.: “é para festa ou dia a dia?”&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontColor=#4C1D95;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1070" y="450" width="310" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="jour0" value="① Shopper busca — query com constraints (ex.: vestido midi 40 até R$200)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10.5" vertex="1" parent="1">
-          <mxGeometry x="64" y="236" width="398" height="44" as="geometry" />
+        <mxCell id="c_ext" value="&lt;b&gt;extract_or_normalize_constraints&lt;/b&gt;&lt;br&gt;lê o pedido e separa as exigências: tamanho 40 · verde · até R$200 · “para formatura”&lt;br&gt;&lt;font color=&quot;#B91C1C&quot;&gt;SEM IA — puro regex/lista, instantâneo&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="600" width="620" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="jour1" value="② Busca nativa falha — vazia ou viola hard constraint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10.5" vertex="1" parent="1">
-          <mxGeometry x="476" y="236" width="398" height="44" as="geometry" />
+        <mxCell id="c_route" value="&lt;b&gt;RouteResolver (o porteiro)&lt;/b&gt;&lt;br&gt;aplica regras fixas e escolhe a rota. Nunca improvisa.&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;determinístico = mesmo pedido → mesma resposta&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1060" y="600" width="320" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="jour2" value="③ RECOVER — Decision Cards grounded (máx. 3)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10.5" vertex="1" parent="1">
-          <mxGeometry x="888" y="236" width="398" height="44" as="geometry" />
+        <mxCell id="cap1" value="Deterministic Routing Pattern — a decisão de “entrar ou não” nunca depende de IA (rápida, previsível e barata)" style="text;html=1;align=center;fontColor=#64748B;fontSize=10.5;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="706" width="960" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="jour3" value="④ Add to cart → checkout real → receita atribuída" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1E293B;strokeColor=#475569;fontColor=#E2E8F0;fontSize=10.5" vertex="1" parent="1">
-          <mxGeometry x="1300" y="236" width="398" height="44" as="geometry" />
+        <mxCell id="tA" value="&lt;b&gt;Busca nativa da loja (Shopify)&lt;/b&gt;&lt;br&gt;o Recova escuta a busca que a loja JÁ tem — não troca nada" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;fontSize=11.5;strokeWidth=1.5;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1440" y="390" width="360" height="72" as="geometry" />
         </mxCell>
-        <mxCell id="ui1" value="UI Input&lt;br&gt;query — “vestido midi verde 40”" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="64" y="312" width="260" height="72" as="geometry" />
+        <mxCell id="tB" value="&lt;b&gt;Catálogo real — ~10 mil produtos de moda&lt;/b&gt;&lt;br&gt;o “estoque de verdade”: importado por programa (nunca inventado por IA), com armadilhas de propósito: sem estoque, parecidos demais, tamanho faltando, produto errado na categoria" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;fontSize=11.5;strokeWidth=1.5;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1440" y="472" width="360" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="ui2" value="UI Input&lt;br&gt;nativa: vazia ou viola constraint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="64" y="396" width="260" height="72" as="geometry" />
+        <mxCell id="natOK" value="&lt;b&gt;Garantia:&lt;/b&gt; se a busca nativa é boa, o Recova fica INVISÍVEL — nunca piora o que a loja já faz bem" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1440" y="622" width="360" height="78" as="geometry" />
         </mxCell>
-        <mxCell id="ui3" value="DEMO STOREFRONT&lt;br&gt;Cloudflare Workers · adapter interfaces" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#111827;strokeColor=#475569;fontColor=#F9FAFB;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="64" y="480" width="260" height="84" as="geometry" />
+        <mxCell id="ui1" value="&lt;b&gt;Maria digita:&lt;/b&gt;&lt;br&gt;“vestido midi verde 40”&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;(tela da loja — UI)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=11.5;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="64" y="390" width="280" height="76" as="geometry" />
         </mxCell>
-        <mxCell id="av" value="AVATAR (presentation-only)&lt;br&gt;estados: pensando · clarificação · recuperação · sem match · checkout&lt;br&gt;feature flag · nunca dono da verdade" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontColor=#4C1D95;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="64" y="1190" width="260" height="120" as="geometry" />
+        <mxCell id="ui2" value="&lt;b&gt;A loja responde:&lt;/b&gt;&lt;br&gt;0 resultados — ou resultados que violam o pedido dela" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=11.5;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="64" y="478" width="280" height="76" as="geometry" />
         </mxCell>
-        <mxCell id="ui4" value="UI Output&lt;br&gt;Decision Cards (máx. 3)&lt;br&gt;grounded · sem padding&lt;br&gt;unknown explícito" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="64" y="1060" width="260" height="110" as="geometry" />
+        <mxCell id="p2" value="② ENTENDER O PEDIDO — a IA entra em cena, mas de coleira curta&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#475467&quot;&gt;Um agente (Google ADK) conversa, interpreta e escolhe ferramentas — mas nunca inventa nada.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#0F172A;fontSize=15;fontStyle=1;verticalAlign=top;spacingTop=10;spacingLeft=14;align=left;arcSize=6" vertex="1" parent="1">
+          <mxGeometry x="400" y="800" width="1000" height="430" as="geometry" />
         </mxCell>
-        <mxCell id="ui5" value="UI Output&lt;br&gt;receita atribuída {}&lt;br&gt;só paid-order verificado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="64" y="1470" width="260" height="92" as="geometry" />
+        <mxCell id="agent" value="&lt;b&gt;RecoveryAgent — LlmAgent (Google ADK, TypeScript)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10.5px&quot;&gt;O “cérebro conversante”: interpreta o objetivo da Maria, decide quais ferramentas usar, explica o porquê de cada sugestão — e se precisar, faz NO MÁXIMO UMA pergunta por vez.&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;10 ferramentas delimitadas:&lt;/b&gt; inspect_native_results · extract_or_normalize_constraints · search_catalog · inspect_variants · validate_candidates · request_clarification · prepare_decision_cards · add_to_cart · create_checkout · record_recovery_event&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;cada ferramenta faz UMA coisa — a IA não tem poder fora delas&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#172554;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="880" width="960" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="pA" value="① ROUTE EVALUATION — domínio determinístico (SEM LLM)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#94A3B8;fontColor=#111827;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=10;spacingLeft=12;align=left" vertex="1" parent="1">
-          <mxGeometry x="400" y="312" width="880" height="400" as="geometry" />
+        <mxCell id="rule" value="&lt;b&gt;REGRA DE OURO:&lt;/b&gt; a IA pode interpretar e explicar — mas NUNCA inventa produto, variante, preço, estoque ou fato de loja. Só mostra o que existe de verdade. Um fiscal determinístico confere tudo antes de chegar pra Maria." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#7F1D1D;fontSize=12;strokeWidth=2.5;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="1104" width="960" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="a1" value="extract_or_normalize_constraints&lt;br&gt;regex/lista · size · brand · price_max · compat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="424" y="376" width="250" height="110" as="geometry" />
+        <mxCell id="cap2" value="Grounded = “com os pés no chão”: toda afirmação do cartão tem evidência do estoque real" style="text;html=1;align=center;fontColor=#64748B;fontSize=10.5;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="1190" width="960" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="a0" value="RouteResolver — regras fixas&lt;br&gt;rotas simples e determinísticas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="706" y="376" width="540" height="60" as="geometry" />
+        <mxCell id="tl1" value="&lt;b&gt;◆ Gemini 3.7 Flash — o cérebro principal&lt;/b&gt;&lt;br&gt;entende pedidos difíceis, decide estratégia, escreve explicações (via Vertex AI)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#065CF5;fontColor=#06345D;fontSize=11.5;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1440" y="880" width="360" height="84" as="geometry" />
         </mxCell>
-        <mxCell id="a2a" value="NATIVE_OK&lt;br&gt;resultado nativo forte satisfaz TODAS as hard constraints → Recova oculta" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="706" y="448" width="170" height="120" as="geometry" />
+        <mxCell id="tl2" value="&lt;b&gt;◆ Gemma 4 31B — o estagiário barato&lt;/b&gt;&lt;br&gt;tarefas repetitivas (descrever produto, classificar). Se a qualidade duvidar, escala pro Gemini. Nunca decide frente ao cliente." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#065CF5;fontColor=#06345D;fontSize=11.5;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1440" y="974" width="360" height="104" as="geometry" />
         </mxCell>
-        <mxCell id="a2b" value="RECOVER&lt;br&gt;nativa vazia OU viola constraints + existem alternativas válidas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#9A3412;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="884" y="448" width="170" height="120" as="geometry" />
+        <mxCell id="tl3" value="&lt;b&gt;Regra de roteamento:&lt;/b&gt; tarefa barata → Gemma → confere qualidade → se duvidar, Gemini. Economia sem perder confiança." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;fontSize=11.5;strokeWidth=1.5;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1440" y="1088" width="360" height="96" as="geometry" />
         </mxCell>
-        <mxCell id="a2c" value="CLARIFY&lt;br&gt;intenção ambígua ou nenhum candidato seguro" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontColor=#4C1D95;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1062" y="448" width="184" height="120" as="geometry" />
+        <mxCell id="p3" value="③ MOSTRAR SÓ O QUE FAZ SENTIDO — até 3 cartões, cada um com a prova&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#475467&quot;&gt;Seis estratégias de recuperação — e um fiscal determinístico que barra qualquer candidato mentiroso.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#0F172A;fontSize=15;fontStyle=1;verticalAlign=top;spacingTop=10;spacingLeft=14;align=left;arcSize=6" vertex="1" parent="1">
+          <mxGeometry x="400" y="1270" width="1000" height="480" as="geometry" />
         </mxCell>
-        <mxCell id="capA" value="Deterministic Routing Pattern (fora do agent loop)" style="text;html=1;align=center;fontColor=#475569;fontSize=10;fontStyle=2" vertex="1" parent="1">
-          <mxGeometry x="706" y="580" width="540" height="22" as="geometry" />
+        <mxCell id="s0" value="&lt;b&gt;EXACT_ALTERNATIVE&lt;/b&gt;&lt;br&gt;outro produto do estoque satisfaz TUDO que ela pediu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#7C2D12;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="1360" width="310" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="toolsLbl" value="DADOS / AMBIENTE" style="text;html=1;align=left;fontColor=#94A3B8;fontSize=11;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="1320" y="318" width="400" height="22" as="geometry" />
+        <mxCell id="s1" value="&lt;b&gt;VARIANT_RECOVERY&lt;/b&gt;&lt;br&gt;o produto é o certo — falta escolher tamanho/cor certo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#7C2D12;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="740" y="1360" width="310" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="tA" value="Native Search API (Shopify)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#64748B;fontColor=#111827;fontSize=11;strokeWidth=1.5" vertex="1" parent="1">
-          <mxGeometry x="1320" y="348" width="400" height="52" as="geometry" />
+        <mxCell id="s2" value="&lt;b&gt;SOFT_PREFERENCE_RELAXATION&lt;/b&gt;&lt;br&gt;mantém o obrigatório, abre mão (com aviso) do desejável" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#7C2D12;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1360" width="310" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="tB" value="Catálogo ~10k moda — oracle de qualidade&lt;br&gt;import programático (dataset real, seed fixa) · casos adversários: sem estoque, near-matches, atributos faltando, distratores" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#64748B;fontColor=#111827;fontSize=11;strokeWidth=1.5" vertex="1" parent="1">
-          <mxGeometry x="1320" y="412" width="400" height="110" as="geometry" />
+        <mxCell id="s3" value="&lt;b&gt;QUERY_REPAIR&lt;/b&gt;&lt;br&gt;a escrita falhou, mas o produto existe — conserta a busca" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#7C2D12;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="1470" width="310" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="natOK" value="NATIVE_OK → overlay NÃO ativa&lt;br&gt;a Recova nunca piora a busca nativa" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1320" y="534" width="400" height="66" as="geometry" />
+        <mxCell id="s4" value="&lt;b&gt;BUNDLE_RECOVERY&lt;/b&gt;&lt;br&gt;o desejo só se completa com 2-3 itens juntos, explicado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#7C2D12;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="740" y="1470" width="310" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="pB" value="② RECOVER — estratégias + solver determinístico" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#94A3B8;fontColor=#111827;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=10;spacingLeft=12;align=left" vertex="1" parent="1">
-          <mxGeometry x="400" y="752" width="560" height="620" as="geometry" />
+        <mxCell id="s5" value="&lt;b&gt;NO_VALID_RECOVERY&lt;/b&gt;&lt;br&gt;nada seguro? Assume e explica — NUNCA enche com “mais vendidos” aleatórios" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#7C2D12;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1470" width="310" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="s0" value="EXACT_ALTERNATIVE&lt;br&gt;outro resultado do catálogo satisfaz todas as hard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#9A3412;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="420" y="820" width="162" height="96" as="geometry" />
+        <mxCell id="solver" value="&lt;b&gt;O FISCAL (solver determinístico):&lt;/b&gt; confere estoque, tamanho, preço e regras de verdade — só deixa passar candidato aprovado. “Tênis virar chinelo”? BARRADO." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="1584" width="620" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="s1" value="VARIANT_RECOVERY&lt;br&gt;produto certo — variante (tamanho/cor) explícita" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#9A3412;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="592" y="820" width="162" height="96" as="geometry" />
+        <mxCell id="dcard" value="&lt;b&gt;🛍️ CARTÃO DE DECISÃO (como a Maria vê)&lt;/b&gt;&lt;br&gt;[foto real do produto]&lt;br&gt;&lt;b&gt;Vestido Midi Verde — R$189&lt;/b&gt;&lt;br&gt;Por quê: tamanho 40 ✓ verde ✓ até R$200 ✓&lt;br&gt;[Adicionar à sacola] [Comprar agora]&lt;br&gt;&lt;font style=&quot;font-size:9.5px&quot;&gt;máximo 3 cartões · o que não se sabe, aparece como “não informado”&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#065CF5;fontColor=#06345D;fontSize=11.5;strokeWidth=2;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1584" width="320" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="s2" value="SOFT_PREFERENCE_RELAXATION&lt;br&gt;hard preservadas · soft relaxada e divulgada" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#9A3412;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="764" y="820" width="162" height="96" as="geometry" />
+        <mxCell id="cap3" value="Cross-category (vestido→conjunto) só se o USO pretendido continuar satisfeito — e sempre explicado" style="text;html=1;align=center;fontColor=#64748B;fontSize=10.5;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="1718" width="960" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="s3" value="QUERY_REPAIR&lt;br&gt;wording/normalização falhou, mas o item existe" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#9A3412;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="420" y="926" width="162" height="96" as="geometry" />
+        <mxCell id="ui4" value="&lt;b&gt;Maria vê os cartões&lt;/b&gt;&lt;br&gt;compara, refina (“só verde militar”), e decide com confiança" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=11.5;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="64" y="1400" width="280" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="s4" value="BUNDLE_RECOVERY&lt;br&gt;combinação pequena de produtos, explicada" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#9A3412;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="592" y="926" width="162" height="96" as="geometry" />
+        <mxCell id="p4" value="④ ELA COMPRA — e o Recova PROVA a receita que recuperou&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#475467&quot;&gt;Compra de verdade na loja. Depois, uma esteira assíncrona transforma a venda em número confiável.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#0F172A;fontSize=15;fontStyle=1;verticalAlign=top;spacingTop=10;spacingLeft=14;align=left;arcSize=6" vertex="1" parent="1">
+          <mxGeometry x="400" y="1790" width="1000" height="460" as="geometry" />
         </mxCell>
-        <mxCell id="s5" value="NO_VALID_RECOVERY&lt;br&gt;nada válido → clarifica ou encerra, sem padding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#9A3412;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="764" y="926" width="162" height="96" as="geometry" />
+        <mxCell id="chk" value="&lt;b&gt;Carrinho e checkout REAIS&lt;/b&gt;&lt;br&gt;ela compra na loja mesma — sem cadastro novo, sem sair do site" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#172554;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="1880" width="300" height="86" as="geometry" />
         </mxCell>
-        <mxCell id="b7" value="Deterministic Solver — validate_candidates&lt;br&gt;hard constraints · invariantes de ranking · estoque/preço verdades" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="420" y="1040" width="505" height="84" as="geometry" />
+        <mxCell id="wh" value="&lt;b&gt;A loja avisa: “vendeu!”&lt;/b&gt;&lt;br&gt;webhook orders-paid com assinatura digital (HMAC) verificada ANTES de aceitar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#172554;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="740" y="1880" width="300" height="86" as="geometry" />
         </mxCell>
-        <mxCell id="b8" value="prepare_decision_cards — máx. 3 cards&lt;br&gt;imagem real · por quê · hard satisfeitas · soft relaxadas · unknown explícito&lt;br&gt;proibido padding de bestseller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="420" y="1136" width="505" height="104" as="geometry" />
+        <mxCell id="ps" value="&lt;b&gt;O recado é entregue&lt;/b&gt;&lt;br&gt;Pub/Sub: mensagem na fila — chega mesmo se o sistema estiver ocupado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#172554;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1880" width="300" height="86" as="geometry" />
         </mxCell>
-        <mxCell id="capB" value="Grounded Recovery Pattern — cross-category só com uso pretendido satisfeito e explícito" style="text;html=1;align=center;fontColor=#475569;fontSize=10;fontStyle=2" vertex="1" parent="1">
-          <mxGeometry x="420" y="1252" width="505" height="40" as="geometry" />
+        <mxCell id="attr" value="&lt;b&gt;O contador confiável (attributeOrder):&lt;/b&gt; cada venda conta UMA VEZ (idempotente — nem duplica, nem perde). Guarda: qual busca falhou, qual cartão salvou, quanto valeu." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontColor=#14532D;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="1980" width="620" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="pC" value="③ ADK SHOPPER AGENT — LlmAgent · só interpreta, nunca inventa" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#94A3B8;fontColor=#111827;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=10;spacingLeft=12;align=left" vertex="1" parent="1">
-          <mxGeometry x="1000" y="752" width="720" height="620" as="geometry" />
+        <mxCell id="demo" value="&lt;b&gt;Honestidade da demo:&lt;/b&gt; o clique de pagamento é SIMULADO — mas a esteira toda (assinatura, fila, contagem) é real e auditável" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontColor=#7F1D1D;fontSize=12;strokeWidth=2.5;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1060" y="1980" width="320" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="c1" value="RecoveryAgent — LlmAgent (ADK TS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1020" y="808" width="680" height="442" as="geometry" />
+        <mxCell id="ana" value="&lt;b&gt;Painel do lojista:&lt;/b&gt; buscas que falharam · o que o Recova ativou · cartões rejeitados e por quê · receita atribuída (só venda paga de verdade conta)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;fontSize=11.5;strokeWidth=1.5;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="2084" width="960" height="86" as="geometry" />
         </mxCell>
-        <mxCell id="c1t" value="10 tools delimitadas:&lt;br&gt;inspect_native_results · extract_or_normalize_constraints · search_catalog&lt;br&gt;inspect_variants · validate_candidates · request_clarification&lt;br&gt;prepare_decision_cards · add_to_cart · create_checkout · record_recovery_event" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1040" y="868" width="640" height="130" as="geometry" />
+        <mxCell id="cap4" value="Event-Driven Attribution Pattern — a venda nunca fica presa esperando sistema lento" style="text;html=1;align=center;fontColor=#64748B;fontSize=10.5;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="2180" width="960" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="c2" value="Responsabilidades:&lt;br&gt;interpreta objetivo do shopper · escolhe estratégia PERMITIDA&lt;br&gt;explica com base em outputs das tools (grounded)&lt;br&gt;NUNCA inventa produto, variante, preço, estoque ou fato de loja&lt;br&gt;para com segurança quando não há recuperação segura" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1040" y="1012" width="640" height="150" as="geometry" />
+        <mxCell id="ui5" value="&lt;b&gt;Número no painel:&lt;/b&gt;&lt;br&gt;“R$ 189 recuperados”&lt;br&gt;o lojista VÊ o valor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontColor=#831843;fontSize=11.5;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="64" y="1950" width="280" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="c3" value="CLARIFY: no máx. 1 pergunta direcionada por vez" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontColor=#4C1D95;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1040" y="1176" width="640" height="52" as="geometry" />
+        <mxCell id="d1" value="&lt;b&gt;Firestore&lt;/b&gt;&lt;br&gt;memória das sessões, isolada por loja" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;fontSize=11.5;strokeWidth=1.5;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1440" y="1880" width="360" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="tl1" value="◆ Gemini 3.7 Flash&lt;br&gt;primário — orquestração, recuperação, decisões de confiança" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#065CF5;fontColor=#06345D;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1020" y="1264" width="330" height="76" as="geometry" />
+        <mxCell id="d2" value="&lt;b&gt;Secret Manager&lt;/b&gt;&lt;br&gt;chaves trancadas no cofre do Google" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;fontSize=11.5;strokeWidth=1.5;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1440" y="1972" width="360" height="72" as="geometry" />
         </mxCell>
-        <mxCell id="tl2" value="◆ Gemma 4 31B (hosted)&lt;br&gt;background barato — valida threshold, escala p/ 3.7" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#065CF5;fontColor=#06345D;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="1370" y="1264" width="330" height="76" as="geometry" />
+        <mxCell id="p5" value="⑤ APRENDER COM OS ERROS — o agente de reparo trabalha sozinho (com freio de mão)&lt;br&gt;&lt;font style=&quot;font-size:11.5px&quot; color=&quot;#475467&quot;&gt;O dono da loja não conserta sinônimo um por um — o agente propõe, testa e só aplica se for seguro.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#CBD5E1;fontColor=#0F172A;fontSize=15;fontStyle=1;verticalAlign=top;spacingTop=10;spacingLeft=14;align=left;arcSize=6" vertex="1" parent="1">
+          <mxGeometry x="400" y="2290" width="1000" height="300" as="geometry" />
         </mxCell>
-        <mxCell id="capC" value="Model routing por valor da tarefa: Gemma-eligible → Gemma 4 → threshold → Gemini 3.7 Flash" style="text;html=1;align=center;fontColor=#475569;fontSize=10;fontStyle=2" vertex="1" parent="1">
-          <mxGeometry x="1020" y="1348" width="680" height="22" as="geometry" />
+        <mxCell id="rep" value="&lt;b&gt;Background Repair Agent (LlmAgent)&lt;/b&gt;&lt;br&gt;① junta as buscas que falharam (agrupadas por padrão)&lt;br&gt;② propõe um ajuste PEQUENO — ex.: “vestido midi” = “midi dress”&lt;br&gt;③ testa contra o histórico antes de aplicar&lt;br&gt;④ aplica atrás de interruptor da loja · ⑤ dá pra DESFAZER · ⑥ tudo fica registrado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#172554;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="420" y="2380" width="620" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="pD" value="④ ASYNC — ATTRIBUTION · ANALYTICS · BACKGROUND REPAIR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#94A3B8;fontColor=#111827;fontSize=14;fontStyle=1;verticalAlign=top;spacingTop=10;spacingLeft=12;align=left" vertex="1" parent="1">
-          <mxGeometry x="400" y="1420" width="1320" height="380" as="geometry" />
+        <mxCell id="ava" value="&lt;b&gt;Mascote animado (opcional)&lt;/b&gt;&lt;br&gt;piscada, carinha de pensar, comemora a venda —&lt;br&gt;SÓ ENFEITE: nunca decide nada, nunca vê dados. Tem interruptor e desliga." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontColor=#4C1D95;fontSize=12;strokeWidth=2;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1060" y="2380" width="320" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="d0" value="AttributionWorker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;fontColor=#9A3412;fontSize=11;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="424" y="1482" width="480" height="236" as="geometry" />
+        <mxCell id="cap5" value="Toda escrita é limitada, reversível e auditável — a loja mantém o controle" style="text;html=1;align=center;fontColor=#64748B;fontSize=10.5;fontStyle=2" vertex="1" parent="1">
+          <mxGeometry x="420" y="2560" width="620" height="22" as="geometry" />
         </mxCell>
-        <mxCell id="d1o" value="orders-paid webhook — verifica HMAC ANTES de publicar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="444" y="1526" width="440" height="52" as="geometry" />
+        <mxCell id="t5" value="&lt;b&gt;OpenTelemetry → Cloud Trace&lt;/b&gt;&lt;br&gt;as “câmeras de segurança”: cada decisão, chamada de IA e venda fica gravada pra auditoria" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontColor=#0F172A;fontSize=11.5;strokeWidth=1.5;arcSize=8" vertex="1" parent="1">
+          <mxGeometry x="1440" y="2380" width="360" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="d2" value="attributeOrder — idempotente · só paid-order verificado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="444" y="1590" width="440" height="52" as="geometry" />
+        <mxCell id="glLbl" value="GLOSSÁRIO — os termos técnicos traduzidos pro português de gente" style="text;html=1;align=left;fontColor=#94A3B8;fontSize=12;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="400" y="2600" width="1000" height="24" as="geometry" />
         </mxCell>
-        <mxCell id="d3" value="Pub/Sub — onde a entrega async simplifica" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="444" y="1654" width="440" height="48" as="geometry" />
+        <mxCell id="gl0" value="&lt;b&gt;Google ADK&lt;/b&gt; — kit oficial do Google pra montar agentes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="400" y="2630" width="340" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="d1g" value="Background Repair Agent — LlmAgent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="940" y="1482" width="380" height="236" as="geometry" />
+        <mxCell id="gl1" value="&lt;b&gt;LlmAgent&lt;/b&gt; — a IA que conversa e decide com ferramentas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="760" y="2630" width="340" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="d1g2" value="clustering de falhas · replay histórico · proposta de repair validada · escrita delimitada e reversível · feature flags · audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontColor=#1E3A8A;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="960" y="1560" width="340" height="140" as="geometry" />
+        <mxCell id="gl2" value="&lt;b&gt;Gemini 3.7 Flash&lt;/b&gt; — o modelo de IA “que pensa” — o mais capaz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="1120" y="2630" width="340" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="d2a" value="Merchant Analytics&lt;br&gt;activation rate · rotas NATIVE_OK/RECOVER/CLARIFY · queries falhas · rejected reasons · estratégias · cart value influenced" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#64748B;fontColor=#111827;fontSize=11;strokeWidth=1.5" vertex="1" parent="1">
-          <mxGeometry x="1360" y="1482" width="320" height="140" as="geometry" />
+        <mxCell id="gl3" value="&lt;b&gt;Gemma 4&lt;/b&gt; — IA menor e barata pras tarefas repetitivas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="400" y="2674" width="340" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="d2b" value="Firestore · Secret Manager&lt;br&gt;OTel → Cloud Trace" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#64748B;fontColor=#111827;fontSize=11;strokeWidth=1.5" vertex="1" parent="1">
-          <mxGeometry x="1360" y="1640" width="320" height="78" as="geometry" />
+        <mxCell id="gl4" value="&lt;b&gt;Webhook&lt;/b&gt; — a loja liga pro Recova: “vendeu!”" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="760" y="2674" width="340" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="capD" value="Event-Driven Attribution · trigger do demo simulado — pipeline real, idempotente, evidência auditável" style="text;html=1;align=center;fontColor=#475569;fontSize=10;fontStyle=2" vertex="1" parent="1">
-          <mxGeometry x="424" y="1750" width="920" height="22" as="geometry" />
+        <mxCell id="gl5" value="&lt;b&gt;Pub/Sub&lt;/b&gt; — fila de recados: entrega garantida" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="1120" y="2674" width="340" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="cross" value="Cross-cutting: OTel para model/tool/route/failure/checkout/attribution · ADC least privilege · storefront pode ficar no Cloudflare (não migra por purismo) · avatar presentation-only atrás de feature flag · repositório reproduzível por terceiros" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F1FF;strokeColor=#065CF5;fontColor=#06345D;fontSize=11.5;strokeWidth=2" vertex="1" parent="1">
-          <mxGeometry x="400" y="1836" width="1320" height="60" as="geometry" />
+        <mxCell id="gl6" value="&lt;b&gt;Idempotente&lt;/b&gt; — a mesma venda nunca conta 2x" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="400" y="2718" width="340" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="footer" value="Recova · Google All Things Agentic Hackathon 2026 · Track: Taskmaster · rotas NATIVE_OK / RECOVER / CLARIFY · Gemini 3.7 Flash + Gemma 4 31B · fonte: PLAN_FINAL.html" style="text;html=1;align=center;fontColor=#64748B;fontSize=11" vertex="1" parent="1">
-          <mxGeometry x="380" y="1908" width="1360" height="28" as="geometry" />
+        <mxCell id="gl7" value="&lt;b&gt;Grounded&lt;/b&gt; — só fala o que o estoque prova" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="760" y="2718" width="340" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="e1" value="request" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#065CF5;fontColor=#93C5FD;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="ui1" target="a0">
+        <mxCell id="gl8" value="&lt;b&gt;Hard constraint&lt;/b&gt; — regra OBRIGATÓRIA (ex.: tamanho 40)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="1120" y="2718" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gl9" value="&lt;b&gt;Cloud Run&lt;/b&gt; — o computador do Google onde roda" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="400" y="2762" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gl10" value="&lt;b&gt;HMAC&lt;/b&gt; — assinatura digital: prova quem enviou" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="760" y="2762" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gl11" value="&lt;b&gt;Overlay&lt;/b&gt; — a camada que aparece SÓ quando a busca falha" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#334155;strokeColor=#64748B;fontColor=#F1F5F9;fontSize=10.5;arcSize=10" vertex="1" parent="1">
+          <mxGeometry x="1120" y="2762" width="340" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="footer" value="Recova · Google All Things Agentic Hackathon 2026 · Track: Taskmaster · rotas NATIVE_OK / RECOVER / CLARIFY · Gemini 3.7 Flash + Gemma 4 31B · base: PLAN_FINAL" style="text;html=1;align=center;fontColor=#64748B;fontSize=10.5" vertex="1" parent="1">
+          <mxGeometry x="380" y="2846" width="1080" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="ela digita o pedido" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#065CF5;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="ui1" target="c_ext">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="e2" value="nativa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#94A3B8;fontColor=#CBD5E1;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="ui2" target="a1">
+        <mxCell id="e2" value="a busca falhou" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#94A3B8;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="ui2" target="c_route">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="372" y="516" /><mxPoint x="372" y="640" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e2b" value="exigências" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#16A34A;fontColor=#86EFAC;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="c_ext" target="c_route">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="e3" value="constraints" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#94A3B8;fontColor=#CBD5E1;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="a1" target="a0">
+        <mxCell id="e6" value="fica escondido" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#16A34A;fontColor=#86EFAC;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="r_ok" target="natOK">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="e6" value="NATIVE_OK" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#16A34A;fontColor=#86EFAC;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="a2a" target="natOK">
+        <mxCell id="e7" value="RECOVER → IA entra" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#FF5B0A;fontColor=#FDBA74;exitX=0.5;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="c_route" target="p2">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="e7" value="RECOVER" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#FF5B0A;fontColor=#FDBA74;exitX=0.5;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="a2b" target="pB">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="969" y="700" /><mxPoint x="680" y="700" /></Array></mxGeometry>
-        </mxCell>
-        <mxCell id="e8" value="CLARIFY — 1 pergunta" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#7C3AED;fontColor=#C4B5FD;exitX=0.5;exitY=1;entryX=0.3;entryY=0" edge="1" parent="1" source="a2c" target="c1">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1154" y="620" /><mxPoint x="1216" y="760" /></Array></mxGeometry>
-        </mxCell>
-        <mxCell id="e13" value="add to cart → checkout real → orders-paid" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#FF5B0A;fontColor=#FDBA74;strokeWidth=3;exitX=0.5;exitY=1;entryX=0;entryY=0.5" edge="1" parent="1" source="ui4" target="d0">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="350" y="1250" /><mxPoint x="350" y="1600" /></Array></mxGeometry>
-        </mxCell>
-        <mxCell id="e14" value="receita atribuída" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#FF5B0A;fontColor=#FDBA74;exitX=0;exitY=0.75;entryX=1;entryY=0.5" edge="1" parent="1" source="d0" target="ui5">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="350" y="1660" /><mxPoint x="350" y="1516" /></Array></mxGeometry>
-        </mxCell>
-        <mxCell id="e12" value="refine / converse loop" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#065CF5;fontColor=#93C5FD;dashed=1;startArrow=classic;startFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="ui3" target="c2">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="352" y="522" /><mxPoint x="352" y="1080" /><mxPoint x="1000" y="1080" /></Array></mxGeometry>
-        </mxCell>
-        <mxCell id="e15" value="intenção · estratégia" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#065CF5;fontColor=#93C5FD;dashed=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="c1" target="tl1">
+        <mxCell id="e8" value="CLARIFY" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#7C3AED;fontColor=#C4B5FD;exitX=1;exitY=0.5;entryX=0.9;entryY=0" edge="1" parent="1" source="c_route" target="p3">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="e16" value="background tasks" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#065CF5;fontColor=#93C5FD;dashed=1;exitX=0.5;exitY=0;entryX=0.5;entryY=0" edge="1" parent="1" source="d1g" target="tl2">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1130" y="1400" /><mxPoint x="1535" y="1400" /></Array></mxGeometry>
+        <mxCell id="e9" value="refina pela conversa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#065CF5;fontColor=#93C5FD;dashed=1;startArrow=classic;startFill=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="ui4" target="agent">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="372" y="1445" /><mxPoint x="372" y="985" /></Array></mxGeometry>
         </mxCell>
-        <mxCell id="e17" value="catálogo real (grounded)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#94A3B8;fontColor=#CBD5E1;exitX=0;exitY=0.5;entryX=1;entryY=0.5" edge="1" parent="1" source="tB" target="pB">
-          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1300" y="467" /><mxPoint x="1300" y="720" /><mxPoint x="1010" y="720" /><mxPoint x="1010" y="1050" /></Array></mxGeometry>
+        <mxCell id="e10" value="candidatos" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#065CF5;fontColor=#93C5FD;exitX=0.28;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="p2" target="solver">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
-        <mxCell id="e19" value="evidência agregada" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=10.5;fontStyle=1;labelBackgroundColor=#0B1220;strokeColor=#94A3B8;fontColor=#CBD5E1;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="d1g" target="d2a">
+        <mxCell id="e11" value="só aprovado vira cartão" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#16A34A;fontColor=#86EFAC;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="solver" target="dcard">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e11b" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#16A34A;exitX=0;exitY=0.45;entryX=1;entryY=0.5" edge="1" parent="1" source="p3" target="ui4">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e13" value="ELA COMPRA →" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#FF5B0A;fontColor=#FDBA74;strokeWidth=3;exitX=0.5;exitY=1;entryX=0;entryY=0.5" edge="1" parent="1" source="ui4" target="chk">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="350" y="1510" /><mxPoint x="350" y="1922" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#475467;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="chk" target="wh">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e13b" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#475467;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="wh" target="ps">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#475467;exitX=0.5;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="ps" target="attr">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1210" y="1960" /><mxPoint x="450" y="1960" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e14" value="receita provada →" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#FF5B0A;fontColor=#FDBA74;exitX=0;exitY=0.5;entryX=1;entryY=0.5" edge="1" parent="1" source="attr" target="ui5">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e16" value="falhas viram aprendizado" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#7C3AED;fontColor=#C4B5FD;dashed=1;exitX=0.25;exitY=1;entryX=0.5;entryY=0" edge="1" parent="1" source="p4" target="rep">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="e17" value="estoque real (prova)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#94A3B8;fontColor=#CBD5E1;exitX=0;exitY=0.5;entryX=1;entryY=0.5" edge="1" parent="1" source="tB" target="p3">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1400" y="542" /><mxPoint x="1400" y="1420" /><mxPoint x="1420" y="1420" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e18" value="tudo auditado" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;jettySize=auto;orthogonalLoop=1;strokeWidth=2.5;fontSize=11;fontStyle=1;labelBackgroundColor=#0B1220;fontColor=#E2E8F0;strokeColor=#94A3B8;fontColor=#CBD5E1;dashed=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5" edge="1" parent="1" source="rep" target="t5">
           <mxGeometry relative="1" as="geometry"></mxGeometry>
         </mxCell>
       </root>
@@ -267,7 +297,7 @@ var xml = `<mxfile host="app.diagrams.net" agent="Hermes" version="24.7.7">
   </diagram>
 </mxfile>
 `;
-location.replace('https://app.diagrams.net/?title=recova-agentic-commerce-recovery&splash=0#R' + encodeURIComponent(xml));
+location.replace('https://app.diagrams.net/?title=recova-plain-tech&splash=0#R' + encodeURIComponent(xml));
 </script>
 </body>
 </html>
