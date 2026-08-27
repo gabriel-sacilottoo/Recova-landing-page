@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><title>Recova — ADK Architecture (draw.io)</title></head>
+<body style="font-family:monospace;background:#0B1220;color:#E2E8F0;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
+<p>Abrindo o diagrama Recova no draw.io…</p>
+<script>
+fetch('https://cdn.jsdelivr.net/gh/gabriel-sacilottoo/Recova-landing-page@diagram-recova-adk/recova-arquitetura-adk-taxonomy.drawio')
+  .then(function(r){ return r.text(); })
+  .then(function(xml){
+    location.replace('https://app.diagrams.net/?title=recova-adk-taxonomy&splash=0#R' + encodeURIComponent(xml));
+  })
+  .catch(function(e){
+    document.body.innerHTML = '<p>Falha ao carregar XML: ' + e + '</p>';
+  });
+</script>
+</body>
+</html>
